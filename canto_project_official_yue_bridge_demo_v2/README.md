@@ -31,6 +31,9 @@ conda activate yue_project_clean
 cd ~/canto_project_official_yue_bridge_demo_v2
 pip install -r requirements.txt
 streamlit run app.py --server.port 8501 --server.address 127.0.0.1
+
+# For debug mode. E.g. to load example lyrics to skip running image -> lyrics
+streamlit run app.py --server.port 8501 --server.address 127.0.0.1 -- --debug
 ```
 
 ## 注意

@@ -11,7 +11,7 @@ __pycache__/
 
 yue_output*/
 yue_test_inputs/
-outputs/
+canto_project_official_yue_bridge_demo_v2/outputs/
 
 *.mp3
 *.wav

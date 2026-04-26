@@ -2,6 +2,7 @@ from __future__ import annotations
 import gc
 import json
 import re
+import warnings
 from io import BytesIO
 from typing import Dict, Any
 from PIL import Image
@@ -36,7 +37,11 @@ def _load_model(model_id: str, run_on_cpu: bool):
     torch = _torch()
     device = _norm_device(run_on_cpu)
     if model_id not in _PROCESSOR_CACHE:
-        _PROCESSOR_CACHE[model_id] = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
+        _PROCESSOR_CACHE[model_id] = AutoProcessor.from_pretrained(
+            model_id,
+            trust_remote_code=True,
+            use_fast=True,
+        )
     cache_key = (model_id, device)
     if cache_key not in _MODEL_CACHE:
         kwargs = {"trust_remote_code": True}
@@ -141,7 +146,11 @@ JSON 格式如下：
 
     lyrics_text = str(payload.get("lyrics_text", "")).strip()
     if "[verse]" not in lyrics_text.lower() or "[chorus]" not in lyrics_text.lower():
-        raise RuntimeError(f"lyrics_text must contain [verse] and [chorus]. Raw tail:\\n{decoded[-3000:]}")
+        warnings.warn(
+            f"lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\\n{decoded[-3000:]}",
+            UserWarning,
+            stacklevel=2,
+        )
 
     return LyricsPromptBundle(
         title=str(payload.get("title", "")).strip(),

@@ -1,7 +1,11 @@
 from __future__ import annotations
 from io import BytesIO
 from pathlib import Path
+import sys
 import traceback
+import json
+import argparse
+import importlib.util
 import streamlit as st
 from PIL import Image
 
@@ -10,8 +14,47 @@ from schemas import LyricsPromptBundle
 from generator import generate_from_image, generate_song_auto
 from modules.mm_direct_gen import unload_mm_models
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # Ensure repo root is in path for imports
+from paths import PROJECT_ROOT, DEMO, EVAL
+
 st.set_page_config(page_title="Project Demo — Official YuE Bridge", page_icon="🎵", layout="wide")
 init_state()
+
+parser = argparse.ArgumentParser(add_help=False)
+parser.add_argument("--debug", action="store_true")
+args, _ = parser.parse_known_args()
+debug_mode = args.debug
+
+def load_example_prompt_bundle() -> LyricsPromptBundle:
+    example_path = Path(__file__).resolve().parent / "examples" \
+                        / "noosa_everglades_prompt_bundle.json"
+    if not example_path.exists():
+        raise FileNotFoundError(f"Example prompt bundle not found: {example_path}")
+    raw = json.loads(example_path.read_text(encoding="utf-8"))
+    return LyricsPromptBundle(
+        title=raw.get("title", ""),
+        lyrics_text=raw.get("lyrics_text", ""),
+        genre_prompt=raw.get("genre_prompt", ""),
+        music_prompt=raw.get("music_prompt", ""),
+        negative_prompt=raw.get("negative_prompt", ""),
+        bpm=int(raw.get("bpm", 84)),
+        key=raw.get("key", ""),
+        language_tag=raw.get("language_tag", "Cantonese"),
+        raw_meta=raw.get("raw_meta", {}),
+    )
+
+
+def load_image_text_similarity_module() -> object:
+    module_path = EVAL / "image_lyrics_alignment" / "clip_image_text_alignment.py"
+    spec = importlib.util.spec_from_file_location("clip_image_text_alignment", module_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load similarity module from {module_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+if debug_mode:
+    st.info("Debug mode enabled.")
 
 st.title("🎵 Project Demo — Official YuE Bridge")
 st.caption("Image → multimodal lyrics draft → manual confirm → final generation by original YuE environment")
@@ -64,6 +107,20 @@ dual_vocal = st.file_uploader("Dual-track vocal reference", type=["mp3", "wav", 
 dual_instr = st.file_uploader("Dual-track instrumental reference", type=["mp3", "wav", "m4a", "flac"], key=f"dual_instr_{st.session_state.get('uploader_version', 0)}")
 
 st.subheader("Step 2 — Generate lyrics & prompt")
+if debug_mode and st.button("Use example prompt bundle"):
+    st.session_state["last_error"] = ""
+    st.session_state["last_debug_log"] = ""
+    try:
+        st.session_state["lyrics_prompt_raw"] = load_example_prompt_bundle()
+        st.session_state["step_2_done"] = True
+        st.session_state["step_3_done"] = False
+        st.session_state["step_4_done"] = False
+    except Exception:
+        st.session_state["step_2_done"] = False
+        st.session_state["last_error"] = traceback.format_exc()
+        st.session_state["last_debug_log"] = st.session_state["last_error"]
+    st.rerun()
+
 if st.session_state["step_1_done"]:
     if st.button("Generate Lyrics & Prompt"):
         st.session_state["last_error"] = ""
@@ -87,6 +144,9 @@ if st.session_state["step_1_done"]:
             st.session_state["last_error"] = traceback.format_exc()
             st.session_state["last_debug_log"] = st.session_state["last_error"]
         st.rerun()
+elif debug_mode:
+    st.info("Upload an image to generate a prompt bundle from the image, "
+            "or use the example prompt bundle button above to save run time.")
 
 if st.session_state["last_error"]:
     st.error("Generation failed.")
@@ -103,6 +163,29 @@ if st.session_state["step_2_done"]:
     negative_prompt = st.text_area("Negative prompt", value=rawb.negative_prompt, height=100)
     bpm = st.number_input("BPM", min_value=40, max_value=180, value=int(rawb.bpm), step=1)
     musical_key = st.text_input("Key", value=rawb.key)
+
+    if st.button("Calculate image-lyrics similarity"):
+        st.session_state["image_lyrics_similarity"] = None
+        st.session_state["image_lyrics_similarity_error"] = ""
+        try:
+            if not st.session_state.get("uploaded_image_bytes"):
+                raise ValueError("Please upload an image first.")
+            similarity_module = load_image_text_similarity_module()
+            score = similarity_module.score_image_text_similarity(
+                image_bytes=st.session_state["uploaded_image_bytes"],
+                json_input={"lyrics_text": lyrics_text.strip()},
+            )
+            st.session_state["image_lyrics_similarity"] = float(score)
+        except Exception:
+            st.session_state["image_lyrics_similarity_error"] = traceback.format_exc()
+        st.rerun()
+
+    if st.session_state.get("image_lyrics_similarity") is not None:
+        st.success(f"Image-lyrics similarity: {st.session_state['image_lyrics_similarity']:.4f}")
+    elif st.session_state.get("image_lyrics_similarity_error"):
+        st.error("Image-lyrics similarity calculation failed.")
+        with st.expander("Debug log", expanded=False):
+            st.code(st.session_state["image_lyrics_similarity_error"], language="python")
 
     if st.button("Confirm Lyrics & Prompt"):
         st.session_state["lyrics_prompt_confirmed"] = LyricsPromptBundle(
