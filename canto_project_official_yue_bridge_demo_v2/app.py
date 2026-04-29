@@ -14,7 +14,7 @@ from schemas import LyricsPromptBundle
 from generator import generate_from_image, generate_song_auto
 from modules.mm_direct_gen import unload_mm_models
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # Ensure repo root is in path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # Ensure repo root is in path for imports
 from paths import PROJECT_ROOT, DEMO, EVAL
 
 st.set_page_config(page_title="Project Demo — Official YuE Bridge", page_icon="🎵", layout="wide")

@@ -120,4 +120,3 @@ dependencies:
       - tzdata==2026.1
       - urllib3==2.6.3
       - watchdog==6.0.0
-prefix: /userhome/cs5/u3665806/anaconda3/envs/yue_project_clean
