@@ -2,12 +2,18 @@ from __future__ import annotations
 import gc
 import json
 import re
+import subprocess
+import sys
 import warnings
 from io import BytesIO
+from pathlib import Path
 from typing import Dict, Any
 from PIL import Image
 from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
 from schemas import LyricsPromptBundle
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # Ensure repo root is in path for imports
+from paths import PROJECT_ROOT
 
 _PROCESSOR_CACHE: Dict[str, object] = {}
 _MODEL_CACHE: Dict[tuple, object] = {}
@@ -67,22 +73,45 @@ def _extract_json(text: str) -> Dict[str, Any]:
             continue
     raise ValueError(f"No valid JSON object found. Raw tail:\\n{text[-3000:]}")
 
-def generate_from_image(
-    image_bytes: bytes,
-    model_id: str = "Qwen/Qwen2.5-VL-3B-Instruct",
-    style: str = "cantopop-ballad",
-    line_count: int = 8,
-    temperature: float = 0.7,
-    max_new_tokens: int = 448,
-    user_style_hints: str = "",
-    run_on_cpu: bool = False,
-) -> LyricsPromptBundle:
-    torch = _torch()
-    processor, model, device = _load_model(model_id, run_on_cpu)
-    image = Image.open(BytesIO(image_bytes)).convert("RGB")
-    image.thumbnail((1024, 1024))
+def generate_clip_e_mood(image: Image.Image) -> str:
+    """Infer a top-2 mood label from the image using clip-e-ce.py."""
+    image_bytes = BytesIO()
+    image.save(image_bytes, format="PNG")
+    binary_image = image_bytes.getvalue()
 
-    prompt = f"""
+    script_path = PROJECT_ROOT / "CLIP-E" / "clip-e-ce.py"
+    cmd = (
+        "conda activate clip-e && "
+        f" python {script_path} --stdin-bytes --model-type 25cat --top-n 2 --mood-only"
+    )
+    proc = subprocess.run(
+        ["bash", "-lic", cmd],
+        input=binary_image,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    if proc.returncode != 0:
+        return "情緒模糊"
+
+    lines = [line.strip() for line in proc.stdout.decode("utf-8", errors="ignore").splitlines() if line.strip()]
+    labels = []
+    for line in lines:
+        if ":" in line:
+            labels.append(line.split(":", 1)[0].strip())
+        elif line.lower().startswith("top "):
+            continue
+        else:
+            labels.append(line)
+        if len(labels) >= 2:
+            break
+    return ", ".join(labels) if labels else "情緒模糊"
+
+def generate_prompt(image: Image.Image, style: str, line_count: int = 8, user_style_hints: str = "") -> str:
+    """Return the formatted prompt text for the multimodal model."""
+    mood_text = generate_clip_e_mood(image)
+    style_hint = user_style_hints.strip() or style or "無"
+    return f"""
 你是一個粵語流行歌作詞與音樂企劃助手。請直接觀看這張圖片，輸出一份基於圖片內容的歌曲方案。
 
 硬性要求：
@@ -105,8 +134,27 @@ JSON 格式如下：
 }}
 
 補充風格提示：
-{user_style_hints or "無"}
+{style_hint}
+
+The image is likely of mood {mood_text}.
 """.strip()
+
+
+def generate_from_image(
+    image_bytes: bytes,
+    model_id: str = "Qwen/Qwen2.5-VL-3B-Instruct",
+    style: str = "cantopop-ballad",
+    line_count: int = 8,
+    temperature: float = 0.7,
+    max_new_tokens: int = 448,
+    user_style_hints: str = "",
+    run_on_cpu: bool = False,
+) -> LyricsPromptBundle:
+    torch = _torch()
+    image = Image.open(BytesIO(image_bytes)).convert("RGB")
+    image.thumbnail((1024, 1024))
+    prompt = generate_prompt(image, style, line_count=line_count, user_style_hints=user_style_hints)
+    processor, model, device = _load_model(model_id, run_on_cpu)
 
     messages = [{
         "role": "user",
