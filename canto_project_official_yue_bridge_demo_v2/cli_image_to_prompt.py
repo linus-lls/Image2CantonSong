@@ -1,4 +1,21 @@
 #!/usr/bin/env python3
+"""CLI for image → prompt generation using the demo's multimodal LLM.
+
+This script processes all supported images in an input directory and writes:
+- one JSON payload per image in the output directory
+- one combined paired JSON file with all generated fields plus image_path
+
+Defaults:
+- input: PROJECT_ROOT/Images
+- output: DEMO/outputs/MM_outputs
+- paired output: IPP/image-prompt-pairs.json
+
+Example usage:
+  python cli_image_to_prompt.py
+  python cli_image_to_prompt.py --input /path/to/images --output /path/to/output_dir
+  python cli_image_to_prompt.py --max-side-length 128 --downscaled-output ./outputs/downscaled_images
+  python cli_image_to_prompt.py --paired-output ./Image-Prompt-Pairs/paired.json
+"""
 from __future__ import annotations
 import argparse
 import io
