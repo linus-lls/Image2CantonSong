@@ -100,10 +100,17 @@ def _extract_json(text: str) -> Dict[str, Any]:
     starts = [i for i, ch in enumerate(text) if ch == "{"]
     for start in reversed(starts):
         candidate = text[start:].strip()
+        # Try as-is first
         try:
             return json.loads(candidate)
         except json.JSONDecodeError:
-            continue
+            pass
+        # Try repairing truncated JSON by closing open brackets/quotes
+        for suffix in ('"}', '"}\n}', '}', '\n}'):
+            try:
+                return json.loads(candidate + suffix)
+            except json.JSONDecodeError:
+                pass
     raise ValueError(f"No valid JSON object found. Raw tail:\\n{text[-3000:]}")
 
 def generate_clip_e_mood(image: Image.Image) -> str:
@@ -153,20 +160,20 @@ def generate_prompt(
     style_hint = user_style_hints.strip() or style or "無"
     rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
     return f"""{rag_section}
-你是一個粵語流行歌作詞與音樂企劃助手。請直接觀看這張圖片，輸出一份基於圖片內容的歌曲方案。
+你係一個香港粵語流行歌作詞助手。請直接睇呢張圖片，輸出一個完整嘅 JSON 物件（唔可以截斷）。
 
-硬性要求：
-1. 歌詞必須使用繁體中文，適合香港粵語演唱。
-2. 歌詞要明確呼應圖片中的人物、場景、動作、道具與氛圍。
-3. 不要求口語化，但不能寫成明顯普通話朗讀腔。
-4. 歌詞總長約 {line_count} 行，必須分成 [verse] 和 [chorus]。
-5. 只允許輸出一個 JSON 物件，不要輸出任何額外文字。
+【強制要求】
+1. 所有中文必須用繁體字（Traditional Chinese），嚴禁使用任何簡體字。
+2. 歌詞語言係粵語，適合香港人演唱，唔係普通話。
+3. 歌詞要呼應圖片嘅人物、場景、氛圍。
+4. 歌詞約 {line_count} 行，分成 [verse] 同 [chorus] 兩段。
+5. 只輸出以下 JSON，唔可以加任何其他文字、解釋或 markdown。
+6. JSON 必須完整，所有括號都要閉合。
 
-JSON 格式如下：
 {{
-  "visual_anchor": "...",
-  "title": "...",
-  "lyrics_text": "[verse]\\n...\\n\\n[chorus]\\n...",
+  "visual_anchor": "用繁體中文描述圖片主要視覺元素",
+  "title": "繁體中文歌名",
+  "lyrics_text": "[verse]\\n繁體歌詞...\\n\\n[chorus]\\n繁體歌詞...",
   "genre_prompt": "cantopop ballad piano guitar sentimental female airy vocal Cantonese",
   "music_prompt": "melodic singing, full accompaniment, expressive chorus, not narration",
   "negative_prompt": "Mandarin pronunciation, spoken word, narration, recitation, monotone",
@@ -174,10 +181,8 @@ JSON 格式如下：
   "key": "F major"
 }}
 
-補充風格提示：
-{style_hint}
-
-The image is likely of mood {mood_text}.
+補充風格提示：{style_hint}
+圖片情緒：{mood_text}
 """.strip()
 
 
@@ -187,13 +192,13 @@ def generate_from_image(
     style: str = "cantopop-ballad",
     line_count: int = 8,
     temperature: float = 0.7,
-    max_new_tokens: int = 448,
     user_style_hints: str = "",
     run_on_cpu: bool = False,
     hf_token: str | None = None,
     use_rag: bool = False,
     rag_csv_path: str = "",
     rag_top_k: int = 3,
+    max_new_tokens: int = 1024,
 ) -> LyricsPromptBundle:
     torch = _torch()
     # Log in to HF Hub if token provided (needed for private adapter repos)
@@ -244,7 +249,9 @@ def generate_from_image(
             temperature=temperature,
             max_new_tokens=max_new_tokens,
         )
-        question = f"<image>\n{prompt}"
+        # Prepend system instruction into the question (InternVL2 chat may or may not accept system_message kwarg)
+        system_prefix = "【指令】你係香港粵語歌詞創作助手。所有中文必須用繁體字。只輸出完整 JSON 物件，唔可以截斷，唔可以加其他文字。\n\n"
+        question = f"<image>\n{system_prefix}{prompt}"
         with torch.no_grad():
             decoded = model.chat(processor, pixel_values, question, generation_config)
     else:
