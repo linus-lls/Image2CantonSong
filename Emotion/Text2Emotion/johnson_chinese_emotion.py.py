@@ -14,8 +14,19 @@ LABEL_MAPPING = {
     7: "厭惡",
 }
 
+LABEL_MAPPING_EN = {
+    0: "Neutral tone",
+    1: "Concerned tone",
+    2: "Happy tone",
+    3: "Angry tone",
+    4: "Sad tone",
+    5: "Questioning tone",
+    6: "Surprised tone",
+    7: "Disgusted tone",
+}
 
-class BertGoEmotion:
+
+class JohnsonChineseEmotion:
     """Chinese emotion predictor wrapper using Johnson8187/Chinese-Emotion."""
 
     def __init__(self, model_id: str = EMOTION_MODEL_ID, device: Optional[torch.device] = None, verbose: bool = True):
@@ -36,7 +47,11 @@ class BertGoEmotion:
         """Return the full emotion scores for the provided text."""
         scores = self._predict_scores(text)
         results = [
-            {"label": LABEL_MAPPING.get(idx, str(idx)), "score": float(score)}
+            {
+                "label": LABEL_MAPPING.get(idx, str(idx)),
+                "english_label": LABEL_MAPPING_EN.get(idx, str(idx)),
+                "score": float(score),
+            }
             for idx, score in enumerate(scores)
         ]
         results.sort(key=lambda item: item["score"], reverse=True)

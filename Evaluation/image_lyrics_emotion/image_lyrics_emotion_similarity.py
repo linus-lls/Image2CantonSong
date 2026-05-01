@@ -56,9 +56,11 @@ def load_text_emotion_predictor(model_name: str = "go-emotion", verbose: bool = 
     if model_name == "go-emotion":
         model_path = PROJECT_ROOT / "Emotion" / "Text2Emotion" / "bert-go-emotion.py"
         module_name = "bert_go_emotion"
+        predictor_class = "BertGoEmotion"
     elif model_name == "johnson":
         model_path = PROJECT_ROOT / "Emotion" / "Text2Emotion" / "johnson_chinese_emotion.py.py"
         module_name = "johnson_chinese_emotion"
+        predictor_class = "JohnsonChineseEmotion"
     else:
         raise ValueError(f"Unknown text emotion model: {model_name}")
 
@@ -66,7 +68,7 @@ def load_text_emotion_predictor(model_name: str = "go-emotion", verbose: bool = 
         raise FileNotFoundError(f"Expected text emotion model script at: {model_path}")
 
     predictor_module = load_module_from_path(model_path, module_name)
-    return predictor_module.BertGoEmotion(verbose=verbose)
+    return getattr(predictor_module, predictor_class)(verbose=verbose)
 
 
 def load_image(image_path: Path) -> Image.Image:
@@ -135,6 +137,7 @@ def build_weighted_vector(
     vector = np.zeros(embedding_size, dtype=np.float32)
     total_weight = 0.0
 
+    # Use only the model label key for similarity; english_label is ignored here.
     for item in predictions:
         label = str(item["label"])
         score = float(item["score"])
@@ -207,8 +210,26 @@ def predict_text_emotions(
     return predictor.predict_top_n(text, n=top_k)
 
 
+def get_max_image_emotion_classes(model_type: str) -> int:
+    if model_type == "25cat":
+        return 25
+    if model_type == "6cat":
+        return 6
+    if model_type == "binary":
+        return 2
+    raise ValueError(f"Unknown image model type: {model_type}")
+
+
+def get_max_text_emotion_classes(model_name: str) -> int:
+    if model_name == "go-emotion":
+        return 28
+    if model_name == "johnson":
+        return 8
+    raise ValueError(f"Unknown text emotion model: {model_name}")
+
+
 def evaluate_emotion_similarity(
-    image_path: Path,
+    image: Image.Image,
     lyrics_text: str,
     top_k_image: Optional[int],
     top_k_text: Optional[int],
@@ -221,7 +242,6 @@ def evaluate_emotion_similarity(
     clip_e_script = load_image_emotion_predictor_script(verbose=verbose)
     text_predictor = load_text_emotion_predictor(text_emotion_model, verbose=verbose)
 
-    image = load_image(image_path)
     image_predictions = predict_image_emotions(
         clip_e_script,
         image=image,
@@ -230,6 +250,7 @@ def evaluate_emotion_similarity(
     )
     text_predictions = predict_text_emotions(text_predictor, lyrics_text, top_k=top_k_text)
 
+    # Take union and build a unified label set and embed all labels
     label_set = {item["label"] for item in image_predictions} | {
         item["label"] for item in text_predictions
     }
@@ -337,9 +358,10 @@ def main():
     if args.text_file is None and args.text is None:
         raise ValueError("Provide either --text or --text-file.")
     lyrics = load_text(args.text, args.text_file)
+    image = load_image(args.image_path)
 
     results = evaluate_emotion_similarity(
-        image_path=args.image_path,
+        image=image,
         lyrics_text=lyrics,
         top_k_image=args.top_k_image,
         top_k_text=args.top_k_text,
