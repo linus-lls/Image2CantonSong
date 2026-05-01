@@ -16,7 +16,7 @@ from schemas import LyricsPromptBundle
 # ── Set this to your HF Hub adapter repo ID after fine-tuning ─────────────
 # e.g. "your-hf-username/internvl2-4b-cantopop-lora"
 # Leave as None to use the base InternVL2-4B without the adapter.
-INTERNVL_ADAPTER_ID: str | None = "jeffreycheng234/internvl2-4b-cantopop-lora"
+INTERNVL_ADAPTER_ID: str | None = None  # LoRA adapter not ready yet; using base model
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # Ensure repo root is in path for imports
 from paths import PROJECT_ROOT
