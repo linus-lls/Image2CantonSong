@@ -52,21 +52,82 @@ def load_image_emotion_predictor_script(verbose: bool = True) -> Path:
     return clip_e_path
 
 
-def load_text_emotion_predictor(model_name: str = "go-emotion", verbose: bool = True):
+TEXT_EMOTION_MODEL_DEFS = [
+    {
+        "MODEL_ID": "zai-org/GLM-5",
+        "text_emotion_model": "llm-online",
+        "is_online": True,
+    },
+    {
+        "MODEL_ID": "Johnson8187/Chinese-Emotion",
+        "text_emotion_model": "johnson",
+        "is_online": False,
+    },
+    {
+        "MODEL_ID": "SchuylerH/bert-multilingual-go-emtions",
+        "text_emotion_model": "go-emotion",
+        "is_online": False,
+    },
+]
+
+
+def get_text_emotion_model_def(model_name: str) -> dict:
+    for model_def in TEXT_EMOTION_MODEL_DEFS:
+        if model_def["text_emotion_model"] == model_name:
+            return model_def
+    raise ValueError(f"Unknown text emotion model: {model_name}")
+
+
+def get_text_emotion_model_keys() -> List[str]:
+    return [model_def["text_emotion_model"] for model_def in TEXT_EMOTION_MODEL_DEFS]
+
+
+def get_text_emotion_model_display_name(model_name: str) -> str:
+    model_def = get_text_emotion_model_def(model_name)
+    model_id = model_def.get("MODEL_ID", "")
+    if not model_id:
+        return model_name
+    suffix = "online" if model_def.get("is_online", False) else "local"
+    return f"{model_id} ({suffix})"
+
+
+def _resolve_text_emotion_model_definition(model_name: str):
+    model_def = get_text_emotion_model_def(model_name)
     if model_name == "go-emotion":
         model_path = PROJECT_ROOT / "Emotion" / "Text2Emotion" / "bert-go-emotion.py"
         module_name = "bert_go_emotion"
+        predictor_class = "BertGoEmotion"
     elif model_name == "johnson":
         model_path = PROJECT_ROOT / "Emotion" / "Text2Emotion" / "johnson_chinese_emotion.py.py"
         module_name = "johnson_chinese_emotion"
+        predictor_class = "JohnsonChineseEmotion"
+    elif model_name == "llm-online":
+        model_path = PROJECT_ROOT / "Emotion" / "Text2Emotion" / "llm_text_emotion.py"
+        module_name = "llm_text_emotion"
+        predictor_class = "HuggingFaceLLMTextEmotion"
     else:
         raise ValueError(f"Unknown text emotion model: {model_name}")
+    return model_path, module_name, predictor_class
+
+
+def load_text_emotion_predictor(model_name: str = "go-emotion", verbose: bool = True):
+    model_path, module_name, predictor_class = _resolve_text_emotion_model_definition(model_name)
 
     if not model_path.exists():
         raise FileNotFoundError(f"Expected text emotion model script at: {model_path}")
 
     predictor_module = load_module_from_path(model_path, module_name)
-    return predictor_module.BertGoEmotion(verbose=verbose)
+    return getattr(predictor_module, predictor_class)(verbose=verbose)
+
+
+def get_text_emotion_predictor_class(model_name: str):
+    model_path, module_name, predictor_class = _resolve_text_emotion_model_definition(model_name)
+
+    if not model_path.exists():
+        raise FileNotFoundError(f"Expected text emotion model script at: {model_path}")
+
+    predictor_module = load_module_from_path(model_path, module_name)
+    return getattr(predictor_module, predictor_class)
 
 
 def load_image(image_path: Path) -> Image.Image:
@@ -135,6 +196,7 @@ def build_weighted_vector(
     vector = np.zeros(embedding_size, dtype=np.float32)
     total_weight = 0.0
 
+    # Use only the model label key for similarity; english_label is ignored here.
     for item in predictions:
         label = str(item["label"])
         score = float(item["score"])
@@ -207,8 +269,27 @@ def predict_text_emotions(
     return predictor.predict_top_n(text, n=top_k)
 
 
+def get_max_image_emotion_classes(model_type: str) -> int:
+    if model_type == "25cat":
+        return 25
+    if model_type == "6cat":
+        return 6
+    if model_type == "binary":
+        return 2
+    raise ValueError(f"Unknown image model type: {model_type}")
+
+
+def get_max_text_emotion_classes(model_name: str) -> int:
+    predictor_class = get_text_emotion_predictor_class(model_name)
+    if not hasattr(predictor_class, "MAX_EMOTION_CLASSES"):
+        raise AttributeError(
+            f"Predictor class {predictor_class.__name__} must define MAX_EMOTION_CLASSES."
+        )
+    return int(getattr(predictor_class, "MAX_EMOTION_CLASSES"))
+
+
 def evaluate_emotion_similarity(
-    image_path: Path,
+    image: Image.Image,
     lyrics_text: str,
     top_k_image: Optional[int],
     top_k_text: Optional[int],
@@ -221,7 +302,6 @@ def evaluate_emotion_similarity(
     clip_e_script = load_image_emotion_predictor_script(verbose=verbose)
     text_predictor = load_text_emotion_predictor(text_emotion_model, verbose=verbose)
 
-    image = load_image(image_path)
     image_predictions = predict_image_emotions(
         clip_e_script,
         image=image,
@@ -230,6 +310,7 @@ def evaluate_emotion_similarity(
     )
     text_predictions = predict_text_emotions(text_predictor, lyrics_text, top_k=top_k_text)
 
+    # Take union and build a unified label set and embed all labels
     label_set = {item["label"] for item in image_predictions} | {
         item["label"] for item in text_predictions
     }
@@ -292,7 +373,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--text-emotion-model",
-        choices=["go-emotion", "johnson"],
+        choices=["llm-online", "johnson", "go-emotion"],
         default="johnson",
         help="Text emotion model to use for lyrics emotion prediction.",
     )
@@ -337,9 +418,10 @@ def main():
     if args.text_file is None and args.text is None:
         raise ValueError("Provide either --text or --text-file.")
     lyrics = load_text(args.text, args.text_file)
+    image = load_image(args.image_path)
 
     results = evaluate_emotion_similarity(
-        image_path=args.image_path,
+        image=image,
         lyrics_text=lyrics,
         top_k_image=args.top_k_image,
         top_k_text=args.top_k_text,

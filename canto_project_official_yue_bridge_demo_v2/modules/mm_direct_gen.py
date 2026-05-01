@@ -79,7 +79,7 @@ def generate_clip_e_mood(image: Image.Image) -> str:
     image.save(image_bytes, format="PNG")
     binary_image = image_bytes.getvalue()
 
-    script_path = PROJECT_ROOT / "CLIP-E" / "clip-e-ce.py"
+    script_path = PROJECT_ROOT / "Emotion" / "CLIP-E" / "clip-e-ce.py"
     cmd = (
         "conda activate clip-e && "
         f" python {script_path} --stdin-bytes --model-type 25cat --top-n 2 --mood-only && "

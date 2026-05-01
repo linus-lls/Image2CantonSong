@@ -7,6 +7,8 @@ EMOTION_MODEL_ID = "SchuylerH/bert-multilingual-go-emtions"
 class BertGoEmotion:
     """BERT Go-Emotion predictor wrapper."""
 
+    MAX_EMOTION_CLASSES = 28
+
     def __init__(self, model_id: str = EMOTION_MODEL_ID, device: Optional[int] = None, verbose: bool = True):
         if verbose:
             print(f"Loading emotion model: {model_id}")

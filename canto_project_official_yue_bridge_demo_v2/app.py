@@ -1,6 +1,7 @@
 from __future__ import annotations
 from io import BytesIO
 from pathlib import Path
+import os
 import sys
 import traceback
 import json
@@ -53,6 +54,28 @@ def load_image_text_similarity_module() -> object:
     spec.loader.exec_module(module)
     return module
 
+
+def load_image_lyrics_emotion_similarity_module() -> object:
+    module_path = EVAL / "image_lyrics_emotion" / "image_lyrics_emotion_similarity.py"
+    spec = importlib.util.spec_from_file_location("image_lyrics_emotion_similarity", module_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load emotion similarity module from {module_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+@st.dialog("Debug log")
+def show_debug_log(log_text: str):
+    st.code(log_text, language="python")
+
+@st.dialog("Image-lyrics alignment debug log")
+def show_image_lyrics_alignment_debug_log(log_text: str):
+    st.code(log_text, language="python")
+
+@st.dialog("Image-lyrics emotion debug log")
+def show_image_lyrics_emotion_debug_log(log_text: str):
+    st.code(log_text, language="python")
+
 if debug_mode:
     st.info("Debug mode enabled.")
 
@@ -101,10 +124,10 @@ if uploaded is not None:
         use_container_width=True,
     )
 
-st.subheader("Optional reference audio")
-single_ref = st.file_uploader("Single-track reference audio (for single-track ICL)", type=["mp3", "wav", "m4a", "flac"], key=f"single_ref_{st.session_state.get('uploader_version', 0)}")
-dual_vocal = st.file_uploader("Dual-track vocal reference", type=["mp3", "wav", "m4a", "flac"], key=f"dual_vocal_{st.session_state.get('uploader_version', 0)}")
-dual_instr = st.file_uploader("Dual-track instrumental reference", type=["mp3", "wav", "m4a", "flac"], key=f"dual_instr_{st.session_state.get('uploader_version', 0)}")
+with st.expander("Optional reference audio", expanded=False):
+    single_ref = st.file_uploader("Single-track reference audio (for single-track ICL)", type=["mp3", "wav", "m4a", "flac"], key=f"single_ref_{st.session_state.get('uploader_version', 0)}")
+    dual_vocal = st.file_uploader("Dual-track vocal reference", type=["mp3", "wav", "m4a", "flac"], key=f"dual_vocal_{st.session_state.get('uploader_version', 0)}")
+    dual_instr = st.file_uploader("Dual-track instrumental reference", type=["mp3", "wav", "m4a", "flac"], key=f"dual_instr_{st.session_state.get('uploader_version', 0)}")
 
 st.subheader("Step 2 — Generate lyrics & prompt")
 if debug_mode and st.button("Use example prompt bundle"):
@@ -144,14 +167,14 @@ if st.session_state["step_1_done"]:
             st.session_state["last_error"] = traceback.format_exc()
             st.session_state["last_debug_log"] = st.session_state["last_error"]
         st.rerun()
-elif debug_mode:
-    st.info("Upload an image to generate a prompt bundle from the image, "
+if debug_mode:
+    st.info("Upload an image and generate a prompt bundle from the image, "
             "or use the example prompt bundle button above to save run time.")
 
 if st.session_state["last_error"]:
     st.error("Generation failed.")
-    with st.expander("Debug log", expanded=True):
-        st.code(st.session_state["last_debug_log"], language="python")
+    if st.button("View debug log", key="view_last_error_debug"):
+        show_debug_log(st.session_state["last_debug_log"])
 
 if st.session_state["step_2_done"]:
     rawb = st.session_state["lyrics_prompt_raw"]
@@ -164,28 +187,128 @@ if st.session_state["step_2_done"]:
     bpm = st.number_input("BPM", min_value=40, max_value=180, value=int(rawb.bpm), step=1)
     musical_key = st.text_input("Key", value=rawb.key)
 
-    if st.button("Calculate image-lyrics similarity"):
-        st.session_state["image_lyrics_similarity"] = None
-        st.session_state["image_lyrics_similarity_error"] = ""
-        try:
-            if not st.session_state.get("uploaded_image_bytes"):
-                raise ValueError("Please upload an image first.")
-            similarity_module = load_image_text_similarity_module()
-            score = similarity_module.score_image_text_similarity(
-                image_bytes=st.session_state["uploaded_image_bytes"],
-                json_input={"lyrics_text": lyrics_text.strip()},
-            )
-            st.session_state["image_lyrics_similarity"] = float(score)
-        except Exception:
-            st.session_state["image_lyrics_similarity_error"] = traceback.format_exc()
-        st.rerun()
+    with st.expander("Evaluation", expanded=False):
+        eval_tabs = st.tabs(["Image-lyrics alignment (CLIP)", "Image-lyrics emotion similarity"])
+        with eval_tabs[0]:
+            description = ("Chinese CLIP (Contrastive Language-Image Pre-Training), "
+                "with ViT-B/16 as the image encoder and RoBERTa-wwm-base as the text encoder.")
+            st.write(description)
+            if st.button("Calculate image-lyrics alignment", key="eval_image_lyrics_alignment"):
+                st.session_state["image_lyrics_alignment"] = None
+                st.session_state["image_lyrics_alignment_error"] = ""
+                try:
+                    if not st.session_state.get("uploaded_image_bytes"):
+                        raise ValueError("Please upload an image first.")
+                    similarity_module = load_image_text_similarity_module()
+                    score = similarity_module.score_image_text_similarity(
+                        image_bytes=st.session_state["uploaded_image_bytes"],
+                        json_input={"lyrics_text": lyrics_text.strip()},
+                    )
+                    st.session_state["image_lyrics_alignment"] = float(score)
+                except Exception:
+                    st.session_state["image_lyrics_alignment_error"] = traceback.format_exc()
+                st.rerun()
 
-    if st.session_state.get("image_lyrics_similarity") is not None:
-        st.success(f"Image-lyrics similarity: {st.session_state['image_lyrics_similarity']:.4f}")
-    elif st.session_state.get("image_lyrics_similarity_error"):
-        st.error("Image-lyrics similarity calculation failed.")
-        with st.expander("Debug log", expanded=False):
-            st.code(st.session_state["image_lyrics_similarity_error"], language="python")
+            if st.session_state.get("image_lyrics_alignment") is not None:
+                st.success(f"Image-lyrics alignment: {st.session_state['image_lyrics_alignment']:.4f}")
+            elif st.session_state.get("image_lyrics_alignment_error"):
+                st.error("Image-lyrics alignment calculation failed.")
+                if st.button("View debug log", key="view_image_lyrics_alignment_debug"):
+                    show_image_lyrics_alignment_debug_log(st.session_state["image_lyrics_alignment_error"])
+
+        with eval_tabs[1]:
+            emotion_module = load_image_lyrics_emotion_similarity_module()
+            text_emotion_model_options = emotion_module.get_text_emotion_model_keys()
+
+            def format_text_emotion_model(model_key: str) -> str:
+                return emotion_module.get_text_emotion_model_display_name(model_key)
+
+            text_emotion_model = st.selectbox(
+                "Text emotion model",
+                text_emotion_model_options,
+                format_func=format_text_emotion_model,
+                index=0,
+                key="eval_text_emotion_model",
+            )
+            max_image_labels = emotion_module.get_max_image_emotion_classes("25cat")
+            max_text_labels = emotion_module.get_max_text_emotion_classes(text_emotion_model)
+
+            model_def = emotion_module.get_text_emotion_model_def(text_emotion_model)
+            caption_text = ("")
+            if model_def.get("is_online"):
+                caption_text += " Requires environment variable HUGGINGFACE_API_TOKEN."
+
+            st.caption(caption_text)
+            top_k_image_eval = st.number_input(
+                f"Top-k image emotions (up to {max_image_labels})",
+                min_value=1,
+                max_value=max_image_labels,
+                value=max_image_labels,
+                step=1,
+                key="eval_top_k_image",
+            )
+            top_k_text_eval = st.number_input(
+                f"Top-k text emotions (up to {max_text_labels})",
+                min_value=1,
+                max_value=max_text_labels,
+                value=max_text_labels,
+                step=1,
+                key="eval_top_k_text",
+            )
+            if st.button("Calculate image-lyrics emotion similarity", key="eval_image_lyrics_emotion_similarity"):
+                st.session_state["image_lyrics_emotion_similarity"] = None
+                st.session_state["image_lyrics_emotion_similarity_error"] = ""
+                st.session_state["image_lyrics_emotion_predictions"] = None
+                try:
+                    if not st.session_state.get("uploaded_image_bytes"):
+                        raise ValueError("Please upload an image first.")
+                    image = Image.open(BytesIO(st.session_state["uploaded_image_bytes"])).convert("RGB")
+
+                    emotion_module = load_image_lyrics_emotion_similarity_module()
+                    results = emotion_module.evaluate_emotion_similarity(
+                        image=image,
+                        lyrics_text=lyrics_text.strip(),
+                        top_k_image=top_k_image_eval,
+                        top_k_text=top_k_text_eval,
+                        image_model_type="25cat",
+                        text_emotion_model=text_emotion_model,
+                        embedding_model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+                        embedding_device=None,
+                        verbose=False,
+                    )
+                    st.session_state["image_lyrics_emotion_similarity"] = float(results["similarity"])
+                    st.session_state["image_lyrics_emotion_results"] = results
+                except Exception:
+                    st.session_state["image_lyrics_emotion_similarity_error"] = traceback.format_exc()
+                st.rerun()
+
+            if st.session_state.get("image_lyrics_emotion_similarity") is not None:
+                st.success(f"Image-lyrics emotion similarity: {st.session_state['image_lyrics_emotion_similarity']:.4f}")
+                results = st.session_state.get("image_lyrics_emotion_results") or {}
+                image_preds = results.get("image_predictions", [])
+                text_preds = results.get("text_predictions", [])
+                if image_preds:
+                    st.write("**Image emotion predictions:**")
+                    for item in image_preds:
+                        label = item.get("label")
+                        english = item.get("english_label")
+                        if english and label and label.strip().lower() != english.strip().lower():
+                            st.write(f"- {label} ({english}): {item['score']:.4f}")
+                        else:
+                            st.write(f"- {label}: {item['score']:.4f}")
+                if text_preds:
+                    st.write("**Text emotion predictions:**")
+                    for item in text_preds:
+                        label = item.get("label")
+                        english = item.get("english_label")
+                        if english and label and label.strip().lower() != english.strip().lower():
+                            st.write(f"- {label} ({english}): {item['score']:.4f}")
+                        else:
+                            st.write(f"- {label}: {item['score']:.4f}")
+            elif st.session_state.get("image_lyrics_emotion_similarity_error"):
+                st.error("Image-lyrics emotion similarity calculation failed.")
+                if st.button("View debug log", key="view_image_lyrics_emotion_debug"):
+                    show_image_lyrics_emotion_debug_log(st.session_state["image_lyrics_emotion_similarity_error"])
 
     if st.button("Confirm Lyrics & Prompt"):
         st.session_state["lyrics_prompt_confirmed"] = LyricsPromptBundle(

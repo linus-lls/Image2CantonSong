@@ -30,46 +30,62 @@ class CLIPECrossEntropy:
     
     LABELS_BINARY = ['negative', 'positive']
     
-    def __init__(self, model_path_25cat=None, model_path_6cat=None, model_path_binary=None, verbose=True):
+    def __init__(self, model_type: str = '25cat', model_path=None, verbose=True):
         """
-        Initialize CLIP-E model with weights.
+        Initialize CLIP-E model with a single selected label model.
         
         Args:
-            model_path_25cat: Path to 25-category model weights
-            model_path_6cat: Path to 6-category model weights
-            model_path_binary: Path to binary model weights
-            verbose: Whether to print model loading messages
+            model_type: Which CLIP-E model to use ('25cat', '6cat', 'binary').
+            model_path: Path to the selected model weights.
+            verbose: Whether to print model loading messages.
         """
+        model_type = model_type.lower()
+        if model_type not in {'25cat', '6cat', 'binary'}:
+            raise ValueError("model_type must be one of '25cat', '6cat', or 'binary'")
+
+        self.model_type = model_type
         self.verbose = verbose
+
         # Load CLIP model and processor
         if self.verbose:
             print("Loading CLIP model and processor...")
         self.clip_model = TFCLIPModel.from_pretrained("openai/clip-vit-base-patch32")
         self.processor = AutoProcessor.from_pretrained("openai/clip-vit-base-patch32")
-        
-        # Initialize models
-        self.model_25cat = None
-        self.model_6cat = None
-        self.model_binary = None
-        
-        # Load model weights if provided
-        if model_path_25cat and Path(model_path_25cat).exists():
-            self.model_25cat = self._build_model(num_classes=25)
-            self.model_25cat.load_weights(model_path_25cat)
-            if self.verbose:
-                print(f"Loaded 25-category model from {model_path_25cat}")
-        
-        if model_path_6cat and Path(model_path_6cat).exists():
-            self.model_6cat = self._build_model(num_classes=6)
-            self.model_6cat.load_weights(model_path_6cat)
-            if self.verbose:
-                print(f"Loaded 6-category model from {model_path_6cat}")
-        
-        if model_path_binary and Path(model_path_binary).exists():
-            self.model_binary = self._build_model(num_classes=1, activation='sigmoid')
-            self.model_binary.load_weights(model_path_binary)
-            if self.verbose:
-                print(f"Loaded binary model from {model_path_binary}")
+
+        self.model = None
+        self.labels = []
+        self.activation = 'softmax'
+
+        if model_path is None:
+            raise ValueError("model_path is required when instantiating CLIPECrossEntropy")
+        model_path = Path(model_path)
+        if not model_path.exists():
+            raise FileNotFoundError(f"Model weights not found: {model_path}")
+
+        if self.model_type == '25cat':
+            self.model = self._build_model(num_classes=25)
+            self.labels = self.LABELS_25
+        elif self.model_type == '6cat':
+            self.model = self._build_model(num_classes=6)
+            self.labels = self.LABELS_6
+        else:
+            self.activation = 'sigmoid'
+            self.model = self._build_model(num_classes=1, activation='sigmoid')
+            self.labels = self.LABELS_BINARY
+
+        self.model.load_weights(str(model_path))
+        if self.verbose:
+            print(f"Loaded {self.model_type} model from {model_path}")
+
+    def get_num_classes(self) -> int:
+        """Return the number of output classes for the selected model."""
+        if self.model_type == '25cat':
+            return 25
+        if self.model_type == '6cat':
+            return 6
+        if self.model_type == 'binary':
+            return 2
+        raise ValueError(f"Unknown model type: {self.model_type}")
     
     @staticmethod
     def _build_model(num_classes=25, activation='softmax'):
@@ -140,102 +156,85 @@ class CLIPECrossEntropy:
             return self._extract_image_features_from_bytes(bytes(image))
         raise TypeError("Unsupported image input type")
     
-    def predict_top_n_from_pil(self, image: Image.Image, n=5, model_type='25cat'):
+    def predict_top_n_from_pil(self, image: Image.Image, n=5):
         """
         Predict top n sentiment labels from a PIL Image.
         """
-        return self.predict_top_n(image, n=n, model_type=model_type)
+        return self.predict_top_n(image, n=n)
 
-    def predict_top_n_from_path(self, image_path: str, n=5, model_type='25cat'):
+    def predict_top_n_from_path(self, image_path: str, n=5):
         """
         Predict top n sentiment labels from an image file path.
         """
         with Image.open(image_path) as image:
-            return self.predict_top_n_from_pil(image, n=n, model_type=model_type)
+            return self.predict_top_n_from_pil(image, n=n)
 
-    def predict_top_n_from_bytes(self, image_bytes: bytes, n=5, model_type='25cat'):
+    def predict_top_n_from_bytes(self, image_bytes: bytes, n=5):
         """
         Predict top n sentiment labels from raw image bytes.
         """
         with Image.open(BytesIO(image_bytes)) as image:
-            return self.predict_top_n_from_pil(image, n=n, model_type=model_type)
+            return self.predict_top_n_from_pil(image, n=n)
 
-    def predict_from_pil(self, image: Image.Image, model_type='25cat'):
+    def predict_from_pil(self, image: Image.Image):
         """
-        Predict sentiment scores for a PIL Image using the full label set.
+        Predict sentiment scores for a PIL Image using the selected label set.
         """
-        return self.predict(image, model_type=model_type)
+        return self.predict(image)
 
-    def predict_from_path(self, image_path: str, model_type='25cat'):
+    def predict_from_path(self, image_path: str):
         """
-        Predict sentiment scores from an image file path using the full label set.
+        Predict sentiment scores from an image file path using the selected label set.
         """
         with Image.open(image_path) as image:
-            return self.predict_from_pil(image, model_type=model_type)
+            return self.predict_from_pil(image)
 
-    def predict_from_bytes(self, image_bytes: bytes, model_type='25cat'):
+    def predict_from_bytes(self, image_bytes: bytes):
         """
-        Predict sentiment scores from raw image bytes using the full label set.
+        Predict sentiment scores from raw image bytes using the selected label set.
         """
         with Image.open(BytesIO(image_bytes)) as image:
-            return self.predict_from_pil(image, model_type=model_type)
+            return self.predict_from_pil(image)
 
-    def predict_top_n(self, image, n=None, model_type='25cat'):
+    def predict_top_n(self, image, n=5):
         """
         Predict the top n sentiment labels for an image.
         
         Args:
             image: PIL Image or path to image file
-            n: Number of top predictions to return, or None to return the full list
-            model_type: Type of model to use ('25cat', '6cat', or 'binary')
+            n: Number of top predictions to return.
         
         Returns:
             List of dictionaries with keys `label` and `score`, sorted by score descending.
         """
-        results = self.predict(image, model_type=model_type)
+        results = self.predict(image)
         if n is None:
             return results
         if n <= 0:
             return []
         return results[:n]
     
-    def predict(self, image, model_type='25cat'):
+    def predict(self, image):
         """
-        Predict sentiment scores for the full label set of a single model.
+        Predict sentiment scores for the selected model.
         
         Args:
             image: PIL Image or path to image file
-            model_type: Type of model to use ('25cat', '6cat', or 'binary')
         
         Returns:
-            List of dictionaries with keys `label` and `score` for every class in the model.
+            List of dictionaries with keys `label` and `score` for every class.
         """
-        if model_type == '25cat':
-            if self.model_25cat is None:
-                raise ValueError("25-category model not loaded")
-            model = self.model_25cat
-            labels = self.LABELS_25
-        elif model_type == '6cat':
-            if self.model_6cat is None:
-                raise ValueError("6-category model not loaded")
-            model = self.model_6cat
-            labels = self.LABELS_6
-        elif model_type == 'binary':
-            if self.model_binary is None:
-                raise ValueError("Binary model not loaded")
-            model = self.model_binary
-            labels = self.LABELS_BINARY
-        else:
-            raise ValueError(f"Unknown model_type: {model_type}")
+        if self.model is None:
+            raise ValueError("Model is not loaded")
 
         image_features = self._extract_image_features(image)
-        preds = model.predict(image_features, verbose=0)
+        preds = self.model.predict(image_features, verbose=0)
         preds = np.squeeze(preds)
 
-        if model_type == 'binary':
+        if self.model_type == 'binary':
             preds = np.array([1 - preds, preds])
 
-        results = [{"label": labels[idx], "score": float(preds[idx])} for idx in range(len(labels))]
+        results = [{"label": self.labels[idx], "score": float(preds[idx])} for idx in range(len(self.labels))]
         results.sort(key=lambda item: item["score"], reverse=True)
         return results
 
@@ -284,18 +283,23 @@ def main():
         with open(args.image_path, "rb") as f:
             image_bytes = f.read()
 
+    model_path = PROJECT_ROOT / "Emotion" / "CLIP-E"
+    if args.model_type == "25cat":
+        selected_model_path = model_path / 'clip-e_25cat.hdf5'
+    elif args.model_type == "6cat":
+        selected_model_path = model_path / 'clip-e_6cat.hdf5'
+    else:
+        selected_model_path = model_path / 'clip-e_binary.hdf5'
+
     model = CLIPECrossEntropy(
-        model_path_25cat=PROJECT_ROOT / "Emotion" / "CLIP-E" / 'clip-e_25cat.hdf5',
-        model_path_6cat=PROJECT_ROOT / "Emotion" / "CLIP-E" / 'clip-e_6cat.hdf5',
-        model_path_binary=PROJECT_ROOT / "Emotion" / "CLIP-E" / 'clip-e_binary.hdf5',
+        model_type=args.model_type,
+        model_path=selected_model_path,
         verbose=not args.mood_only,
     )
     if args.top_n is None:
-        results = model.predict_from_bytes(image_bytes, model_type=args.model_type)
+        results = model.predict_from_bytes(image_bytes)
     else:
-        results = model.predict_top_n_from_bytes(
-            image_bytes, n=args.top_n, model_type=args.model_type
-        )
+        results = model.predict_top_n_from_bytes(image_bytes, n=args.top_n)
     if args.mood_only:
         print(", ".join(item["label"] for item in results))
     else:
