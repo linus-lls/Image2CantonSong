@@ -10,3 +10,6 @@ soundfile>=0.12
 sentencepiece>=0.2.0
 einops>=0.8.0
 matplotlib>=3.7
+# RAG dependencies (used when "Use RAG" is enabled for InternVL2-4B)
+sentence-transformers>=2.7.0
+faiss-cpu>=1.8.0

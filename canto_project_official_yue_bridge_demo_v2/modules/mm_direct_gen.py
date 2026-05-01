@@ -141,11 +141,18 @@ def generate_clip_e_mood(image: Image.Image) -> str:
             break
     return ", ".join(labels) if labels else "情緒模糊"
 
-def generate_prompt(image: Image.Image, style: str, line_count: int = 8, user_style_hints: str = "") -> str:
+def generate_prompt(
+    image: Image.Image,
+    style: str,
+    line_count: int = 8,
+    user_style_hints: str = "",
+    rag_few_shot_block: str = "",
+) -> str:
     """Return the formatted prompt text for the multimodal model."""
     mood_text = generate_clip_e_mood(image)
     style_hint = user_style_hints.strip() or style or "無"
-    return f"""
+    rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
+    return f"""{rag_section}
 你是一個粵語流行歌作詞與音樂企劃助手。請直接觀看這張圖片，輸出一份基於圖片內容的歌曲方案。
 
 硬性要求：
@@ -184,6 +191,9 @@ def generate_from_image(
     user_style_hints: str = "",
     run_on_cpu: bool = False,
     hf_token: str | None = None,
+    use_rag: bool = False,
+    rag_csv_path: str = "",
+    rag_top_k: int = 3,
 ) -> LyricsPromptBundle:
     torch = _torch()
     # Log in to HF Hub if token provided (needed for private adapter repos)
@@ -195,7 +205,24 @@ def generate_from_image(
             pass
     image = Image.open(BytesIO(image_bytes)).convert("RGB")
     image.thumbnail((1024, 1024))
-    prompt = generate_prompt(image, style, line_count=line_count, user_style_hints=user_style_hints)
+
+    # ── RAG: retrieve similar lyrics and inject as few-shot context ──────
+    rag_few_shot_block = ""
+    if use_rag and _is_internvl(model_id) and rag_csv_path:
+        try:
+            from modules.rag_retriever import init as _rag_init, build_few_shot_block
+            _rag_init(rag_csv_path)
+            rag_query = (user_style_hints.strip() or style or "cantopop ballad 粵語")
+            rag_few_shot_block = build_few_shot_block(rag_query, top_k=rag_top_k)
+        except Exception as _rag_err:
+            warnings.warn(f"RAG retrieval failed, falling back to base prompt: {_rag_err}")
+
+    prompt = generate_prompt(
+        image, style,
+        line_count=line_count,
+        user_style_hints=user_style_hints,
+        rag_few_shot_block=rag_few_shot_block,
+    )
     processor, model, device = _load_model(model_id, run_on_cpu)
 
     if _is_internvl(model_id):

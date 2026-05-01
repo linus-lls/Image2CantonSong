@@ -113,6 +113,26 @@ with st.sidebar:
         "OpenGVLab/InternVL2-4B",
     ]
     mm_model = st.selectbox("Image-capable HF LLM", options=MM_MODEL_OPTIONS, index=0)
+
+    # RAG — only available for InternVL2-4B
+    use_rag = False
+    rag_csv_path = ""
+    rag_top_k = 3
+    if mm_model == "OpenGVLab/InternVL2-4B":
+        use_rag = st.checkbox(
+            "Use RAG (corpus-augmented lyrics)",
+            value=False,
+            help="Retrieve similar Cantopop lyrics from the corpus and inject them as few-shot examples into the prompt.",
+        )
+        if use_rag:
+            rag_csv_path = st.text_input(
+                "Corpus CSV path",
+                value="cantopop_corpus_final_583_yue.csv",
+                help="Absolute or relative path to cantopop_corpus_final_583_yue.csv",
+            )
+            rag_top_k = st.slider("RAG top-k examples", min_value=1, max_value=6, value=3)
+            st.caption("📚 RAG injects the most similar lyrics as few-shot context to improve [verse]/[chorus] structure and style.")
+
     style = st.selectbox("Style preset", ["cantopop-ballad", "city-pop", "dream-pop"], index=0)
     line_count = st.selectbox("Lyric length", [4, 8], index=1)
     mm_temperature = st.number_input("MM temperature", min_value=0.1, max_value=1.5, value=0.7, step=0.1)
@@ -183,6 +203,9 @@ if st.session_state["step_1_done"]:
                 user_style_hints=user_style_hints,
                 run_on_cpu=bool(mm_run_on_cpu),
                 hf_token=hf_token or None,
+                use_rag=use_rag,
+                rag_csv_path=rag_csv_path,
+                rag_top_k=rag_top_k,
             )
             st.session_state["step_2_done"] = True
             st.session_state["step_3_done"] = False
