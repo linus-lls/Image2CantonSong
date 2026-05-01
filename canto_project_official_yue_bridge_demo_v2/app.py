@@ -13,7 +13,7 @@ from PIL import Image
 from state_utils import init_state, hard_reset
 from schemas import LyricsPromptBundle
 from generator import generate_from_image, generate_song_auto
-from modules.mm_direct_gen import unload_mm_models
+from modules.mm_direct_gen import unload_mm_models, build_lyrics_format_instruction, normalize_lyrics_format
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # Ensure repo root is in path for imports
 from paths import PROJECT_ROOT, DEMO, EVAL
@@ -72,6 +72,28 @@ def load_lyrics_format_transformer_score_module() -> object:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+def reset_evaluation_results() -> None:
+    """Clear all evaluation results when a new lyrics prompt is generated."""
+    keys_to_clear = [
+        # Image-lyrics alignment
+        "image_lyrics_alignment",
+        "image_lyrics_alignment_error",
+
+        # Image-lyrics emotion similarity
+        "image_lyrics_emotion_similarity",
+        "image_lyrics_emotion_similarity_error",
+        "image_lyrics_emotion_predictions",
+        "image_lyrics_emotion_results",
+
+        # Lyrics format evaluation
+        "lyrics_format_score_result",
+        "lyrics_format_score_error",
+    ]
+
+    for key in keys_to_clear:
+        if key in st.session_state:
+            del st.session_state[key]
 
 @st.dialog("Debug log")
 def show_debug_log(log_text: str):
@@ -135,7 +157,7 @@ with st.sidebar:
             st.caption("📚 RAG injects the most similar lyrics as few-shot context to improve [verse]/[chorus] structure and style.")
 
     style = st.selectbox("Style preset", ["cantopop-ballad", "city-pop", "dream-pop"], index=0)
-    line_count = st.selectbox("Lyric length", [4, 8], index=1)
+    line_count = st.selectbox("Lyric length", [4, 8, 16], index=1)
     mm_temperature = st.number_input("MM temperature", min_value=0.1, max_value=1.5, value=0.7, step=0.1)
     mm_max_new_tokens = st.number_input("MM max_new_tokens", min_value=128, max_value=2048, value=2048, step=64)
     mm_run_on_cpu = st.checkbox("Run multimodal lyrics model on CPU", value=False)
@@ -178,6 +200,9 @@ st.subheader("Step 2 — Generate lyrics & prompt")
 if debug_mode and st.button("Use example prompt bundle"):
     st.session_state["last_error"] = ""
     st.session_state["last_debug_log"] = ""
+    
+    reset_evaluation_results()
+    
     try:
         st.session_state["lyrics_prompt_raw"] = load_example_prompt_bundle()
         st.session_state["step_2_done"] = True
@@ -193,7 +218,14 @@ if st.session_state["step_1_done"]:
     if st.button("Generate Lyrics & Prompt"):
         st.session_state["last_error"] = ""
         st.session_state["last_debug_log"] = ""
+        
+        # Clear previous evaluation results before generating new lyrics.
+        reset_evaluation_results()
+
         try:
+            # 清掉上一次殘留的 multimodal model / CUDA cache
+            unload_mm_models()
+
             st.session_state["lyrics_prompt_raw"] = generate_from_image(
                 st.session_state["uploaded_image_bytes"],
                 model_id=mm_model,
@@ -203,18 +235,24 @@ if st.session_state["step_1_done"]:
                 max_new_tokens=int(mm_max_new_tokens),
                 user_style_hints=user_style_hints,
                 run_on_cpu=bool(mm_run_on_cpu),
-                hf_token=hf_token or None,
-                use_rag=use_rag,
-                rag_csv_path=rag_csv_path,
-                rag_top_k=rag_top_k,
             )
+
             st.session_state["step_2_done"] = True
             st.session_state["step_3_done"] = False
             st.session_state["step_4_done"] = False
+
         except Exception:
             st.session_state["step_2_done"] = False
             st.session_state["last_error"] = traceback.format_exc()
             st.session_state["last_debug_log"] = st.session_state["last_error"]
+
+        finally:
+            # 無論成功或失敗，都釋放歌詞生成模型佔用的顯存
+            try:
+                unload_mm_models()
+            except Exception:
+                pass
+
         st.rerun()
 if debug_mode:
     st.info("Upload an image and generate a prompt bundle from the image, "
@@ -422,10 +460,9 @@ if st.session_state["step_2_done"]:
 
                     lyrics_format_module = load_lyrics_format_transformer_score_module()
 
-                    reference_lyrics = None
-
-                    if lyrics_format_reference_path.exists():
-                        reference_lyrics = lyrics_format_reference_path.read_text(encoding="utf-8")
+                    structure_desc, reference_lyrics, lyrics_json_example = build_lyrics_format_instruction(
+                        int(line_count)
+                    )
 
                     device_arg = None if lyrics_format_device == "auto" else lyrics_format_device
 
@@ -481,6 +518,8 @@ if st.session_state["step_2_done"]:
                     )
 
     if st.button("Confirm Lyrics & Prompt"):
+        lyrics_text_clean = normalize_lyrics_format(lyrics_text)
+        
         st.session_state["lyrics_prompt_confirmed"] = LyricsPromptBundle(
             title=title.strip(),
             lyrics_text=lyrics_text.strip(),

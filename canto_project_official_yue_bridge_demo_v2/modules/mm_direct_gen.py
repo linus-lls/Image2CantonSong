@@ -1,4 +1,5 @@
 from __future__ import annotations
+import ast
 import gc
 import json
 import re
@@ -28,18 +29,36 @@ def _torch():
     import torch
     return torch
 
-def unload_mm_models():
+def unload_mm_models(clear_processor: bool = False):
+    """Unload multimodal models and release CUDA memory."""
     torch = _torch()
+
     global _MODEL_CACHE
-    for model in _MODEL_CACHE.values():
+    global _PROCESSOR_CACHE
+
+    for model in list(_MODEL_CACHE.values()):
         try:
             model.to("cpu")
         except Exception:
             pass
+        try:
+            del model
+        except Exception:
+            pass
+
     _MODEL_CACHE.clear()
+
+    if clear_processor:
+        _PROCESSOR_CACHE.clear()
+
     gc.collect()
+
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
+        try:
+            torch.cuda.ipc_collect()
+        except Exception:
+            pass
 
 def _norm_device(run_on_cpu: bool) -> str:
     torch = _torch()
@@ -125,6 +144,112 @@ def _extract_json(text: str) -> Dict[str, Any]:
                     pass
     raise ValueError(f"No valid JSON object found. Raw tail:\\n{text[-3000:]}")
 
+def _coerce_lyrics_text(value: Any) -> str:
+    """
+    Convert model-produced lyrics_text into a clean multiline string.
+
+    Handles:
+    - normal string
+    - list of strings
+    - stringified list, e.g. "['[verse]\\n...']"
+    - double-escaped newlines, e.g. "\\n"
+    """
+
+    if value is None:
+        return ""
+
+    # Case 1: model returns ["..."] or ["line1", "line2"]
+    if isinstance(value, list):
+        parts = []
+        for item in value:
+            if item is None:
+                continue
+            parts.append(str(item))
+        text = "\n".join(parts)
+
+    # Case 2: model returns {"text": "..."} or similar
+    elif isinstance(value, dict):
+        for key in ("lyrics_text", "lyrics", "text", "content"):
+            if key in value:
+                return _coerce_lyrics_text(value[key])
+        text = str(value)
+
+    # Case 3: normal string, or stringified list
+    else:
+        text = str(value).strip()
+
+        # Handle stringified list: "['[verse]\\n...']"
+        if text.startswith("[") and text.endswith("]"):
+            try:
+                parsed = ast.literal_eval(text)
+                if isinstance(parsed, list):
+                    return _coerce_lyrics_text(parsed)
+            except Exception:
+                pass
+
+    # Convert literal backslash-n into real newline.
+    # This fixes text like "[verse]\\n一句歌詞\\n\\n[chorus]..."
+    text = text.replace("\\r\\n", "\n")
+    text = text.replace("\\n", "\n")
+    text = text.replace("\\t", "\t")
+
+    # Remove accidental surrounding quotes.
+    text = text.strip()
+    if len(text) >= 2 and (
+        (text[0] == text[-1] == '"') or
+        (text[0] == text[-1] == "'")
+    ):
+        text = text[1:-1].strip()
+
+    return text
+
+
+def normalize_lyrics_format(lyrics_text: str) -> str:
+    """
+    Normalize lyrics into displayable multiline format.
+    This does not rewrite lyric content; it only repairs tags and spacing.
+    """
+
+    lyrics_text = _coerce_lyrics_text(lyrics_text)
+    lyrics_text = lyrics_text.replace("\r\n", "\n").replace("\r", "\n").strip()
+
+    # Normalize supported section tags.
+    tag_map = {
+        "verse": "[verse]",
+        "chorus": "[chorus]",
+        "bridge": "[bridge]",
+        "outro": "[outro]",
+        "end": "[end]",
+    }
+
+    for tag, standard in tag_map.items():
+        lyrics_text = re.sub(
+            rf"^\s*\[{tag}\]\s*$",
+            standard,
+            lyrics_text,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+
+    # Remove blank line immediately after section tag.
+    lyrics_text = re.sub(
+        r"(\[(?:verse|chorus|bridge|outro)\])\n\s*\n+",
+        r"\1\n",
+        lyrics_text,
+        flags=re.IGNORECASE,
+    )
+
+    # Compress 3+ newlines into exactly one blank line.
+    lyrics_text = re.sub(r"\n{3,}", "\n\n", lyrics_text)
+
+    # If [end] exists, remove anything after it.
+    end_match = re.search(r"^\[end\]\s*$", lyrics_text, flags=re.IGNORECASE | re.MULTILINE)
+    if end_match:
+        lyrics_text = lyrics_text[:end_match.end()]
+    else:
+        lyrics_text = lyrics_text.rstrip() + "\n\n[end]"
+
+    return lyrics_text.strip()
+
 def generate_clip_e_mood(image: Image.Image) -> str:
     """Infer a top-2 mood label from the image using clip-e-ce.py."""
     image_bytes = BytesIO()
@@ -160,6 +285,108 @@ def generate_clip_e_mood(image: Image.Image) -> str:
             break
     return ", ".join(labels) if labels else "情緒模糊"
 
+
+def build_lyrics_format_instruction(line_count: int) -> tuple[str, str, str]:
+    """
+    Return lyrics format instruction and JSON example according to line_count.
+
+    Rules:
+    - 4 lines: verse + chorus + end
+    - 8 lines: verse + chorus + end
+    - 16 lines: verse + chorus + bridge + outro + end
+    """
+
+    if line_count <= 4:
+        structure_desc = (
+            "歌詞必須分成 [verse] 與 [chorus] 兩段，"
+            "每段 2 行，共 4 行歌詞，最後以 [end] 結束。"
+        )
+
+        format_block = """[verse]
+第一行歌詞
+第二行歌詞
+
+[chorus]
+第三行歌詞
+第四行歌詞
+
+[end]"""
+
+        json_example = (
+            "[verse]\\n第一行繁體粵語歌詞\\n第二行繁體粵語歌詞"
+            "\\n\\n[chorus]\\n第三行繁體粵語歌詞\\n第四行繁體粵語歌詞"
+            "\\n\\n[end]"
+        )
+
+    elif line_count <= 8:
+        structure_desc = (
+            "歌詞必須分成 [verse] 與 [chorus] 兩段，"
+            "每段 4 行，共 8 行歌詞，最後以 [end] 結束。"
+        )
+
+        format_block = """[verse]
+第一行歌詞
+第二行歌詞
+第三行歌詞
+第四行歌詞
+
+[chorus]
+第五行歌詞
+第六行歌詞
+第七行歌詞
+第八行歌詞
+
+[end]"""
+
+        json_example = (
+            "[verse]\\n第一行繁體粵語歌詞\\n第二行繁體粵語歌詞\\n第三行繁體粵語歌詞\\n第四行繁體粵語歌詞"
+            "\\n\\n[chorus]\\n第五行繁體粵語歌詞\\n第六行繁體粵語歌詞\\n第七行繁體粵語歌詞\\n第八行繁體粵語歌詞"
+            "\\n\\n[end]"
+        )
+
+    else:
+        structure_desc = (
+            "歌詞必須分成 [verse]、[chorus]、[bridge]、[outro] 四段，"
+            "每段 4 行，共 16 行歌詞，最後以 [end] 結束。"
+        )
+
+        format_block = """[verse]
+第一行歌詞
+第二行歌詞
+第三行歌詞
+第四行歌詞
+
+[chorus]
+第五行歌詞
+第六行歌詞
+第七行歌詞
+第八行歌詞
+
+[bridge]
+第九行歌詞
+第十行歌詞
+第十一行歌詞
+第十二行歌詞
+
+[outro]
+第十三行歌詞
+第十四行歌詞
+第十五行歌詞
+第十六行歌詞
+
+[end]"""
+
+        json_example = (
+            "[verse]\\n第一行繁體粵語歌詞\\n第二行繁體粵語歌詞\\n第三行繁體粵語歌詞\\n第四行繁體粵語歌詞"
+            "\\n\\n[chorus]\\n第五行繁體粵語歌詞\\n第六行繁體粵語歌詞\\n第七行繁體粵語歌詞\\n第八行繁體粵語歌詞"
+            "\\n\\n[bridge]\\n第九行繁體粵語歌詞\\n第十行繁體粵語歌詞\\n第十一行繁體粵語歌詞\\n第十二行繁體粵語歌詞"
+            "\\n\\n[outro]\\n第十三行繁體粵語歌詞\\n第十四行繁體粵語歌詞\\n第十五行繁體粵語歌詞\\n第十六行繁體粵語歌詞"
+            "\\n\\n[end]"
+        )
+
+    return structure_desc, format_block, json_example
+
+
 def generate_prompt(
     image: Image.Image,
     style: str,
@@ -171,6 +398,9 @@ def generate_prompt(
     mood_text = generate_clip_e_mood(image)
     style_hint = user_style_hints.strip() or style or "無"
     rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
+
+    structure_desc, format_block, lyrics_json_example = build_lyrics_format_instruction(line_count)
+
     return f"""{rag_section}
 你是一位香港粵語流行歌作詞助手。請直接觀看這張圖片，輸出一個完整的 JSON 物件（不得截斷）。
 
@@ -178,14 +408,38 @@ def generate_prompt(
 1. 所有中文必須使用繁體字（Traditional Chinese），嚴禁使用任何簡體字。
 2. 歌詞語言為書面粵語，適合香港人演唱，不得使用普通話用語。
 3. 歌詞須呼應圖片的人物、場景與氛圍。
-4. 歌詞約 {line_count} 行，分成 [verse] 與 [chorus] 兩段。
-5. 只輸出以下 JSON 物件，不得加入任何其他文字、解釋或 markdown。
-6. JSON 必須完整，所有括號均須閉合。
+4. {structure_desc}
+5. lyrics_text 必須嚴格遵守指定歌詞格式。
+6. 只輸出以下 JSON 物件，不得加入任何其他文字、解釋或 markdown。
+7. JSON 必須完整，所有括號均須閉合。
+8. JSON 字串中的換行必須使用 \\n 表示。
+
+【lyrics_text 標準格式】
+lyrics_text 必須嚴格使用以下結構：
+
+{format_block}
+
+【lyrics_text 格式細則】
+1. 所有出現的 section 標識必須單獨成行。
+2. 每個 section 標識後面必須直接接歌詞，不能有空行。
+3. 不同 section 之間必須有且只有一個空行。
+4. section 內部不能出現空行。
+5. [end] 必須是 lyrics_text 的最後一個非空行。
+6. [end] 後面不得再有任何歌詞或文字。
+7. 4 句或 8 句短歌詞不得強行加入 [bridge] 或 [outro]。
+8. 只有 16 句完整歌詞才使用 [bridge] 和 [outro]。
+9. 不得輸出 [Verse]、[CHORUS]、【verse】、Verse: 等其他標識格式。
+10. 不得使用 bullet points、編號、markdown 或解釋性文字。
+11. JSON 必須完整，所有括號均須閉合。
+12. JSON 字串中的換行必須使用 \\n 表示。
+13. lyrics_text 的值必須是 JSON 字串，不得是 array/list，不得使用 [] 包住整段歌詞。
+
+請嚴格輸出以下 JSON 格式：
 
 {{
   "visual_anchor": "用繁體中文描述圖片主要視覺元素",
   "title": "繁體中文歌名",
-  "lyrics_text": "[verse]\\n繁體歌詞...\\n\\n[chorus]\\n繁體歌詞...",
+  "lyrics_text": "{lyrics_json_example}",
   "genre_prompt": "cantopop ballad piano guitar sentimental female airy vocal Cantonese",
   "music_prompt": "melodic singing, full accompaniment, expressive chorus, not narration",
   "negative_prompt": "Mandarin pronunciation, spoken word, narration, recitation, monotone",
@@ -296,16 +550,33 @@ def generate_from_image(
     except Exception as e:
         raise RuntimeError(f"Multimodal LLM did not return valid JSON. Raw tail:\\n{decoded[-5000:]}") from e
     finally:
-        if not _is_internvl(model_id):
-            del inputs, outputs
+        for name in [
+            "inputs",
+            "outputs",
+            "generated_ids",
+            "pixel_values",
+        ]:
+            if name in locals():
+                try:
+                    del locals()[name]
+                except Exception:
+                    pass
+
+        gc.collect()
+
         if device == "cuda" and torch.cuda.is_available():
             torch.cuda.empty_cache()
+            try:
+                torch.cuda.ipc_collect()
+            except Exception:
+                pass
 
     payload["genre_prompt"] = "cantopop ballad piano guitar sentimental female airy vocal Cantonese"
     payload["music_prompt"] = "melodic singing, full accompaniment, expressive chorus, not narration"
     payload["negative_prompt"] = "Mandarin pronunciation, spoken word, narration, recitation, monotone"
 
-    lyrics_text = str(payload.get("lyrics_text", "")).strip()
+    lyrics_text = normalize_lyrics_format(payload.get("lyrics_text", ""))
+
     if "[verse]" not in lyrics_text.lower() or "[chorus]" not in lyrics_text.lower():
         warnings.warn(
             f"lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\\n{decoded[-3000:]}",
@@ -313,7 +584,7 @@ def generate_from_image(
             stacklevel=2,
         )
 
-    return LyricsPromptBundle(
+    bundle = LyricsPromptBundle(
         title=str(payload.get("title", "")).strip(),
         lyrics_text=lyrics_text,
         genre_prompt=str(payload.get("genre_prompt", "")).strip(),
@@ -329,3 +600,8 @@ def generate_from_image(
             "raw_generation_tail": decoded[-5000:],
         },
     )
+
+    # Release multimodal model memory after lyrics generation.
+    unload_mm_models(clear_processor=False)
+
+    return bundle

@@ -271,6 +271,67 @@ def extract_tags(lines: List[str]) -> List[str]:
     return [get_tag(line) for line in lines if is_tag_line(line)]
 
 
+def extract_section_line_counts(lyrics: str) -> Dict[str, int]:
+    """
+    Extract section line counts.
+
+    Example:
+    [verse]
+    line
+    line
+
+    [chorus]
+    line
+
+    [end]
+
+    -> {"verse": 2, "chorus": 1, "end": 0}
+    """
+
+    lyrics = normalize_line_endings(lyrics)
+    lines = lyrics.split("\n")
+
+    section_counts = {}
+    current_tag = None
+
+    for line in lines:
+        stripped = line.strip()
+
+        if stripped == "":
+            continue
+
+        if is_tag_line(stripped):
+            current_tag = get_tag(stripped)
+            section_counts[current_tag] = 0
+        else:
+            if current_tag is not None:
+                section_counts[current_tag] += 1
+
+    return section_counts
+
+
+def extract_required_tags_from_reference(reference_lyrics: str) -> List[str]:
+    """
+    Extract required tags from reference lyrics.
+
+    4 / 8 line reference:
+    ["verse", "chorus", "end"]
+
+    16 line reference:
+    ["verse", "chorus", "bridge", "outro", "end"]
+    """
+
+    tags = extract_tags(normalize_line_endings(reference_lyrics).split("\n"))
+
+    # Remove duplicates but keep order.
+    output = []
+    for tag in tags:
+        if tag not in output:
+            output.append(tag)
+
+    return output
+
+
 def build_format_signature(lyrics: str) -> str:
     """
     Convert lyrics into a structure-only signature.
@@ -361,7 +422,11 @@ def build_compact_structure_signature(lyrics: str) -> str:
     return " | ".join(parts)
 
 
-def compute_rule_format_score(lyrics: str) -> Tuple[float, List[str], Dict[str, Any]]:
+def compute_rule_format_score(
+    lyrics: str,
+    reference_lyrics: Optional[str] = None,
+) -> Tuple[float, List[str], Dict[str, Any]]:
+
     """
     Strict character-level / blank-line / tag format score.
 
@@ -394,21 +459,22 @@ def compute_rule_format_score(lyrics: str) -> Tuple[float, List[str], Dict[str, 
 
     tags = [tag for _, tag in tag_lines]
 
+    if reference_lyrics is None:
+        reference_lyrics = DEFAULT_REFERENCE_FORMAT
+
+    required_tags = extract_required_tags_from_reference(reference_lyrics)
+    expected_line_counts = extract_section_line_counts(reference_lyrics)
+    actual_line_counts = extract_section_line_counts(lyrics)
+
     if not tag_lines:
         score -= 35
         warnings.append("No valid section tags found.")
-
-    if "verse" not in tags:
-        score -= 10
-        warnings.append("Missing [verse] section.")
-
-    if "chorus" not in tags:
-        score -= 10
-        warnings.append("Missing [chorus] section.")
-
-    if "end" not in tags:
-        score -= 15
-        warnings.append("Missing [end] tag.")
+        
+    for required_tag in required_tags:
+        if required_tag not in tags:
+            penalty = 15 if required_tag == "end" else 10
+            score -= penalty
+            warnings.append(f"Missing required [{required_tag}] section.")
 
     invalid_tags = [tag for tag in tags if tag not in VALID_TAGS]
     if invalid_tags:
@@ -512,6 +578,22 @@ def compute_rule_format_score(lyrics: str) -> Tuple[float, List[str], Dict[str, 
         if not section_content:
             score -= 10
             warnings.append(f"Section [{tag}] at line {idx + 1} is empty.")
+            
+        for tag, expected_count in expected_line_counts.items():
+            if tag == "end":
+                continue
+
+            actual_count = actual_line_counts.get(tag)
+
+            if actual_count is None:
+                continue
+
+            if actual_count != expected_count:
+                score -= 5
+                warnings.append(
+                    f"Section [{tag}] has {actual_count} lyric lines; expected {expected_count}."
+                )
+                
 
     metrics = {
         "num_lines": len(lines),
@@ -702,7 +784,10 @@ def score_lyrics_format_hybrid(
     transformer_weight = transformer_weight / total_weight
     sequence_weight = sequence_weight / total_weight
 
-    rule_score, warnings, metrics = compute_rule_format_score(lyrics)
+    rule_score, warnings, metrics = compute_rule_format_score(
+        lyrics,
+        reference_lyrics=reference_lyrics,
+    )
     sequence_score = compute_sequence_structure_score(lyrics, reference_lyrics)
 
     if tokenizer is None or model is None:
@@ -790,7 +875,7 @@ def compute_batch_scores(
     output_records = []
 
     for record, lyrics, transformer_score in zip(records, lyrics_list, transformer_scores):
-        rule_score, warnings, metrics = compute_rule_format_score(lyrics)
+        rule_score, warnings, metrics = compute_rule_format_score(lyrics, reference_lyrics=reference_lyrics)
         sequence_score = compute_sequence_structure_score(lyrics, reference_lyrics)
 
         final_score = (
