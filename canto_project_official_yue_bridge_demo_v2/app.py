@@ -302,7 +302,7 @@ with st.sidebar:
             st.caption("Selected genre prompt:")
             st.code(style)
         else:
-            st.warning("Please select at least one style tag. Cantonese will still be included automatically.")
+            st.warning("Please select at least one style tag. Cantonese will still be included automatically. (It is recommended to include all the 5 components.)")
             st.caption("Current genre prompt:")
             st.code(style)
 
