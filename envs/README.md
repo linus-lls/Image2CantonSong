@@ -15,7 +15,7 @@ conda deactivate
 Environment for model lyrics-to-music. Please refer to official README for installation: https://github.com/multimodal-art-projection/YuE or $PROJECT_ROOT/YuE/README.md
 
 ## `clip-e`
-Environment for image-to-mood CLIP model. This uses an old version of TensorFlow.
+Environment for image-to-mood CLIP model. This uses an old version of TensorFlow. This is required for calculating image-emotion similarity. A subprocess is called to activate this environment in the python scripts.
 ```{bash}
 # Paths relative to this README's directory
 conda env create -n clip-e python=3.11

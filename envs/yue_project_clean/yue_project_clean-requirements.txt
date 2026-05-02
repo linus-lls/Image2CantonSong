@@ -46,8 +46,10 @@ nvidia-nvjitlink-cu12==12.9.86
 nvidia-nvtx-cu12==12.1.105
 packaging==24.2
 pandas==2.3.3
+peft==0.19.1
 pfzy==0.3.4
 pillow==11.3.0
+pip==26.0.1
 prompt_toolkit==3.0.52
 protobuf==5.29.6
 psutil==7.2.2
@@ -69,6 +71,7 @@ scikit-learn==1.7.2
 scipy==1.15.3
 sentence-transformers==5.4.1
 sentencepiece==0.2.1
+setuptools==82.0.1
 six==1.17.0
 smmap==5.0.3
 soundfile==0.13.1
@@ -76,6 +79,7 @@ streamlit==1.40.1
 sympy==1.14.0
 tenacity==9.1.4
 threadpoolctl==3.6.0
+timm==1.0.26
 tokenizers==0.21.4
 toml==0.10.2
 torch==2.4.1+cu121
@@ -90,3 +94,4 @@ tzdata==2026.1
 urllib3==2.6.3
 watchdog==6.0.0
 wcwidth==0.6.0
+wheel==0.46.3
