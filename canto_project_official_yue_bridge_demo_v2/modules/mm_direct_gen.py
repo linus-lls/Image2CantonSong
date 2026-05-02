@@ -440,11 +440,7 @@ lyrics_text 必須嚴格使用以下結構：
   "visual_anchor": "用繁體中文描述圖片主要視覺元素",
   "title": "繁體中文歌名",
   "lyrics_text": "{lyrics_json_example}",
-  "genre_prompt": "cantopop ballad piano guitar sentimental female airy vocal Cantonese",
-  "music_prompt": "melodic singing, full accompaniment, expressive chorus, not narration",
-  "negative_prompt": "Mandarin pronunciation, spoken word, narration, recitation, monotone",
-  "bpm": 84,
-  "key": "F major"
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
 }}
 
 補充風格提示：{style_hint}
@@ -571,9 +567,7 @@ def generate_from_image(
             except Exception:
                 pass
 
-    payload["genre_prompt"] = "cantopop ballad piano guitar sentimental female airy vocal Cantonese"
-    payload["music_prompt"] = "melodic singing, full accompaniment, expressive chorus, not narration"
-    payload["negative_prompt"] = "Mandarin pronunciation, spoken word, narration, recitation, monotone"
+    payload["genre_prompt"] = "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin"
 
     lyrics_text = normalize_lyrics_format(payload.get("lyrics_text", ""))
 
@@ -588,10 +582,6 @@ def generate_from_image(
         title=str(payload.get("title", "")).strip(),
         lyrics_text=lyrics_text,
         genre_prompt=str(payload.get("genre_prompt", "")).strip(),
-        music_prompt=str(payload.get("music_prompt", "")).strip(),
-        negative_prompt=str(payload.get("negative_prompt", "")).strip(),
-        bpm=int(payload.get("bpm", 84)),
-        key=str(payload.get("key", "F major")).strip(),
         language_tag="Cantonese",
         raw_meta={
             "visual_anchor": str(payload.get("visual_anchor", "")).strip(),

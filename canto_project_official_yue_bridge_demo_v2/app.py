@@ -55,10 +55,6 @@ def load_example_prompt_bundle() -> LyricsPromptBundle:
         title=raw.get("title", ""),
         lyrics_text=raw.get("lyrics_text", ""),
         genre_prompt=raw.get("genre_prompt", ""),
-        music_prompt=raw.get("music_prompt", ""),
-        negative_prompt=raw.get("negative_prompt", ""),
-        bpm=int(raw.get("bpm", 84)),
-        key=raw.get("key", ""),
         language_tag=raw.get("language_tag", "Cantonese"),
         raw_meta=raw.get("raw_meta", {}),
     )
@@ -312,10 +308,6 @@ if st.session_state["step_2_done"]:
     title = st.text_input("Title", value=rawb.title)
     lyrics_text = st.text_area("Lyrics", value=rawb.lyrics_text, height=260)
     genre_prompt = st.text_area("Genre prompt", value=rawb.genre_prompt)
-    music_prompt = st.text_area("Music prompt", value=rawb.music_prompt, height=120)
-    negative_prompt = st.text_area("Negative prompt", value=rawb.negative_prompt, height=100)
-    bpm = st.number_input("BPM", min_value=40, max_value=180, value=int(rawb.bpm), step=1)
-    musical_key = st.text_input("Key", value=rawb.key)
 
     with st.expander("Evaluation", expanded=False):
         eval_tabs = st.tabs(["Image-lyrics alignment (CLIP)", "Image-lyrics emotion similarity", "Lyrics format"])
@@ -567,10 +559,6 @@ if st.session_state["step_2_done"]:
             title=title.strip(),
             lyrics_text=lyrics_text.strip(),
             genre_prompt=genre_prompt.strip(),
-            music_prompt=music_prompt.strip(),
-            negative_prompt=negative_prompt.strip(),
-            bpm=int(bpm),
-            key=musical_key.strip(),
             language_tag="Cantonese",
             raw_meta=rawb.raw_meta,
         )

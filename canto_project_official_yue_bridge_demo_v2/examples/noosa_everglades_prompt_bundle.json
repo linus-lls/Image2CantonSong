@@ -1,11 +1,7 @@
 {
   "title": "森林之歌",
   "lyrics_text": "【Verse】\n森林深處，風輕吹過樹梢，\n燈光微弱，照亮了前行的小徑。\n每一次轉彎，都是一段故事，\n在这片宁静中，心靈得到安放。\n【Chorus】\n森林之歌，響徹山谷之間，\n回音中藏着無限的寧靜。\n每一刻呼吸，都是自然的禮讚，\n在這裡，時間似乎靜止，只留下這份純真。\n【Verse】\n繁花似錦，蝴蝶翩翩起舞，\n鳥兒歌唱，訴說著無限的詩篇。\n每一次凝望，都是一種慰藉，\n在这片綠意中，靈魂得以昇華。\n【Chorus】\n森林之歌，響徹山谷之間，\n回音中藏着無限的寧靜。\n每一刻呼吸，都是自然的禮讚，\n在這裡，時間似乎靜止，只留下這份純真。\n【Bridge】\n夜幕低垂，星光點點綴星河，\n月光傾洒，照亮了前行的路途。\n每一次回眸，都是一次夢想，\n在这片廣袤中，希望如同火焰般燃燒。\n【Chorus】\n森林之歌，響徹山谷之間，\n回音中藏着無限的寧靜。\n每一刻呼吸，都是自然的禮讚，\n在這裡，時間似乎靜止，只留下這份純真。\n【Outro】\n森林之歌，永遠在心中回響，\n這片天地，是我們共同的家鄉。\n每一次眺望，都是一次旅程，\n在這裡，我們找到了最初的本質，永恒的幸福。」",
-  "genre_prompt": "cantopop ballad piano guitar sentimental female airy vocal Cantonese",
-  "music_prompt": "melodic singing, full accompaniment, expressive chorus, not narration",
-  "negative_prompt": "Mandarin pronunciation, spoken word, narration, recitation, monotone",
-  "bpm": 80,
-  "key": "A major",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
   "language_tag": "Cantonese",
   "raw_meta": {
     "visual_anchor": "一架機車行駛在森林小徑上，身旁是叢密的綠葉和清澈的水面。",
