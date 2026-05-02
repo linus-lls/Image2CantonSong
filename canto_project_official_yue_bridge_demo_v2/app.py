@@ -31,6 +31,85 @@ LYRIC_LENGTH_TO_SEGMENTS = {
     8: 3,
     16: 5,
 }
+STYLE_PRESETS = {
+    "Cantonese Ballad": (
+        "female Cantonese Melancholic Classical airy vocal "
+        "Piano bright vocal Pop Nostalgic Violin"
+    )
+}
+
+TAG_CATEGORIES = ["genre", "instrument", "mood", "gender", "timbre"]
+
+MANDATORY_TAG_LIST_STYLE_TAGS = ["Cantonese"]
+
+
+def ensure_mandatory_style_tags(style_prompt: str) -> str:
+    """Ensure mandatory tags are always included in tag-list style mode."""
+    style_prompt = style_prompt.strip()
+
+    existing_lower = {
+        token.strip().lower()
+        for token in style_prompt.split()
+        if token.strip()
+    }
+
+    final_tags = []
+
+    for tag in MANDATORY_TAG_LIST_STYLE_TAGS:
+        if tag.lower() not in existing_lower:
+            final_tags.append(tag)
+
+    if style_prompt:
+        final_tags.append(style_prompt)
+
+    return " ".join(final_tags).strip()
+
+
+@st.cache_data
+def load_top_200_tags() -> dict:
+    """Load selectable style tags from top_200_tags.json."""
+    candidate_paths = [
+        PROJECT_ROOT / "top_200_tags.json",
+        Path(__file__).resolve().parent / "top_200_tags.json",
+        PROJECT_ROOT / "Evaluation" / "genre_alignment" /"top_200_tags.json",
+    ]
+
+    for path in candidate_paths:
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+
+    raise FileNotFoundError(
+        "Cannot find top_200_tags.json. Please place it under PROJECT_ROOT "
+        "or the current demo folder."
+    )
+
+
+def unique_clean_tags(items: list[str]) -> list[str]:
+    """Remove duplicate tags while preserving readable order."""
+    seen = set()
+    output = []
+
+    for item in items:
+        tag = str(item).strip()
+        if not tag:
+            continue
+
+        key = tag.lower()
+        if key not in seen:
+            seen.add(key)
+            output.append(tag)
+
+    return output
+
+
+def build_style_prompt_from_selected_tags(selected_by_category: dict[str, list[str]]) -> str:
+    """Flatten selected tags into one YuE genre prompt string."""
+    ordered_tags = []
+
+    for category in TAG_CATEGORIES:
+        ordered_tags.extend(selected_by_category.get(category, []))
+
+    return " ".join(tag.strip() for tag in ordered_tags if tag.strip()).strip()
 
 
 def sync_run_n_segments_to_line_count() -> None:
@@ -171,9 +250,66 @@ with st.sidebar:
             rag_top_k = st.slider("RAG top-k examples", min_value=1, max_value=6, value=3)
             st.caption("📚 RAG injects the most similar lyrics as few-shot context to improve [verse]/[chorus] structure and style.")
 
-    style = st.selectbox("Style preset", ["cantopop-ballad", "city-pop", "dream-pop"], index=0)
-    
-    # line_count = st.selectbox("Lyric length", [4, 8, 16], index=1)
+    st.subheader("Style source")
+
+    style_source = st.radio(
+        "Choose style source",
+        [
+            "Preset",
+            "Select tags from list",
+            "Generate by lyrics model",
+        ],
+        index=0,
+        horizontal=False,
+    )
+
+    selected_style_tags = {}
+
+    if style_source == "Preset":
+        preset_name = st.selectbox(
+            "Style preset",
+            list(STYLE_PRESETS.keys()),
+            index=0,
+        )
+        style = STYLE_PRESETS[preset_name]
+        genre_prompt_mode = "preset"
+
+        st.caption("Preset genre prompt:")
+        st.code(style)
+
+    elif style_source == "Select tags from list":
+        tag_data = load_top_200_tags()
+
+        st.caption("Mandatory tag: Cantonese")
+
+        for category in TAG_CATEGORIES:
+            options = unique_clean_tags(tag_data.get(category, []))
+
+            selected_style_tags[category] = st.multiselect(
+                f"{category.title()} tags",
+                options=options,
+                default=[],
+                key=f"style_tags_{category}",
+            )
+
+        user_selected_style = build_style_prompt_from_selected_tags(selected_style_tags)
+
+        # Always include Cantonese in tag-list mode.
+        style = ensure_mandatory_style_tags(user_selected_style)
+        genre_prompt_mode = "tag_list"
+
+        if user_selected_style:
+            st.caption("Selected genre prompt:")
+            st.code(style)
+        else:
+            st.warning("Please select at least one style tag. Cantonese will still be included automatically.")
+            st.caption("Current genre prompt:")
+            st.code(style)
+
+    else:
+        style = ""
+        genre_prompt_mode = "generated"
+        st.caption("The multimodal lyrics model will generate genre_prompt directly.")
     
     if "line_count" not in st.session_state:
         st.session_state["line_count"] = 8
@@ -193,7 +329,7 @@ with st.sidebar:
     mm_temperature = st.number_input("MM temperature", min_value=0.1, max_value=1.5, value=0.7, step=0.1)
     mm_max_new_tokens = st.number_input("MM max_new_tokens", min_value=128, max_value=2048, value=2048, step=64)
     mm_run_on_cpu = st.checkbox("Run multimodal lyrics model on CPU", value=False)
-    user_style_hints = st.text_input("Optional style hints", value="male or female cantopop vocal, emotionally expressive")
+    # user_style_hints = st.text_input("Optional style hints", value="male or female cantopop vocal, emotionally expressive")
 
     st.header("Step 4 — Original YuE")
     output_dir = st.text_input("Output dir", value="outputs")
@@ -272,8 +408,13 @@ if st.session_state["step_1_done"]:
                 line_count=int(line_count),
                 temperature=float(mm_temperature),
                 max_new_tokens=int(mm_max_new_tokens),
-                user_style_hints=user_style_hints,
+                # user_style_hints=user_style_hints,
                 run_on_cpu=bool(mm_run_on_cpu),
+                hf_token=hf_token,
+                use_rag=bool(use_rag),
+                rag_csv_path=rag_csv_path,
+                rag_top_k=int(rag_top_k),
+                genre_prompt_mode=genre_prompt_mode,
             )
 
             st.session_state["step_2_done"] = True
@@ -308,6 +449,11 @@ if st.session_state["step_2_done"]:
     title = st.text_input("Title", value=rawb.title)
     lyrics_text = st.text_area("Lyrics", value=rawb.lyrics_text, height=260)
     genre_prompt = st.text_area("Genre prompt", value=rawb.genre_prompt)
+    
+    # metadata from multimodal model, for debugging and evaluation purposes
+    with st.expander("Step 2 metadata", expanded=False):
+        st.write("**Generation metadata from multimodal lyrics model:**")
+        st.json(rawb.raw_meta)
 
     with st.expander("Evaluation", expanded=False):
         eval_tabs = st.tabs(["Image-lyrics alignment (CLIP)", "Image-lyrics emotion similarity", "Lyrics format"])
@@ -553,11 +699,12 @@ if st.session_state["step_2_done"]:
                     )
 
     if st.button("Confirm Lyrics & Prompt"):
-        lyrics_text_clean = normalize_lyrics_format(lyrics_text)
-        
+        # lyrics_text_clean = normalize_lyrics_format(lyrics_text)
+
         st.session_state["lyrics_prompt_confirmed"] = LyricsPromptBundle(
             title=title.strip(),
-            lyrics_text=lyrics_text.strip(),
+            # lyrics_text=lyrics_text_clean,
+            lyrics_text=lyrics_text,
             genre_prompt=genre_prompt.strip(),
             language_tag="Cantonese",
             raw_meta=rawb.raw_meta,
