@@ -183,6 +183,64 @@ def embed_labels(
     raise RuntimeError("Unsupported embedder type; expected SentenceTransformer instance.")
 
 
+def embed_text(
+    embedder,
+    text: str,
+    device: Optional[str] = None,
+) -> np.ndarray:
+    if hasattr(embedder, "encode"):
+        embeddings = embedder.encode(
+            [text],
+            convert_to_numpy=True,
+            normalize_embeddings=False,
+            show_progress_bar=False,
+        )
+        return np.asarray(embeddings[0], dtype=np.float32)
+
+    raise RuntimeError("Unsupported embedder type; expected SentenceTransformer instance.")
+
+
+def evaluate_emotion_similarity_with_user_mood_tags(
+    mood_words: Sequence[str],
+    lyrics_text: str,
+    text_emotion_model: str,
+    embedding_model_name: str,
+    top_k_text: Optional[int] = None,
+    embedding_device: Optional[str] = None,
+    verbose: bool = True,
+) -> Dict[str, object]:
+    if not mood_words:
+        raise ValueError("Mood words list is empty.")
+    if not lyrics_text.strip():
+        raise ValueError("Lyrics text is empty.")
+
+    text_predictor = load_text_emotion_predictor(text_emotion_model, verbose=verbose)
+    text_predictions = predict_text_emotions(text_predictor, lyrics_text, top_k=top_k_text)
+    mood_predictions = [
+        {"label": str(word), "score": 1.0}
+        for word in mood_words
+    ]
+
+    label_set = {item["label"] for item in mood_predictions} | {
+        item["label"] for item in text_predictions
+    }
+    embedder = create_label_embedder(embedding_model_name, device=embedding_device)
+    embeddings = embed_labels(embedder, sorted(label_set), device=embedding_device)
+    label_embeddings = dict(zip(sorted(label_set), embeddings))
+
+    mood_vector = build_weighted_vector(mood_predictions, label_embeddings)
+    text_vector = build_weighted_vector(text_predictions, label_embeddings)
+    similarity = compute_cosine_similarity(mood_vector, text_vector)
+
+    return {
+        "similarity": similarity,
+        "mood_words": list(mood_words),
+        "text_emotion_model": text_emotion_model,
+        "text_predictions": text_predictions,
+        "embedding_model_name": embedding_model_name,
+    }
+
+
 def normalize_vector(vec: np.ndarray) -> np.ndarray:
     norm = np.linalg.norm(vec)
     return vec / (norm + 1e-12)
@@ -288,7 +346,7 @@ def get_max_text_emotion_classes(model_name: str) -> int:
     return int(getattr(predictor_class, "MAX_EMOTION_CLASSES"))
 
 
-def evaluate_emotion_similarity(
+def evaluate_emotion_similarity_with_image(
     image: Image.Image,
     lyrics_text: str,
     top_k_image: Optional[int],
@@ -420,7 +478,7 @@ def main():
     lyrics = load_text(args.text, args.text_file)
     image = load_image(args.image_path)
 
-    results = evaluate_emotion_similarity(
+    results = evaluate_emotion_similarity_with_image(
         image=image,
         lyrics_text=lyrics,
         top_k_image=args.top_k_image,

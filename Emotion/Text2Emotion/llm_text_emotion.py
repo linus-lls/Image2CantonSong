@@ -4,6 +4,7 @@ from typing import Any, Dict, List, Optional
 
 from huggingface_hub import InferenceClient
 
+# TODO: Use info from the app instead of requiring environment variables.
 HUGGINGFACE_API_TOKEN_ENV = "HF_TOKEN"
 HUGGINGFACE_API_TOKEN_ALT_ENV = "HUGGINGFACE_API_TOKEN"
 HUGGINGFACE_LLM_MODEL_ENV = "HUGGINGFACE_LLM_MODEL"
