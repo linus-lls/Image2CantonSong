@@ -68,43 +68,6 @@ def _is_internvl(model_id: str) -> bool:
     return "InternVL" in model_id or "internvl" in model_id.lower()
 
 
-def _internvl_make_pixel_values(image: Image.Image, device: str):
-    """Pre-process a PIL image into InternVL2 pixel_values tensor."""
-    import torch
-    import torchvision.transforms as T
-    from torchvision.transforms.functional import InterpolationMode
-    transform = T.Compose([
-        T.Resize((448, 448), interpolation=InterpolationMode.BICUBIC),
-        T.ToTensor(),
-        T.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-    ])
-    return transform(image).unsqueeze(0).to(
-        device, dtype=torch.float16 if device == "cuda" else torch.float32
-    )
-
-
-def _internvl_describe_image(model, processor, pixel_values, device: str) -> str:
-    """
-    Pass 1: ask InternVL2 to describe the image in one sentence.
-    The result is used as the RAG retrieval query so retrieved lyrics
-    are thematically grounded in the actual image content.
-    """
-    import torch
-    question = (
-        "<image>\n"
-        "請用繁體中文，以一句話描述這張圖片的主要場景、人物與氛圍（不超過50個字）。"
-        "只輸出描述句子，不要加任何其他文字。"
-    )
-    cfg = dict(do_sample=False, max_new_tokens=80)
-    try:
-        with torch.no_grad():
-            desc = model.chat(processor, pixel_values, question, cfg)
-        return desc.strip()
-    except Exception as e:
-        warnings.warn(f"Image description (Pass 1) failed: {e}")
-        return ""
-
-
 def _load_model(model_id: str, run_on_cpu: bool):
     import torch
     device = _norm_device(run_on_cpu)
@@ -430,6 +393,7 @@ def generate_prompt(
     line_count: int = 8,
     user_style_hints: str = "",
     rag_few_shot_block: str = "",
+    genre_prompt_mode: str = "generated",
 ) -> str:
     """Return the formatted prompt text for the multimodal model."""
     mood_text = generate_clip_e_mood(image)
@@ -438,6 +402,24 @@ def generate_prompt(
     rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
 
     structure_desc, format_block, lyrics_json_example = build_lyrics_format_instruction(line_count)
+
+    if genre_prompt_mode in {"preset", "tag_list"}:
+        genre_prompt_instruction = (
+            f'genre_prompt 必須完全等於："{style_prompt}"。'
+            "不得改寫、不得翻譯、不得新增或刪除 tag。"
+        )
+        genre_prompt_example = style_prompt
+    else:
+        genre_prompt_instruction = (
+            "genre_prompt 必須由你根據圖片、圖片情緒、歌曲標題和歌詞內容自行生成，"
+            "不得留空，不得省略。"
+            "genre_prompt 必須是一串英文 music tags，至少包含 8 個 tag，"
+            "必須包含以下類型：vocal gender、language、mood、genre、instrument、timbre。"
+            "例如：male Cantonese dramatic rock piano guitar dark vocal cinematic"
+        )
+        genre_prompt_example = (
+            "female Cantonese melancholic pop piano airy vocal nostalgic"
+        )
 
     return f"""{rag_section}
 你是一位香港粵語流行歌作詞助手。請直接觀看這張圖片，輸出一個完整的 JSON 物件（不得截斷）。
@@ -451,6 +433,11 @@ def generate_prompt(
 6. 只輸出以下 JSON 物件，不得加入任何其他文字、解釋或 markdown。
 7. JSON 必須完整，所有括號均須閉合。
 8. JSON 字串中的換行必須使用 \\n 表示。
+9. lyrics_text 的值必須是單一 JSON 字串，不得是 array/list，不得使用 [] 包住整段歌詞。
+10. 不得把 lyrics_text 輸出成 Python list 字串，例如不得輸出 ["[verse]\\n..."] 或 ['[verse]\\n...']。
+11. JSON 必須包含四個字段：visual_anchor、title、lyrics_text、genre_prompt，缺一不可。
+12. genre_prompt 不得為空字串，不得省略，必須輸出英文 music tags。
+13. {genre_prompt_instruction}
 
 【lyrics_text 標準格式】
 lyrics_text 必須嚴格使用以下結構：
@@ -466,19 +453,25 @@ lyrics_text 必須嚴格使用以下結構：
 6. [end] 後面不得再有任何歌詞或文字。
 7. 4 句或 8 句短歌詞不得強行加入 [bridge] 或 [outro]。
 8. 只有 16 句完整歌詞才使用 [bridge] 和 [outro]。
-9. 不得輸出 [Verse]、[CHORUS]、【verse】、Verse: 等其他標識格式。
+9. 不得輸出 [Verse]、[CHORUS]、【verse】、Verse:、verse: 等其他標識格式。
 10. 不得使用 bullet points、編號、markdown 或解釋性文字。
-11. JSON 必須完整，所有括號均須閉合。
-12. JSON 字串中的換行必須使用 \\n 表示。
-13. lyrics_text 的值必須是 JSON 字串，不得是 array/list，不得使用 [] 包住整段歌詞。
+11. 錯誤示例：["[verse]\\n第一行歌詞\\n第二行歌詞\\n\\n[chorus]\\n第三行歌詞\\n第四行歌詞\\n\\n[end]"]。
+12. 正確示例："[verse]\\n第一行歌詞\\n第二行歌詞\\n\\n[chorus]\\n第三行歌詞\\n第四行歌詞\\n\\n[end]"。
+
+【genre_prompt 格式細則】
+1. genre_prompt 必須是一個英文 tag 字串。
+2. 不得輸出 list、array、JSON object 或 bullet points。
+3. 不得加入解釋文字。
+4. 多個 tag 之間使用空格分隔。
+5. 如果使用 preset 或 tag list，必須完全保留指定 tag，不得改寫。
 
 請嚴格輸出以下 JSON 格式：
 
 {{
   "visual_anchor": "用繁體中文描述圖片主要視覺元素",
   "title": "繁體中文歌名",
-  "lyrics_text": "{lyrics_json_example}",
-  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "genre_prompt": "{genre_prompt_example}",
+  "lyrics_text": "{lyrics_json_example}"
 }}
 
 補充風格提示：{style_hint}
@@ -489,7 +482,7 @@ lyrics_text 必須嚴格使用以下結構：
 def generate_from_image(
     image_bytes: bytes,
     model_id: str = "Qwen/Qwen2.5-VL-3B-Instruct",
-    style: str = "cantopop-ballad",
+    style: str = "",
     line_count: int = 8,
     temperature: float = 0.7,
     user_style_hints: str = "",
@@ -499,6 +492,7 @@ def generate_from_image(
     rag_csv_path: str = "",
     rag_top_k: int = 3,
     max_new_tokens: int = 1024,
+    genre_prompt_mode: str = "generated",
 ) -> LyricsPromptBundle:
     torch = _torch()
     # Log in to HF Hub if token provided (needed for private adapter repos)
@@ -511,33 +505,24 @@ def generate_from_image(
     image = Image.open(BytesIO(image_bytes)).convert("RGB")
     image.thumbnail((1024, 1024))
 
-    # ── RAG two-pass: describe image first, then retrieve by visual content ──
+    # ── RAG: retrieve similar lyrics and inject as few-shot context ──────
     rag_few_shot_block = ""
     if use_rag and _is_internvl(model_id):
         try:
             from modules.rag_retriever import init as _rag_init, build_few_shot_block
             _rag_init(rag_csv_path or None)
-
-            # Pass 1: load model early (cached) and get a visual description
-            _p1_processor, _p1_model, _p1_device = _load_model(model_id, run_on_cpu)
-            _p1_pixels = _internvl_make_pixel_values(image, _p1_device)
-            image_description = _internvl_describe_image(_p1_model, _p1_processor, _p1_pixels, _p1_device)
-
-            # RAG query = image description + style hints for best relevance
-            rag_query = " ".join(filter(None, [
-                image_description,
-                user_style_hints.strip(),
-                style or "cantopop ballad 粵語",
-            ]))
+            rag_query = (style.strip() or "cantopop ballad 粵語")
             rag_few_shot_block = build_few_shot_block(rag_query, top_k=rag_top_k)
         except Exception as _rag_err:
             warnings.warn(f"RAG retrieval failed, falling back to base prompt: {_rag_err}")
 
     prompt = generate_prompt(
-        image, style,
+        image,
+        style,
         line_count=line_count,
         user_style_hints=user_style_hints,
         rag_few_shot_block=rag_few_shot_block,
+        genre_prompt_mode=genre_prompt_mode,
     )
     processor, model, device = _load_model(model_id, run_on_cpu)
 
@@ -616,9 +601,32 @@ def generate_from_image(
             except Exception:
                 pass
 
-    payload["genre_prompt"] = "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin"
+    # payload["genre_prompt"] = "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin"
+    if genre_prompt_mode in {"preset", "tag_list"}:
+        payload["genre_prompt"] = style.strip()
+    else:
+        payload["genre_prompt"] = str(payload.get("genre_prompt", "")).strip()
 
     lyrics_text = normalize_lyrics_format(payload.get("lyrics_text", ""))
+
+    raw_genre_prompt = payload.get("genre_prompt", "")
+
+    if isinstance(raw_genre_prompt, list):
+        raw_genre_prompt = " ".join(str(x).strip() for x in raw_genre_prompt if str(x).strip())
+    else:
+        raw_genre_prompt = str(raw_genre_prompt).strip()
+
+    if genre_prompt_mode in {"preset", "tag_list"}:
+        final_genre_prompt = style.strip()
+    else:
+        final_genre_prompt = raw_genre_prompt
+
+        # Fallback: avoid empty genre_prompt in Step 3
+        if not final_genre_prompt:
+            final_genre_prompt = (
+                "female Cantonese Melancholic Classical airy vocal "
+                "Piano bright vocal Pop Nostalgic Violin"
+            )
 
     if "[verse]" not in lyrics_text.lower() or "[chorus]" not in lyrics_text.lower():
         warnings.warn(
@@ -630,12 +638,22 @@ def generate_from_image(
     bundle = LyricsPromptBundle(
         title=str(payload.get("title", "")).strip(),
         lyrics_text=lyrics_text,
-        genre_prompt=str(payload.get("genre_prompt", "")).strip(),
+        genre_prompt=final_genre_prompt,
         language_tag="Cantonese",
         raw_meta={
             "visual_anchor": str(payload.get("visual_anchor", "")).strip(),
             "llm_backend": model_id,
             "device": device,
+
+            # Step 2 style debug metadata
+            "genre_prompt_mode": genre_prompt_mode,
+            "style_prompt_input": style.strip(),
+            "raw_genre_prompt_from_model": raw_genre_prompt,
+            "final_genre_prompt": final_genre_prompt,
+            "payload_keys": list(payload.keys()),
+
+            # Raw debug
+            "raw_payload": payload,
             "raw_generation_tail": decoded[-5000:],
         },
     )
