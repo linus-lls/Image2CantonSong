@@ -433,7 +433,8 @@ def generate_prompt(
 ) -> str:
     """Return the formatted prompt text for the multimodal model."""
     mood_text = generate_clip_e_mood(image)
-    style_hint = user_style_hints.strip() or style or "無"
+    style_hint = user_style_hints.strip() or "無"
+    style_prompt = style.strip()
     rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
 
     structure_desc, format_block, lyrics_json_example = build_lyrics_format_instruction(line_count)

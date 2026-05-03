@@ -171,9 +171,66 @@ with st.sidebar:
             rag_top_k = st.slider("RAG top-k examples", min_value=1, max_value=6, value=3)
             st.caption("📚 RAG injects the most similar lyrics as few-shot context to improve [verse]/[chorus] structure and style.")
 
-    style = st.selectbox("Style preset", ["cantopop-ballad", "city-pop", "dream-pop"], index=0)
-    
-    # line_count = st.selectbox("Lyric length", [4, 8, 16], index=1)
+    # st.subheader("Style source")
+
+    style_source = st.radio(
+        "Choose genre prompt source",
+        [
+            "Preset",
+            "Select tags from list",
+            "Generate by lyrics model",
+        ],
+        index=0,
+        horizontal=False,
+    )
+
+    selected_style_tags = {}
+
+    if style_source == "Preset":
+        preset_name = st.selectbox(
+            "Style preset",
+            list(STYLE_PRESETS.keys()),
+            index=0,
+        )
+        style = STYLE_PRESETS[preset_name]
+        genre_prompt_mode = "preset"
+
+        st.caption("Preset genre prompt:")
+        st.code(style)
+
+    elif style_source == "Select tags from list":
+        tag_data = load_top_200_tags()
+
+        st.caption("Mandatory tag: Cantonese")
+
+        for category in TAG_CATEGORIES:
+            options = unique_clean_tags(tag_data.get(category, []))
+
+            selected_style_tags[category] = st.multiselect(
+                f"{category.title()} tags",
+                options=options,
+                default=[],
+                key=f"style_tags_{category}",
+            )
+
+        user_selected_style = build_style_prompt_from_selected_tags(selected_style_tags)
+
+        # Always include Cantonese in tag-list mode.
+        style = ensure_mandatory_style_tags(user_selected_style)
+        genre_prompt_mode = "tag_list"
+
+        if user_selected_style:
+            st.caption("Selected genre prompt:")
+            st.code(style)
+        else:
+            st.warning("Please select at least one style tag. Cantonese will still be included automatically. (It is recommended to include all the 5 components.)")
+            st.caption("Current genre prompt:")
+            st.code(style)
+
+    else:
+        style = ""
+        genre_prompt_mode = "generated"
+        st.caption("The multimodal lyrics model will generate genre_prompt directly.")
     
     if "line_count" not in st.session_state:
         st.session_state["line_count"] = 8
@@ -182,6 +239,8 @@ with st.sidebar:
         st.session_state["run_n_segments"] = LYRIC_LENGTH_TO_SEGMENTS[
             int(st.session_state["line_count"])
         ]
+
+    user_style_hints = st.text_input("Optional style hints", value="male or female cantopop vocal, emotionally expressive")
 
     line_count = st.selectbox(
         "Lyric length",
@@ -193,13 +252,11 @@ with st.sidebar:
     mm_temperature = st.number_input("MM temperature", min_value=0.1, max_value=1.5, value=0.7, step=0.1)
     mm_max_new_tokens = st.number_input("MM max_new_tokens", min_value=128, max_value=2048, value=2048, step=64)
     mm_run_on_cpu = st.checkbox("Run multimodal lyrics model on CPU", value=False)
-    user_style_hints = st.text_input("Optional style hints", value="male or female cantopop vocal, emotionally expressive")
 
     st.header("Step 4 — Original YuE")
     output_dir = st.text_input("Output dir", value="outputs")
     stage1_model = st.text_input("Stage 1 model", value="m-a-p/YuE-s1-7B-anneal-zh-cot")
     stage2_model = st.text_input("Stage 2 model", value="m-a-p/YuE-s2-1B-general")
-    # run_n_segments = st.number_input("run_n_segments", min_value=1, max_value=12, value=3, step=1)
     run_n_segments = st.number_input(
         "run_n_segments",
         min_value=1,
