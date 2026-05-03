@@ -32,13 +32,14 @@ LYRIC_LENGTH_TO_SEGMENTS = {
     16: 5,
 }
 
+MOOD_TAGS_PRESETS = ["Melancholic"] # Defined as a list of strings
 STYLE_PRESETS = {
     "Cantonese Ballad": {
         "genre_prompt": (
             "female Cantonese Melancholic Classical airy vocal "
             "Piano bright vocal Pop Nostalgic Violin"
         ),
-        "mood_text": "Melancholic",
+        "mood_text": " ".join(MOOD_TAGS_PRESETS).strip(),
     }
 }
 
@@ -316,6 +317,7 @@ with st.sidebar:
     )
 
     selected_style_tags = {}
+    selected_mood_tags: list[str] = []
 
     if style_source == "Preset":
         preset_name = st.selectbox(
@@ -325,6 +327,7 @@ with st.sidebar:
         )
 
         style = STYLE_PRESETS[preset_name]["genre_prompt"]
+        selected_mood_tags = MOOD_TAGS_PRESETS
         mood_text_override = STYLE_PRESETS[preset_name]["mood_text"]
         genre_prompt_mode = "preset"
 
@@ -588,7 +591,7 @@ if st.session_state["step_2_done"]:
                 key="eval_top_k_image",
             )
             top_k_text_eval = st.number_input(
-                f"Top-k text emotions (up to {max_text_labels})",
+                f"Top-k lyrics emotions (up to {max_text_labels})",
                 min_value=1,
                 max_value=max_text_labels,
                 value=max_text_labels,
@@ -598,24 +601,36 @@ if st.session_state["step_2_done"]:
             if st.button("Calculate image-lyrics emotion similarity", key="eval_image_lyrics_emotion_similarity"):
                 st.session_state["image_lyrics_emotion_similarity"] = None
                 st.session_state["image_lyrics_emotion_similarity_error"] = ""
-                st.session_state["image_lyrics_emotion_predictions"] = None
+                st.session_state["image_lyrics_emotion_results"] = None
                 try:
                     if not st.session_state.get("uploaded_image_bytes"):
                         raise ValueError("Please upload an image first.")
                     image = Image.open(BytesIO(st.session_state["uploaded_image_bytes"])).convert("RGB")
 
                     emotion_module = load_image_lyrics_emotion_similarity_module()
-                    results = emotion_module.evaluate_emotion_similarity(
-                        image=image,
-                        lyrics_text=lyrics_text.strip(),
-                        top_k_image=top_k_image_eval,
-                        top_k_text=top_k_text_eval,
-                        image_model_type="25cat",
-                        text_emotion_model=text_emotion_model,
-                        embedding_model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
-                        embedding_device=None,
-                        verbose=False,
-                    )
+                    if selected_mood_tags:
+                        results = emotion_module.evaluate_emotion_similarity_with_user_mood_tags(
+                            mood_words=selected_mood_tags,
+                            lyrics_text=lyrics_text.strip(),
+                            text_emotion_model=text_emotion_model,
+                            top_k_text=int(top_k_text_eval),
+                            embedding_model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+                            embedding_device=None,
+                            verbose=False,
+                        )
+                    else:
+                        results = emotion_module.evaluate_emotion_similarity_with_image(
+                            image=image,
+                            lyrics_text=lyrics_text.strip(),
+                            top_k_image=top_k_image_eval,
+                            top_k_text=top_k_text_eval,
+                            image_model_type="25cat",
+                            text_emotion_model=text_emotion_model,
+                            embedding_model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+                            embedding_device=None,
+                            verbose=False,
+                        )
+
                     st.session_state["image_lyrics_emotion_similarity"] = float(results["similarity"])
                     st.session_state["image_lyrics_emotion_results"] = results
                 except Exception:
@@ -627,8 +642,12 @@ if st.session_state["step_2_done"]:
                 results = st.session_state.get("image_lyrics_emotion_results") or {}
                 image_preds = results.get("image_predictions", [])
                 text_preds = results.get("text_predictions", [])
+                if selected_mood_tags:
+                    st.write("**Image emotion (supplied by user):**")
+                    for tag in selected_mood_tags:
+                        st.write(f"- {tag}")
                 if image_preds:
-                    st.write("**Image emotion predictions:**")
+                    st.write("**Image emotion (predicted by CLIP-E model):**")
                     for item in image_preds:
                         label = item.get("label")
                         english = item.get("english_label")
@@ -637,7 +656,7 @@ if st.session_state["step_2_done"]:
                         else:
                             st.write(f"- {label}: {item['score']:.4f}")
                 if text_preds:
-                    st.write("**Text emotion predictions:**")
+                    st.write("**Lyrics emotion (predicted by text emotion model):**")
                     for item in text_preds:
                         label = item.get("label")
                         english = item.get("english_label")
