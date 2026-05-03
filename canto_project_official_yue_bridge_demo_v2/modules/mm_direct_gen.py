@@ -394,9 +394,15 @@ def generate_prompt(
     user_style_hints: str = "",
     rag_few_shot_block: str = "",
     genre_prompt_mode: str = "generated",
+    mood_text_override: str = "",
 ) -> str:
     """Return the formatted prompt text for the multimodal model."""
-    mood_text = generate_clip_e_mood(image)
+    
+    if mood_text_override.strip():
+        mood_text = mood_text_override.strip()
+    else:
+        mood_text = generate_clip_e_mood(image)
+        
     style_hint = user_style_hints.strip() or "無"
     style_prompt = style.strip()
     rag_section = f"\n{rag_few_shot_block}\n" if rag_few_shot_block else ""
@@ -493,6 +499,7 @@ def generate_from_image(
     rag_top_k: int = 3,
     max_new_tokens: int = 1024,
     genre_prompt_mode: str = "generated",
+    mood_text_override: str = "",
 ) -> LyricsPromptBundle:
     torch = _torch()
     # Log in to HF Hub if token provided (needed for private adapter repos)
@@ -523,6 +530,7 @@ def generate_from_image(
         user_style_hints=user_style_hints,
         rag_few_shot_block=rag_few_shot_block,
         genre_prompt_mode=genre_prompt_mode,
+        mood_text_override=mood_text_override,
     )
     processor, model, device = _load_model(model_id, run_on_cpu)
 
@@ -648,6 +656,7 @@ def generate_from_image(
             # Step 2 style debug metadata
             "genre_prompt_mode": genre_prompt_mode,
             "style_prompt_input": style.strip(),
+            "mood_text_override": mood_text_override.strip(),
             "raw_genre_prompt_from_model": raw_genre_prompt,
             "final_genre_prompt": final_genre_prompt,
             "payload_keys": list(payload.keys()),

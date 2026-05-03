@@ -31,11 +31,15 @@ LYRIC_LENGTH_TO_SEGMENTS = {
     8: 3,
     16: 5,
 }
+
 STYLE_PRESETS = {
-    "Cantonese Ballad": (
-        "female Cantonese Melancholic Classical airy vocal "
-        "Piano bright vocal Pop Nostalgic Violin"
-    )
+    "Cantonese Ballad": {
+        "genre_prompt": (
+            "female Cantonese Melancholic Classical airy vocal "
+            "Piano bright vocal Pop Nostalgic Violin"
+        ),
+        "mood_text": "Melancholic",
+    }
 }
 
 TAG_CATEGORIES = ["genre", "instrument", "mood", "gender", "timbre"]
@@ -319,11 +323,16 @@ with st.sidebar:
             list(STYLE_PRESETS.keys()),
             index=0,
         )
-        style = STYLE_PRESETS[preset_name]
+
+        style = STYLE_PRESETS[preset_name]["genre_prompt"]
+        mood_text_override = STYLE_PRESETS[preset_name]["mood_text"]
         genre_prompt_mode = "preset"
 
         st.caption("Preset genre prompt:")
         st.code(style)
+
+        st.caption("Preset mood:")
+        st.code(mood_text_override)
 
     elif style_source == "Select tags from list":
         tag_data = load_top_200_tags()
@@ -345,6 +354,10 @@ with st.sidebar:
         # Always include Cantonese in tag-list mode.
         style = ensure_mandatory_style_tags(user_selected_style)
         genre_prompt_mode = "tag_list"
+        
+        # mood_text comes from selected mood tags.
+        selected_mood_tags = selected_style_tags.get("mood", [])
+        mood_text_override = " ".join(selected_mood_tags).strip()
 
         if user_selected_style:
             st.caption("Selected genre prompt:")
@@ -356,6 +369,7 @@ with st.sidebar:
 
     else:
         style = ""
+        mood_text_override = ""
         genre_prompt_mode = "generated"
         st.caption("The multimodal lyrics model will generate genre_prompt directly.")
     
@@ -367,8 +381,12 @@ with st.sidebar:
             int(st.session_state["line_count"])
         ]
 
-    user_style_hints = st.text_input("Optional style hints", value="male or female cantopop vocal, emotionally expressive")
-
+    user_style_hints = st.text_input(
+        "Optional style hints",
+        value="",
+        placeholder="e.g. male or female cantopop vocal, emotionally expressive"
+    )
+    
     line_count = st.selectbox(
         "Lyric length",
         [4, 8, 16],
@@ -463,6 +481,7 @@ if st.session_state["step_1_done"]:
                 rag_csv_path=rag_csv_path,
                 rag_top_k=int(rag_top_k),
                 genre_prompt_mode=genre_prompt_mode,
+                mood_text_override=mood_text_override,
             )
 
             st.session_state["step_2_done"] = True
