@@ -74,8 +74,7 @@ def generate_song_auto(
     lyrics_txt = yue_input / "lyrics.txt"
 
     genre_text = bundle.genre_prompt.strip() or "cantopop ballad piano guitar sentimental female airy vocal Cantonese"
-    # lyrics_text = bundle.lyrics_text.strip()
-    lyrics_text = bundle.lyrics_text
+    lyrics_text = bundle.lyrics_text.strip()
 
     _write_text(genre_txt, genre_text)
     _write_text(lyrics_txt, lyrics_text)
