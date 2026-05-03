@@ -68,6 +68,43 @@ def _is_internvl(model_id: str) -> bool:
     return "InternVL" in model_id or "internvl" in model_id.lower()
 
 
+def _internvl_make_pixel_values(image: Image.Image, device: str):
+    """Pre-process a PIL image into InternVL2 pixel_values tensor."""
+    import torch
+    import torchvision.transforms as T
+    from torchvision.transforms.functional import InterpolationMode
+    transform = T.Compose([
+        T.Resize((448, 448), interpolation=InterpolationMode.BICUBIC),
+        T.ToTensor(),
+        T.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+    ])
+    return transform(image).unsqueeze(0).to(
+        device, dtype=torch.float16 if device == "cuda" else torch.float32
+    )
+
+
+def _internvl_describe_image(model, processor, pixel_values, device: str) -> str:
+    """
+    Pass 1: ask InternVL2 to describe the image in one sentence.
+    The result is used as the RAG retrieval query so retrieved lyrics
+    are thematically grounded in the actual image content.
+    """
+    import torch
+    question = (
+        "<image>\n"
+        "請用繁體中文，以一句話描述這張圖片的主要場景、人物與氛圍（不超過50個字）。"
+        "只輸出描述句子，不要加任何其他文字。"
+    )
+    cfg = dict(do_sample=False, max_new_tokens=80)
+    try:
+        with torch.no_grad():
+            desc = model.chat(processor, pixel_values, question, cfg)
+        return desc.strip()
+    except Exception as e:
+        warnings.warn(f"Image description (Pass 1) failed: {e}")
+        return ""
+
+
 def _load_model(model_id: str, run_on_cpu: bool):
     import torch
     device = _norm_device(run_on_cpu)
@@ -473,13 +510,24 @@ def generate_from_image(
     image = Image.open(BytesIO(image_bytes)).convert("RGB")
     image.thumbnail((1024, 1024))
 
-    # ── RAG: retrieve similar lyrics and inject as few-shot context ──────
+    # ── RAG two-pass: describe image first, then retrieve by visual content ──
     rag_few_shot_block = ""
     if use_rag and _is_internvl(model_id):
         try:
             from modules.rag_retriever import init as _rag_init, build_few_shot_block
             _rag_init(rag_csv_path or None)
-            rag_query = (user_style_hints.strip() or style or "cantopop ballad 粵語")
+
+            # Pass 1: load model early (cached) and get a visual description
+            _p1_processor, _p1_model, _p1_device = _load_model(model_id, run_on_cpu)
+            _p1_pixels = _internvl_make_pixel_values(image, _p1_device)
+            image_description = _internvl_describe_image(_p1_model, _p1_processor, _p1_pixels, _p1_device)
+
+            # RAG query = image description + style hints for best relevance
+            rag_query = " ".join(filter(None, [
+                image_description,
+                user_style_hints.strip(),
+                style or "cantopop ballad 粵語",
+            ]))
             rag_few_shot_block = build_few_shot_block(rag_query, top_k=rag_top_k)
         except Exception as _rag_err:
             warnings.warn(f"RAG retrieval failed, falling back to base prompt: {_rag_err}")
