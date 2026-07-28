@@ -1,0 +1,34 @@
+{
+  "title": "法國鬥牛犬的樂章",
+  "lyrics_text": "[verse]\n飛奔著的法國斗牛犬，快樂的樣子充滿朝氣。\n田野的草地綠意盎然，心隨它舞動輕盈。\n每一跳躍都傳遞著自由的訊息，\n此刻的放鬆，無比輕快。\n[chorus]\n它奔跑在那片綠色中，沒有罷休的意願。\n每一次的揮灑，都是對生命的渴望。\n讓我們跟隨它的步伐，享受那無盡的樂趣。\n在這裡，我們可以找到最純真的歡愉。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是一道白色的圍欄。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是一道白色的圍欄。",
+      "title": "法國鬥牛犬的樂章",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n飛奔著的法國斗牛犬，快樂的樣子充滿朝氣。\n田野的草地綠意盎然，心隨它舞動輕盈。\n每一跳躍都傳遞著自由的訊息，\n此刻的放鬆，無比輕快。\n\n[chorus]\n它奔跑在那片綠色中，沒有罷休的意願。\n每一次的揮灑，都是對生命的渴望。\n讓我們跟隨它的步伐，享受那無盡的樂趣。\n在這裡，我們可以找到最純真的歡愉。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是一道白色的圍欄。\",\n  \"title\": \"法國鬥牛犬的樂章\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n飛奔著的法國斗牛犬，快樂的樣子充滿朝氣。\\n田野的草地綠意盎然，心隨它舞動輕盈。\\n每一跳躍都傳遞著自由的訊息，\\n此刻的放鬆，無比輕快。\\n\\n[chorus]\\n它奔跑在那片綠色中，沒有罷休的意願。\\n每一次的揮灑，都是對生命的渴望。\\n讓我們跟隨它的步伐，享受那無盡的樂趣。\\n在這裡，我們可以找到最純真的歡愉。\\n\\n[end]\"\n}"
+  }
+}

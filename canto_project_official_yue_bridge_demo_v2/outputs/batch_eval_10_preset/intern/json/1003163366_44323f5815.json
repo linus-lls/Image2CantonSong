@@ -1,0 +1,34 @@
+{
+  "title": "懷念的靜水",
+  "lyrics_text": "暖陽照著我的心，懷念約望的家人\n平安的日子，曾經的回憶\n回憶中的美好時光，沒有幽靈\n讓我在靜水中，回憶輕輕漫步\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個男人趴在長椅上，背墊帶著懷童，與一個黑白狗在一起，背景是一個水景區域。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個男人趴在長椅上，背墊帶著懷童，與一個黑白狗在一起，背景是一個水景區域。",
+      "title": "懷念的靜水",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "暖陽照著我的心，懷念約望的家人\n平安的日子，曾經的回憶\n回憶中的美好時光，沒有幽靈\n讓我在靜水中，回憶輕輕漫步"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一個男人趴在長椅上，背墊帶著懷童，與一個黑白狗在一起，背景是一個水景區域。\",\n  \"title\": \"懷念的靜水\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"暖陽照著我的心，懷念約望的家人\\n平安的日子，曾經的回憶\\n回憶中的美好時光，沒有幽靈\\n讓我在靜水中，回憶輕輕漫步\"\n}"
+  }
+}

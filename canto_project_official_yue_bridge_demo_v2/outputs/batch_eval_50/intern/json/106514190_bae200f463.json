@@ -1,0 +1,34 @@
+{
+  "title": "孤獨的憐悽",
+  "lyrics_text": "[verse]\n一個獨獨的孤獨身影\n站在高聳的山巒\n畫面中的空氣如紙\n寧靜中還有思念\n[chorus]\n空中的風帶\n聲音之間\n回憶與現在交互\n從頭回到頭\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "孤獨的山巒背景，一位戴眼鏡的人站在高嶺上，清晰的背景中有灰色的山脈和部分白雪覆蓋的山坡。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "孤獨的山巒背景，一位戴眼鏡的人站在高嶺上，清晰的背景中有灰色的山脈和部分白雪覆蓋的山坡。",
+      "title": "孤獨的憐悽",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n一個獨獨的孤獨身影\n站在高聳的山巒\n畫面中的空氣如紙\n寧靜中還有思念\n\n[chorus]\n空中的風帶\n聲音之間\n回憶與現在交互\n從頭回到頭\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"孤獨的山巒背景，一位戴眼鏡的人站在高嶺上，清晰的背景中有灰色的山脈和部分白雪覆蓋的山坡。\",\n  \"title\": \"孤獨的憐悽\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n一個獨獨的孤獨身影\\n站在高聳的山巒\\n畫面中的空氣如紙\\n寧靜中還有思念\\n\\n[chorus]\\n空中的風帶\\n聲音之間\\n回憶與現在交互\\n從頭回到頭\\n\\n[end]\"\n}"
+  }
+}

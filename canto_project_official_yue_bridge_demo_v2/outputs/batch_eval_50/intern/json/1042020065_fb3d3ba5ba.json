@@ -1,0 +1,34 @@
+{
+  "title": "夜晚港口的孩子",
+  "lyrics_text": "夜色繞海船\n孩子卧橋上\n望遠眼看人\n漂泊不得安\n\n繁華港口\n船船如眾人\n孤獨一人\n心情淡淡愁\n夜長何時結\n\n雨滴跳躍\n船隻轉軌移\n孩子思念遠\n故樂在耳聴\n夜深沉沉憶旧日\n\n夜色繞海船\n孩子卧橋上\n望遠眼看人\n漂泊不得安\n\n繁華港口\n船船如眾人\n孤獨一人\n心情淡淡愁\n夜長何時結\n\n雨滴跳躍\n船隻轉軌移\n孩子思念遠\n故樂在耳聴\n夜深沉沉憶旧日\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中央有一位年輕男孩，周圍有從停泊的船舶和船隻延伸運動的水面，夜晚的場景。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中央有一位年輕男孩，周圍有從停泊的船舶和船隻延伸運動的水面，夜晚的場景。",
+      "title": "夜晚港口的孩子",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "夜色繞海船\n孩子卧橋上\n望遠眼看人\n漂泊不得安\n\n繁華港口\n船船如眾人\n孤獨一人\n心情淡淡愁\n夜長何時結\n\n雨滴跳躍\n船隻轉軌移\n孩子思念遠\n故樂在耳聴\n夜深沉沉憶旧日\n\n夜色繞海船\n孩子卧橋上\n望遠眼看人\n漂泊不得安\n\n繁華港口\n船船如眾人\n孤獨一人\n心情淡淡愁\n夜長何時結\n\n雨滴跳躍\n船隻轉軌移\n孩子思念遠\n故樂在耳聴\n夜深沉沉憶旧日"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中央有一位年輕男孩，周圍有從停泊的船舶和船隻延伸運動的水面，夜晚的場景。\",\n  \"title\": \"夜晚港口的孩子\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"夜色繞海船\\n孩子卧橋上\\n望遠眼看人\\n漂泊不得安\\n\\n繁華港口\\n船船如眾人\\n孤獨一人\\n心情淡淡愁\\n夜長何時結\\n\\n雨滴跳躍\\n船隻轉軌移\\n孩子思念遠\\n故樂在耳聴\\n夜深沉沉憶旧日\\n\\n夜色繞海船\\n孩子卧橋上\\n望遠眼看人\\n漂泊不得安\\n\\n繁華港口\\n船船如眾人\\n孤獨一人\\n心情淡淡愁\\n夜長何時結\\n\\n雨滴跳躍\\n船隻轉軌移\\n孩子思念遠\\n故樂在耳聴\\n夜深沉沉憶旧日\"\n}"
+  }
+}

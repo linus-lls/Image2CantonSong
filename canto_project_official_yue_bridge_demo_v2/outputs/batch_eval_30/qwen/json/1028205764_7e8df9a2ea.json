@@ -1,0 +1,34 @@
+{
+  "title": "陽光下的歡樂冒險",
+  "lyrics_text": "[verse]\n在這片藍色的海洋上航行\n我們的心，像海一樣遼遠\n每一次划槳都充滿了樂趣\n享受著彼此的陪伴\n[chorus]\n讓我們放開緊握的手臂\n與風共舞，與浪共遊\n這是一段難忘的旅程\n在陽光下，我們一起笑\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位男士和一個小孩正在一條清澈的水面上進行獨木舟比賽，背景是輕柔波光粼粼的水。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位男士和一個小孩正在一條清澈的水面上進行獨木舟比賽，背景是輕柔波光粼粼的水。",
+      "title": "陽光下的歡樂冒險",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n在這片藍色的海洋上航行\n我們的心，像海一樣遼遠\n每一次划槳都充滿了樂趣\n享受著彼此的陪伴\n\n[chorus]\n讓我們放開緊握的手臂\n與風共舞，與浪共遊\n這是一段難忘的旅程\n在陽光下，我們一起笑\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位男士和一個小孩正在一條清澈的水面上進行獨木舟比賽，背景是輕柔波光粼粼的水。\",\n  \"title\": \"陽光下的歡樂冒險\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n在這片藍色的海洋上航行\\n我們的心，像海一樣遼遠\\n每一次划槳都充滿了樂趣\\n享受著彼此的陪伴\\n\\n[chorus]\\n讓我們放開緊握的手臂\\n與風共舞，與浪共遊\\n這是一段難忘的旅程\\n在陽光下，我們一起笑\\n\\n[end]\"\n}"
+  }
+}

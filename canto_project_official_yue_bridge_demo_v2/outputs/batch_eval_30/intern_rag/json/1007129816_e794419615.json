@@ -1,0 +1,34 @@
+{
+  "title": "困惑的慶祝",
+  "lyrics_text": "困惑的慶祝\n聽聽在頭\n感覺無法和平\n沒有懂得如何處理\n\n困惑的慶祝\n沒有有類感覺\n拼尋蒂開口\n沒有懂得如何處理\n\n極簡的禮物\n只有一首旋律\n似乎只是噩夢的一部分\n沒有答案給我们\n\n困惑的慶祝\n聽聽在頭\n感覺無法和平\n沒有懂得如何處理\n\n我們都在尋找答案\n沒有知道如何處理\n曾經的回憶\n現在的悲傷\n沒有懂得如何處理\n\n極簡的禮物\n只有一首旋律\n似乎只是噩夢的一部分\n沒有答案給我們\n\n沒有懂得如何處理\n沒有懂得如何處理\n沒有懂得如何處理\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中的一名男子戴著紅色毛巾，並戴著眼鏡，表情略帶困惑。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": true,
+    "rag_top_k": 3,
+    "raw_rag_chars": 1580,
+    "safe_rag_chars": 289,
+    "safe_rag_few_shot_block": "【RAG 低權重風格參考】\n以下內容只作風格參考，不是輸出格式示例。\n不得複製、改寫或延續檢索歌詞中的原句。\n不得使用檢索內容中的 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge] 等標籤。\n最終輸出必須以後方的 JSON schema 和 lyrics_text 標準格式為最高優先級。\n\n可參考的風格方向：\n1. 使用自然香港粵語書面語，保持可演唱性。\n2. verse 偏敘事與畫面描寫，chorus 偏情緒集中與 hook 感。\n3. 可使用意象重複或近似押韻，但不要重複整段。\n4. 歌詞應優先呼應當前圖片，而不是檢索歌詞。",
+    "raw_payload": {
+      "visual_anchor": "圖片中的一名男子戴著紅色毛巾，並戴著眼鏡，表情略帶困惑。",
+      "title": "困惑的慶祝",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "困惑的慶祝\n聽聽在頭\n感覺無法和平\n沒有懂得如何處理\n\n困惑的慶祝\n沒有有類感覺\n拼尋蒂開口\n沒有懂得如何處理\n\n極簡的禮物\n只有一首旋律\n似乎只是噩夢的一部分\n沒有答案給我们\n\n困惑的慶祝\n聽聽在頭\n感覺無法和平\n沒有懂得如何處理\n\n我們都在尋找答案\n沒有知道如何處理\n曾經的回憶\n現在的悲傷\n沒有懂得如何處理\n\n極簡的禮物\n只有一首旋律\n似乎只是噩夢的一部分\n沒有答案給我們\n\n沒有懂得如何處理\n沒有懂得如何處理\n沒有懂得如何處理"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中的一名男子戴著紅色毛巾，並戴著眼鏡，表情略帶困惑。\",\n  \"title\": \"困惑的慶祝\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"困惑的慶祝\\n聽聽在頭\\n感覺無法和平\\n沒有懂得如何處理\\n\\n困惑的慶祝\\n沒有有類感覺\\n拼尋蒂開口\\n沒有懂得如何處理\\n\\n極簡的禮物\\n只有一首旋律\\n似乎只是噩夢的一部分\\n沒有答案給我们\\n\\n困惑的慶祝\\n聽聽在頭\\n感覺無法和平\\n沒有懂得如何處理\\n\\n我們都在尋找答案\\n沒有知道如何處理\\n曾經的回憶\\n現在的悲傷\\n沒有懂得如何處理\\n\\n極簡的禮物\\n只有一首旋律\\n似乎只是噩夢的一部分\\n沒有答案給我們\\n\\n沒有懂得如何處理\\n沒有懂得如何處理\\n沒有懂得如何處理\"\n}"
+  }
+}

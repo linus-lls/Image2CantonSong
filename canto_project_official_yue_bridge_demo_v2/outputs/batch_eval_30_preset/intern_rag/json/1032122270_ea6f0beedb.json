@@ -1,0 +1,34 @@
+{
+  "title": "宁静的牧野",
+  "lyrics_text": "在宁静的草原上，\n牧羊人與他的羊群在安靜的畫面中，\n背景是蔚藍的天空和冒露的山坡。\n\n在柔和的風中，\n悲傷的歌声忽然發現著，\n記憶的回憶在聲波中穿過。\n\n在牧羊人的腰間，\n他的手與羊群的腳踩踏著，\n在這片蕪篠寧靜的畫面中，\n歌聲與風声交織著。\n\n在牧羊人內心深，\n迷失在回憶中的世界，\n在這片畫面中，\n悲傷的歌声與心碎。\n\n在宁靜的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声開始。\n\n在牧羊人的腰間，\n他的手與羊群的腳踩踏著，\n在這片蕪篠寧靜的畫面中，\n歌聲與風声交織著。\n\n在宁靜的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声與心碎。\n\n在宁静的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声開始。\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "宁靖的草原上，牧羊人與他的羊群在安靜的畫面中，背景是蔚藍的天空和冒露的山坡",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": true,
+    "rag_top_k": 3,
+    "raw_rag_chars": 1580,
+    "safe_rag_chars": 289,
+    "safe_rag_few_shot_block": "【RAG 低權重風格參考】\n以下內容只作風格參考，不是輸出格式示例。\n不得複製、改寫或延續檢索歌詞中的原句。\n不得使用檢索內容中的 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge] 等標籤。\n最終輸出必須以後方的 JSON schema 和 lyrics_text 標準格式為最高優先級。\n\n可參考的風格方向：\n1. 使用自然香港粵語書面語，保持可演唱性。\n2. verse 偏敘事與畫面描寫，chorus 偏情緒集中與 hook 感。\n3. 可使用意象重複或近似押韻，但不要重複整段。\n4. 歌詞應優先呼應當前圖片，而不是檢索歌詞。",
+    "raw_payload": {
+      "visual_anchor": "宁靖的草原上，牧羊人與他的羊群在安靜的畫面中，背景是蔚藍的天空和冒露的山坡",
+      "title": "宁静的牧野",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "在宁静的草原上，\n牧羊人與他的羊群在安靜的畫面中，\n背景是蔚藍的天空和冒露的山坡。\n\n在柔和的風中，\n悲傷的歌声忽然發現著，\n記憶的回憶在聲波中穿過。\n\n在牧羊人的腰間，\n他的手與羊群的腳踩踏著，\n在這片蕪篠寧靜的畫面中，\n歌聲與風声交織著。\n\n在牧羊人內心深，\n迷失在回憶中的世界，\n在這片畫面中，\n悲傷的歌声與心碎。\n\n在宁靜的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声開始。\n\n在牧羊人的腰間，\n他的手與羊群的腳踩踏著，\n在這片蕪篠寧靜的畫面中，\n歌聲與風声交織著。\n\n在宁靜的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声與心碎。\n\n在宁静的畫面中，\n牧羊人與他的羊群在安靜的畫面中，\n在宁靜的畫面中，\n悲傷的歌声開始。"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"宁靖的草原上，牧羊人與他的羊群在安靜的畫面中，背景是蔚藍的天空和冒露的山坡\",\n  \"title\": \"宁静的牧野\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"在宁静的草原上，\\n牧羊人與他的羊群在安靜的畫面中，\\n背景是蔚藍的天空和冒露的山坡。\\n\\n在柔和的風中，\\n悲傷的歌声忽然發現著，\\n記憶的回憶在聲波中穿過。\\n\\n在牧羊人的腰間，\\n他的手與羊群的腳踩踏著，\\n在這片蕪篠寧靜的畫面中，\\n歌聲與風声交織著。\\n\\n在牧羊人內心深，\\n迷失在回憶中的世界，\\n在這片畫面中，\\n悲傷的歌声與心碎。\\n\\n在宁靜的畫面中，\\n牧羊人與他的羊群在安靜的畫面中，\\n在宁靜的畫面中，\\n悲傷的歌声開始。\\n\\n在牧羊人的腰間，\\n他的手與羊群的腳踩踏著，\\n在這片蕪篠寧靜的畫面中，\\n歌聲與風声交織著。\\n\\n在宁靜的畫面中，\\n牧羊人與他的羊群在安靜的畫面中，\\n在宁靜的畫面中，\\n悲傷的歌声與心碎。\\n\\n在宁静的畫面中，\\n牧羊人與他的羊群在安靜的畫面中，\\n在宁靜的畫面中，\\n悲傷的歌声開始。\"\n}"
+  }
+}

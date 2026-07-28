@@ -1,0 +1,34 @@
+{
+  "title": "悠閒的放鬆時刻",
+  "lyrics_text": "[verse]\n水邊座椅上，一人靜臥其中。\n湖光山色，心靈得以安寧。\n腳踏輕風，心情舒暢，悠然自得。\n[chorus]\n時光緩慢，回憶如畫。\n此情此景，盡在夢中。\n願得此生，共享此刻。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖中男子躺在公園長椅上，身邊有一隻小狗在等待。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖中男子躺在公園長椅上，身邊有一隻小狗在等待。",
+      "title": "悠閒的放鬆時刻",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n水邊座椅上，一人靜臥其中。\n湖光山色，心靈得以安寧。\n腳踏輕風，心情舒暢，悠然自得。\n\n[chorus]\n時光緩慢，回憶如畫。\n此情此景，盡在夢中。\n願得此生，共享此刻。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖中男子躺在公園長椅上，身邊有一隻小狗在等待。\",\n  \"title\": \"悠閒的放鬆時刻\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n水邊座椅上，一人靜臥其中。\\n湖光山色，心靈得以安寧。\\n腳踏輕風，心情舒暢，悠然自得。\\n\\n[chorus]\\n時光緩慢，回憶如畫。\\n此情此景，盡在夢中。\\n願得此生，共享此刻。\\n\\n[end]\"\n}"
+  }
+}

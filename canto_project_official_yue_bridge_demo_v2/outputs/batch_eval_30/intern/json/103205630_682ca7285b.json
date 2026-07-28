@@ -1,0 +1,34 @@
+{
+  "title": "雪地里的孤獨",
+  "lyrics_text": "雪地里的孤獨\n這是一個孤獨的地方\n站在遮蔽物旁\n當你感到心中的寒冷\n有時候\n雪地上的點滴\n為你帶來一丝悲傷\n雪地里的孤獨\n讓你感受到一份寧靜\n你寫下的歌訊\n給你帶來一份安慰\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個人站在雪地上，旁邊有一個遮蔽物，地上有一些物品",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個人站在雪地上，旁邊有一個遮蔽物，地上有一些物品",
+      "title": "雪地里的孤獨",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "雪地里的孤獨\n這是一個孤獨的地方\n站在遮蔽物旁\n當你感到心中的寒冷\n有時候\n雪地上的點滴\n為你帶來一丝悲傷\n雪地里的孤獨\n讓你感受到一份寧靜\n你寫下的歌訊\n給你帶來一份安慰"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一個人站在雪地上，旁邊有一個遮蔽物，地上有一些物品\",\n  \"title\": \"雪地里的孤獨\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"雪地里的孤獨\\n這是一個孤獨的地方\\n站在遮蔽物旁\\n當你感到心中的寒冷\\n有時候\\n雪地上的點滴\\n為你帶來一丝悲傷\\n雪地里的孤獨\\n讓你感受到一份寧靜\\n你寫下的歌訊\\n給你帶來一份安慰\"\n}"
+  }
+}

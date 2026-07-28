@@ -1,0 +1,34 @@
+{
+  "title": "雙人皮划艇漫遊",
+  "lyrics_text": "[verse]\n在微風中輕飄，雙人皮划艇上。\n水波拍打着船身，偶爾泛起笑聲。\n親切的目光相對，心隨風兒輕舞。\n[chorus]\n隨著節奏輕柔搖擺，心中的樂章不離手。\n忘卻煩悶，在這片水域遨遊。\n每一刻都值得珍惜，與你共度時光。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "兩人在一條黃色的雙人皮划艇上，皮划艇在波光粼粼的水面上航行。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "兩人在一條黃色的雙人皮划艇上，皮划艇在波光粼粼的水面上航行。",
+      "title": "雙人皮划艇漫遊",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n在微風中輕飄，雙人皮划艇上。\n水波拍打着船身，偶爾泛起笑聲。\n親切的目光相對，心隨風兒輕舞。\n\n[chorus]\n隨著節奏輕柔搖擺，心中的樂章不離手。\n忘卻煩悶，在這片水域遨遊。\n每一刻都值得珍惜，與你共度時光。\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"兩人在一條黃色的雙人皮划艇上，皮划艇在波光粼粼的水面上航行。\",\n  \"title\": \"雙人皮划艇漫遊\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n在微風中輕飄，雙人皮划艇上。\\n水波拍打着船身，偶爾泛起笑聲。\\n親切的目光相對，心隨風兒輕舞。\\n\\n[chorus]\\n隨著節奏輕柔搖擺，心中的樂章不離手。\\n忘卻煩悶，在這片水域遨遊。\\n每一刻都值得珍惜，與你共度時光。\\n\\n[end]\"\n}\n```"
+  }
+}

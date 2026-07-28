@@ -1,0 +1,34 @@
+{
+  "title": "快樂之旅",
+  "lyrics_text": "狗咪跳躍在空中\n與寧靜的大自然互動\n樂悲交織的畫面\n彷彿讓人回到故事的起始\n\n狗咪舉起耳朵\n聽著遠方的歌聲\n跳躍的動作\n激動人心的幻想\n\n狗咪舉起耳朵\n聽著遠方的歌聲\n跳躍的動作\n激動人心的幻想\n\n快樂之旅\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "黑色狗咪在木枝上跳躍",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "黑色狗咪在木枝上跳躍",
+      "title": "快樂之旅",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "狗咪跳躍在空中\n與寧靜的大自然互動\n樂悲交織的畫面\n彷彿讓人回到故事的起始\n\n狗咪舉起耳朵\n聽著遠方的歌聲\n跳躍的動作\n激動人心的幻想\n\n狗咪舉起耳朵\n聽著遠方的歌聲\n跳躍的動作\n激動人心的幻想\n\n快樂之旅"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"黑色狗咪在木枝上跳躍\",\n  \"title\": \"快樂之旅\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"狗咪跳躍在空中\\n與寧靜的大自然互動\\n樂悲交織的畫面\\n彷彿讓人回到故事的起始\\n\\n狗咪舉起耳朵\\n聽著遠方的歌聲\\n跳躍的動作\\n激動人心的幻想\\n\\n狗咪舉起耳朵\\n聽著遠方的歌聲\\n跳躍的動作\\n激動人心的幻想\\n\\n快樂之旅\"\n}"
+  }
+}

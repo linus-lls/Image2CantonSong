@@ -1,0 +1,34 @@
+{
+  "title": "飴爽的陽光下",
+  "lyrics_text": "水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "灑水場和兩位孩子在戶外跳水的場景",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "灑水場和兩位孩子在戶外跳水的場景",
+      "title": "飴爽的陽光下",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容\n\n水花飄飄掉落在空中\n雨滴在灑水場上繞著兩個頭\n孩子的對話輕輕微笑\n溫暖的陽光照亮了他們的笑容"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"灑水場和兩位孩子在戶外跳水的場景\",\n  \"title\": \"飴爽的陽光下\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"水花飄飄掉落在空中\\n雨滴在灑水場上繞著兩個頭\\n孩子的對話輕輕微笑\\n溫暖的陽光照亮了他們的笑容\\n\\n水花飄飄掉落在空中\\n雨滴在灑水場上繞著兩個頭\\n孩子的對話輕輕微笑\\n溫暖的陽光照亮了他們的笑容\\n\\n水花飄飄掉落在空中\\n雨滴在灑水場上繞著兩個頭\\n孩子的對話輕輕微笑\\n溫暖的陽光照亮了他們的笑容\\n\\n水花飄飄掉落在空中\\n雨滴在灑水場上繞著兩個頭\\n孩子的對話輕輕微笑\\n溫暖的陽光照亮了他們的笑容\"\n}"
+  }
+}

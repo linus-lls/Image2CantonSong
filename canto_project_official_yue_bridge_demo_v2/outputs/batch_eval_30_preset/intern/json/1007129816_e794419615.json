@@ -1,0 +1,34 @@
+{
+  "title": "孤獨的旋律",
+  "lyrics_text": "沉默的旋律\n溜走在人群中\n心中著著遺憾\n回想起那些回憶\n\n溜走的旋律\n在心底默默演奏\n伴隨著那穿梭的回憶\n回到這片空氣濃重的背景境內\n\n溜走的旋律\n在心底默默演奏\n伴隨著那穿梭的回憶\n回到這片空氣濃重的背景境內\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位戴遮陽帽的男子，戴着眼鏡，看起來在一個集會或酒吧",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位戴遮陽帽的男子，戴着眼鏡，看起來在一個集會或酒吧",
+      "title": "孤獨的旋律",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "沉默的旋律\n溜走在人群中\n心中著著遺憾\n回想起那些回憶\n\n溜走的旋律\n在心底默默演奏\n伴隨著那穿梭的回憶\n回到這片空氣濃重的背景境內\n\n溜走的旋律\n在心底默默演奏\n伴隨著那穿梭的回憶\n回到這片空氣濃重的背景境內"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位戴遮陽帽的男子，戴着眼鏡，看起來在一個集會或酒吧\",\n  \"title\": \"孤獨的旋律\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"沉默的旋律\\n溜走在人群中\\n心中著著遺憾\\n回想起那些回憶\\n\\n溜走的旋律\\n在心底默默演奏\\n伴隨著那穿梭的回憶\\n回到這片空氣濃重的背景境內\\n\\n溜走的旋律\\n在心底默默演奏\\n伴隨著那穿梭的回憶\\n回到這片空氣濃重的背景境內\"\n}"
+  }
+}

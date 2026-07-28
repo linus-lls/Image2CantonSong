@@ -1,0 +1,34 @@
+{
+  "title": "湖邊的休憩",
+  "lyrics_text": "[verse]\n湖邊的風輕柔吹過\n心靈放鬆在自然中\n閒坐享受這份寧靜\n生活的樂章在此時此刻奏起\n[chorus]\n湖光山色映眼簾\n回憶往昔微笑現\n快樂就在這瞬間停留\n湖邊的優雅在此刻展現\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位女性坐在草地上，背對着觀眾，她似乎在看着湖景。她的背後有一個人，可能是在休息或聊天。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位女性坐在草地上，背對着觀眾，她似乎在看着湖景。她的背後有一個人，可能是在休息或聊天。",
+      "title": "湖邊的休憩",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n湖邊的風輕柔吹過\n心靈放鬆在自然中\n閒坐享受這份寧靜\n生活的樂章在此時此刻奏起\n\n[chorus]\n湖光山色映眼簾\n回憶往昔微笑現\n快樂就在這瞬間停留\n湖邊的優雅在此刻展現\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"一位女性坐在草地上，背對着觀眾，她似乎在看着湖景。她的背後有一個人，可能是在休息或聊天。\",\n  \"title\": \"湖邊的休憩\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n湖邊的風輕柔吹過\\n心靈放鬆在自然中\\n閒坐享受這份寧靜\\n生活的樂章在此時此刻奏起\\n\\n[chorus]\\n湖光山色映眼簾\\n回憶往昔微笑現\\n快樂就在這瞬間停留\\n湖邊的優雅在此刻展現\\n\\n[end]\"\n}\n```"
+  }
+}

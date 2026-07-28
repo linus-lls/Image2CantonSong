@@ -1,0 +1,34 @@
+{
+  "title": "歡樂的跳躍",
+  "lyrics_text": "[verse]\n森林裏的聲音中\n你展現著活力\n跳躍的時光裡\n心情也跟着雀躍\n[chorus]\n歡樂的跳躍\n充滿著純真\n每一次躍起\n都是一次新嘗試\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻黑色狗在大自然中跳躍，背景是綠色的樹木和草地。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻黑色狗在大自然中跳躍，背景是綠色的樹木和草地。",
+      "title": "歡樂的跳躍",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n森林裏的聲音中\n你展現著活力\n跳躍的時光裡\n心情也跟着雀躍\n\n[chorus]\n歡樂的跳躍\n充滿著純真\n每一次躍起\n都是一次新嘗試\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一隻黑色狗在大自然中跳躍，背景是綠色的樹木和草地。\",\n  \"title\": \"歡樂的跳躍\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n森林裏的聲音中\\n你展現著活力\\n跳躍的時光裡\\n心情也跟着雀躍\\n\\n[chorus]\\n歡樂的跳躍\\n充滿著純真\\n每一次躍起\\n都是一次新嘗試\\n\\n[end]\"\n}"
+  }
+}

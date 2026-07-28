@@ -1,0 +1,34 @@
+{
+  "title": "滑板少年",
+  "lyrics_text": "滑板少年滑上高台\n跳起跳躍表情閃耀\n手握滑板在空中\n抒情狂放跳躍過\n滑板少年自由自在\n世界只則是這一刻\n跳起跳躍滑板舞蹈\n振奮人心在這一瞬間\n滑板少年畫出未來\n空中跳躍跳躍舞蹈\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一位年輕人側臉從高聳的台階跳起，手持滑板，背景是一個帶有涂銅文字的建築物。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一位年輕人側臉從高聳的台階跳起，手持滑板，背景是一個帶有涂銅文字的建築物。",
+      "title": "滑板少年",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "滑板少年滑上高台\n跳起跳躍表情閃耀\n手握滑板在空中\n抒情狂放跳躍過\n滑板少年自由自在\n世界只則是這一刻\n跳起跳躍滑板舞蹈\n振奮人心在這一瞬間\n滑板少年畫出未來\n空中跳躍跳躍舞蹈\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在\n滑板少年將夢想變成現在"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一位年輕人側臉從高聳的台階跳起，手持滑板，背景是一個帶有涂銅文字的建築物。\",\n  \"title\": \"滑板少年\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"滑板少年滑上高台\\n跳起跳躍表情閃耀\\n手握滑板在空中\\n抒情狂放跳躍過\\n滑板少年自由自在\\n世界只則是這一刻\\n跳起跳躍滑板舞蹈\\n振奮人心在這一瞬間\\n滑板少年畫出未來\\n空中跳躍跳躍舞蹈\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\\n滑板少年將夢想變成現在\"\n}"
+  }
+}

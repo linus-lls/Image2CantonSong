@@ -1,0 +1,34 @@
+{
+  "title": "快樂的黑狗",
+  "lyrics_text": "快樂的黑狗\n瞪開閃眼\n盛於軌道\n快樂的黑狗\n呼出聲狀\n快樂的黑狗\n盛於軌道\n與自然相互動當\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻黑色的狗在樹枝上嬉戲",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻黑色的狗在樹枝上嬉戲",
+      "title": "快樂的黑狗",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "快樂的黑狗\n瞪開閃眼\n盛於軌道\n快樂的黑狗\n呼出聲狀\n快樂的黑狗\n盛於軌道\n與自然相互動當"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一隻黑色的狗在樹枝上嬉戲\",\n  \"title\": \"快樂的黑狗\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"快樂的黑狗\\n瞪開閃眼\\n盛於軌道\\n快樂的黑狗\\n呼出聲狀\\n快樂的黑狗\\n盛於軌道\\n與自然相互動當\"\n}"
+  }
+}

@@ -1,0 +1,425 @@
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Input images found: 8091
+Images to evaluate: 10
+Models: ['qwen', 'intern', 'intern_rag']
+Output dir: outputs/batch_eval_10_preset
+Loading evaluation modules...
+Text emotion model: llm-online
+HUGGINGFACE_LLM_MODEL: zai-org/GLM-5
+
+================================================================================
+Testing model config: qwen
+model_id: Qwen/Qwen2.5-VL-3B-Instruct
+use_rag: False
+================================================================================
+[1/10] qwen | 1000268201_693b08cb0e.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+Building prefix dict from the default dictionary ...
+Dumping model to file cache /tmp/.u3665806/jieba.cache
+Loading model cost 0.381 seconds.
+Prefix dict has been built successfully.
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1000268201_693b08cb0e.jpg | qwen: {'similarity': 0.9299248456954956, 'image_predictions': [{'label': 'affection', 'score': 0.2557}, {'label': 'cheerfullness', 'score': 0.2064}, {'label': 'neglect', 'score': 0.1052}, {'label': 'relief', 'score': 0.0912}, {'label': 'zest', 'score': 0.0694}, {'label': 'contentment', 'score': 0.0606}, {'label': 'optimism', 'score': 0.0401}, {'label': 'sadness', 'score': 0.031}, {'label': 'gratitude', 'score': 0.0259}, {'label': 'lust', 'score': 0.0159}, {'label': 'nervousness', 'score': 0.0142}, {'label': 'rage', 'score': 0.0115}, {'label': 'irritabilty', 'score': 0.0091}, {'label': 'sympathy', 'score': 0.0087}, {'label': 'enthrallment', 'score': 0.0087}, {'label': 'pride', 'score': 0.008}, {'label': 'horror', 'score': 0.0065}, {'label': 'surprise', 'score': 0.0065}, {'label': 'confusion', 'score': 0.0058}, {'label': 'disappointment', 'score': 0.0055}, {'label': 'shame', 'score': 0.0041}, {'label': 'suffering', 'score': 0.0034}, {'label': 'envy', 'score': 0.0028}, {'label': 'disgust', 'score': 0.0021}, {'label': 'exasperation', 'score': 0.0019}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.85}, {'label': 'affection', 'english_label': 'affection', 'score': 0.5}, {'label': 'relief', 'english_label': 'relief', 'score': 0.35}, {'label': 'optimism', 'english_label': 'optimism', 'score': 0.25}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.39641645550727844 | emotion=0.9299248456954956 | format=83.62 | quality=0.4442
+[2/10] qwen | 1001773457_577c3a7d70.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.06it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1001773457_577c3a7d70.jpg | qwen: {'similarity': 0.8762322068214417, 'image_predictions': [{'label': 'rage', 'score': 0.2297}, {'label': 'irritabilty', 'score': 0.1183}, {'label': 'neglect', 'score': 0.0989}, {'label': 'envy', 'score': 0.0769}, {'label': 'cheerfullness', 'score': 0.0746}, {'label': 'nervousness', 'score': 0.0589}, {'label': 'sadness', 'score': 0.0551}, {'label': 'horror', 'score': 0.033}, {'label': 'sympathy', 'score': 0.0325}, {'label': 'shame', 'score': 0.0295}, {'label': 'suffering', 'score': 0.0259}, {'label': 'disappointment', 'score': 0.0247}, {'label': 'zest', 'score': 0.0188}, {'label': 'disgust', 'score': 0.0187}, {'label': 'affection', 'score': 0.0166}, {'label': 'confusion', 'score': 0.0162}, {'label': 'optimism', 'score': 0.0137}, {'label': 'exasperation', 'score': 0.0126}, {'label': 'lust', 'score': 0.0122}, {'label': 'pride', 'score': 0.0092}, {'label': 'contentment', 'score': 0.0072}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'relief', 'score': 0.0047}, {'label': 'surprise', 'score': 0.004}, {'label': 'gratitude', 'score': 0.0026}], 'text_predictions': [{'label': 'Nervousness', 'english_label': 'Nervousness', 'score': 0.9}, {'label': 'Rage', 'english_label': 'Rage', 'score': 0.85}, {'label': 'Irritability', 'english_label': 'Irritability', 'score': 0.75}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.41816723346710205 | emotion=0.8762322068214417 | format=94.92 | quality=0.4756
+[3/10] qwen | 1002674143_1b742ab4b8.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.18it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.16it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1002674143_1b742ab4b8.jpg | qwen: {'similarity': 0.8776017427444458, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.573}, {'label': 'zest', 'score': 0.1203}, {'label': 'surprise', 'score': 0.0593}, {'label': 'affection', 'score': 0.0426}, {'label': 'pride', 'score': 0.0339}, {'label': 'contentment', 'score': 0.031}, {'label': 'optimism', 'score': 0.0283}, {'label': 'gratitude', 'score': 0.0203}, {'label': 'relief', 'score': 0.0167}, {'label': 'sadness', 'score': 0.0145}, {'label': 'neglect', 'score': 0.0145}, {'label': 'rage', 'score': 0.0076}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'nervousness', 'score': 0.0052}, {'label': 'sympathy', 'score': 0.0043}, {'label': 'lust', 'score': 0.004}, {'label': 'shame', 'score': 0.0036}, {'label': 'confusion', 'score': 0.0031}, {'label': 'disappointment', 'score': 0.0028}, {'label': 'irritabilty', 'score': 0.0028}, {'label': 'horror', 'score': 0.002}, {'label': 'envy', 'score': 0.0016}, {'label': 'exasperation', 'score': 0.0014}, {'label': 'disgust', 'score': 0.001}, {'label': 'suffering', 'score': 0.0006}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.85}, {'label': 'zest', 'english_label': 'zest', 'score': 0.75}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.6}, {'label': 'relief', 'english_label': 'relief', 'score': 0.5}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.46773460507392883 | emotion=0.8776017427444458 | format=83.43 | quality=0.3959
+[4/10] qwen | 1003163366_44323f5815.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.01s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1003163366_44323f5815.jpg | qwen: {'similarity': 0.9473606944084167, 'image_predictions': [{'label': 'relief', 'score': 0.5596}, {'label': 'contentment', 'score': 0.136}, {'label': 'cheerfullness', 'score': 0.1251}, {'label': 'neglect', 'score': 0.0487}, {'label': 'sadness', 'score': 0.0286}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'affection', 'score': 0.0214}, {'label': 'irritabilty', 'score': 0.0102}, {'label': 'nervousness', 'score': 0.0064}, {'label': 'zest', 'score': 0.006}, {'label': 'lust', 'score': 0.0059}, {'label': 'exasperation', 'score': 0.004}, {'label': 'sympathy', 'score': 0.003}, {'label': 'rage', 'score': 0.0024}, {'label': 'horror', 'score': 0.0022}, {'label': 'suffering', 'score': 0.0022}, {'label': 'gratitude', 'score': 0.0019}, {'label': 'pride', 'score': 0.0018}, {'label': 'shame', 'score': 0.0018}, {'label': 'optimism', 'score': 0.0016}, {'label': 'envy', 'score': 0.0015}, {'label': 'enthrallment', 'score': 0.0014}, {'label': 'surprise', 'score': 0.0012}, {'label': 'disgust', 'score': 0.0011}, {'label': 'confusion', 'score': 0.0006}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.9}, {'label': 'relief', 'english_label': 'relief', 'score': 0.85}, {'label': 'gratitude', 'english_label': 'gratitude', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4545891284942627 | emotion=0.9473606944084167 | format=73.74 | quality=0.5417
+[5/10] qwen | 1007129816_e794419615.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.06s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1007129816_e794419615.jpg | qwen: {'similarity': 0.9153448939323425, 'image_predictions': [{'label': 'confusion', 'score': 0.212}, {'label': 'cheerfullness', 'score': 0.1147}, {'label': 'nervousness', 'score': 0.101}, {'label': 'irritabilty', 'score': 0.0911}, {'label': 'rage', 'score': 0.0737}, {'label': 'disgust', 'score': 0.0581}, {'label': 'disappointment', 'score': 0.0551}, {'label': 'surprise', 'score': 0.0424}, {'label': 'sadness', 'score': 0.031}, {'label': 'exasperation', 'score': 0.0263}, {'label': 'neglect', 'score': 0.025}, {'label': 'optimism', 'score': 0.0238}, {'label': 'suffering', 'score': 0.0217}, {'label': 'horror', 'score': 0.0198}, {'label': 'pride', 'score': 0.0187}, {'label': 'contentment', 'score': 0.0175}, {'label': 'shame', 'score': 0.0173}, {'label': 'relief', 'score': 0.0145}, {'label': 'zest', 'score': 0.0096}, {'label': 'sympathy', 'score': 0.0075}, {'label': 'envy', 'score': 0.0069}, {'label': 'affection', 'score': 0.0039}, {'label': 'lust', 'score': 0.0035}, {'label': 'gratitude', 'score': 0.0028}, {'label': 'enthrallment', 'score': 0.002}], 'text_predictions': [{'label': 'nervousness', 'english_label': 'nervousness', 'score': 0.85}, {'label': 'confusion', 'english_label': 'confusion', 'score': 0.75}, {'label': 'sadness', 'english_label': 'sadness', 'score': 0.7}, {'label': 'suffering', 'english_label': 'suffering', 'score': 0.6}, {'label': 'disappointment', 'english_label': 'disappointment', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.42670759558677673 | emotion=0.9153448939323425 | format=94.92 | quality=0.5402
+[6/10] qwen | 1007320043_627395c3d8.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.09s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1007320043_627395c3d8.jpg | qwen: {'similarity': 0.8796764016151428, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.3099}, {'label': 'sadness', 'score': 0.1302}, {'label': 'zest', 'score': 0.1048}, {'label': 'affection', 'score': 0.0461}, {'label': 'suffering', 'score': 0.0443}, {'label': 'rage', 'score': 0.0353}, {'label': 'contentment', 'score': 0.0333}, {'label': 'neglect', 'score': 0.031}, {'label': 'optimism', 'score': 0.0296}, {'label': 'confusion', 'score': 0.0282}, {'label': 'nervousness', 'score': 0.0273}, {'label': 'pride', 'score': 0.0256}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'irritabilty', 'score': 0.022}, {'label': 'envy', 'score': 0.0172}, {'label': 'enthrallment', 'score': 0.0138}, {'label': 'exasperation', 'score': 0.0128}, {'label': 'sympathy', 'score': 0.0119}, {'label': 'relief', 'score': 0.011}, {'label': 'lust', 'score': 0.0104}, {'label': 'surprise', 'score': 0.0098}, {'label': 'horror', 'score': 0.0057}, {'label': 'shame', 'score': 0.0053}, {'label': 'gratitude', 'score': 0.0046}, {'label': 'disgust', 'score': 0.0044}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.7}, {'label': 'affection', 'english_label': 'affection', 'score': 0.6}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.55}, {'label': 'gratitude', 'english_label': 'gratitude', 'score': 0.4}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.44425082206726074 | emotion=0.8796764016151428 | format=83.43 | quality=0.6043
+[7/10] qwen | 1009434119_febe49276a.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1009434119_febe49276a.jpg | qwen: {'similarity': 0.9148165583610535, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4044}, {'label': 'zest', 'score': 0.1515}, {'label': 'affection', 'score': 0.0635}, {'label': 'rage', 'score': 0.0564}, {'label': 'neglect', 'score': 0.0562}, {'label': 'irritabilty', 'score': 0.0346}, {'label': 'contentment', 'score': 0.0344}, {'label': 'pride', 'score': 0.0314}, {'label': 'relief', 'score': 0.0178}, {'label': 'disappointment', 'score': 0.0176}, {'label': 'sadness', 'score': 0.0171}, {'label': 'optimism', 'score': 0.0165}, {'label': 'enthrallment', 'score': 0.0162}, {'label': 'suffering', 'score': 0.0157}, {'label': 'nervousness', 'score': 0.0149}, {'label': 'horror', 'score': 0.01}, {'label': 'lust', 'score': 0.0083}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'exasperation', 'score': 0.0053}, {'label': 'surprise', 'score': 0.0047}, {'label': 'envy', 'score': 0.0046}, {'label': 'gratitude', 'score': 0.0044}, {'label': 'shame', 'score': 0.0029}, {'label': 'disgust', 'score': 0.0024}, {'label': 'confusion', 'score': 0.0022}], 'text_predictions': [{'label': 'zest', 'english_label': 'zest', 'score': 0.85}, {'label': 'optimism', 'english_label': 'optimism', 'score': 0.75}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.7}, {'label': 'relief', 'english_label': 'relief', 'score': 0.65}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.6}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.49876517057418823 | emotion=0.9148165583610535 | format=89.38 | quality=0.4876
+[8/10] qwen | 1012212859_01547e3f17.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.01it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1012212859_01547e3f17.jpg | qwen: {'similarity': 0.9262237548828125, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4371}, {'label': 'zest', 'score': 0.0952}, {'label': 'contentment', 'score': 0.0908}, {'label': 'irritabilty', 'score': 0.0481}, {'label': 'relief', 'score': 0.0447}, {'label': 'neglect', 'score': 0.0363}, {'label': 'disappointment', 'score': 0.0357}, {'label': 'rage', 'score': 0.0305}, {'label': 'nervousness', 'score': 0.0294}, {'label': 'sadness', 'score': 0.0242}, {'label': 'optimism', 'score': 0.0226}, {'label': 'affection', 'score': 0.0156}, {'label': 'surprise', 'score': 0.0133}, {'label': 'suffering', 'score': 0.0124}, {'label': 'pride', 'score': 0.0118}, {'label': 'lust', 'score': 0.0087}, {'label': 'shame', 'score': 0.0073}, {'label': 'enthrallment', 'score': 0.0068}, {'label': 'exasperation', 'score': 0.0068}, {'label': 'disgust', 'score': 0.0053}, {'label': 'confusion', 'score': 0.0046}, {'label': 'horror', 'score': 0.0046}, {'label': 'sympathy', 'score': 0.0044}, {'label': 'gratitude', 'score': 0.002}, {'label': 'envy', 'score': 0.0019}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.9}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.75}, {'label': 'affection', 'english_label': 'affection', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4952521324157715 | emotion=0.9262237548828125 | format=83.43 | quality=0.424
+[9/10] qwen | 1015118661_980735411b.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.08it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+  Cleared generation model/cache for: qwen
+[emotion result] 1015118661_980735411b.jpg | qwen: {'similarity': 0.8981306552886963, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.2314}, {'label': 'zest', 'score': 0.1567}, {'label': 'rage', 'score': 0.0993}, {'label': 'contentment', 'score': 0.0558}, {'label': 'nervousness', 'score': 0.0548}, {'label': 'pride', 'score': 0.038}, {'label': 'irritabilty', 'score': 0.0322}, {'label': 'neglect', 'score': 0.0307}, {'label': 'optimism', 'score': 0.0306}, {'label': 'enthrallment', 'score': 0.0277}, {'label': 'affection', 'score': 0.0273}, {'label': 'confusion', 'score': 0.026}, {'label': 'sadness', 'score': 0.0256}, {'label': 'suffering', 'score': 0.0233}, {'label': 'surprise', 'score': 0.022}, {'label': 'disappointment', 'score': 0.0207}, {'label': 'disgust', 'score': 0.0167}, {'label': 'envy', 'score': 0.0139}, {'label': 'horror', 'score': 0.0133}, {'label': 'shame', 'score': 0.013}, {'label': 'exasperation', 'score': 0.0108}, {'label': 'lust', 'score': 0.0108}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'relief', 'score': 0.0065}, {'label': 'gratitude', 'score': 0.0062}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.8}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.6}, {'label': 'zest', 'english_label': 'zest', 'score': 0.5}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.45}, {'label': 'optimism', 'english_label': 'optimism', 'score': 0.4}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3865121006965637 | emotion=0.8981306552886963 | format=83.36 | quality=0.315
+[10/10] qwen | 1015584366_dfcec3c85a.jpg
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.03s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.10it/s]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+/userhome/cs5/u3665806/anaconda3/envs/yue_project_clean/lib/python3.10/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attenton` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+Phi3ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+  Cleared generation model/cache for: qwen
+[emotion result] 1015584366_dfcec3c85a.jpg | qwen: {'similarity': 0.9057689905166626, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.386}, {'label': 'zest', 'score': 0.3066}, {'label': 'rage', 'score': 0.0371}, {'label': 'neglect', 'score': 0.0365}, {'label': 'pride', 'score': 0.0337}, {'label': 'contentment', 'score': 0.0261}, {'label': 'nervousness', 'score': 0.0249}, {'label': 'relief', 'score': 0.022}, {'label': 'optimism', 'score': 0.0174}, {'label': 'horror', 'score': 0.0168}, {'label': 'lust', 'score': 0.014}, {'label': 'surprise', 'score': 0.0108}, {'label': 'irritabilty', 'score': 0.0096}, {'label': 'enthrallment', 'score': 0.0094}, {'label': 'sadness', 'score': 0.0092}, {'label': 'sympathy', 'score': 0.0087}, {'label': 'affection', 'score': 0.0086}, {'label': 'disappointment', 'score': 0.0047}, {'label': 'envy', 'score': 0.004}, {'label': 'confusion', 'score': 0.0036}, {'label': 'gratitude', 'score': 0.0029}, {'label': 'shame', 'score': 0.0026}, {'label': 'suffering', 'score': 0.0021}, {'label': 'exasperation', 'score': 0.002}, {'label': 'disgust', 'score': 0.0008}], 'text_predictions': [{'label': 'Contentment', 'english_label': 'Contentment', 'score': 0.7}, {'label': 'Zest', 'english_label': 'Zest', 'score': 0.65}, {'label': 'Cheerfulness', 'english_label': 'Cheerfulness', 'score': 0.6}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.40460139513015747 | emotion=0.9057689905166626 | format=94.92 | quality=0.5646
+Saved model CSV: outputs/batch_eval_10_preset/results_qwen.csv
+Model qwen elapsed time: 00:29:17 (1756.72s)
+  Cleared generation model/cache for: qwen
+
+================================================================================
+Testing model config: intern
+model_id: OpenGVLab/InternVL2-4B
+use_rag: False
+================================================================================
+[1/10] intern | 1000268201_693b08cb0e.jpg
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.18s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.04it/s]
+The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+You are not running the flash-attention implementation, expect numerical differences.
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "一位小孩在一座木屋前玩耍",
+  "title": "小孩的探索",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n黑夜落並來\n星空關上了眼\n我們一起探索\n這裡的美好\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1000268201_693b08cb0e.jpg | intern: {'similarity': 0.9104893803596497, 'image_predictions': [{'label': 'affection', 'score': 0.2557}, {'label': 'cheerfullness', 'score': 0.2064}, {'label': 'neglect', 'score': 0.1052}, {'label': 'relief', 'score': 0.0912}, {'label': 'zest', 'score': 0.0694}, {'label': 'contentment', 'score': 0.0606}, {'label': 'optimism', 'score': 0.0401}, {'label': 'sadness', 'score': 0.031}, {'label': 'gratitude', 'score': 0.0259}, {'label': 'lust', 'score': 0.0159}, {'label': 'nervousness', 'score': 0.0142}, {'label': 'rage', 'score': 0.0115}, {'label': 'irritabilty', 'score': 0.0091}, {'label': 'sympathy', 'score': 0.0087}, {'label': 'enthrallment', 'score': 0.0087}, {'label': 'pride', 'score': 0.008}, {'label': 'horror', 'score': 0.0065}, {'label': 'surprise', 'score': 0.0065}, {'label': 'confusion', 'score': 0.0058}, {'label': 'disappointment', 'score': 0.0055}, {'label': 'shame', 'score': 0.0041}, {'label': 'suffering', 'score': 0.0034}, {'label': 'envy', 'score': 0.0028}, {'label': 'disgust', 'score': 0.0021}, {'label': 'exasperation', 'score': 0.0019}], 'text_predictions': [{'label': 'Contentment', 'english_label': 'Contentment', 'score': 0.9}, {'label': 'Enthrallment', 'english_label': 'Enthrallment', 'score': 0.7}, {'label': 'Affection', 'english_label': 'Affection', 'score': 0.55}, {'label': 'Optimism', 'english_label': 'Optimism', 'score': 0.45}, {'label': 'Gratitude', 'english_label': 'Gratitude', 'score': 0.4}, {'label': 'Cheerfulness', 'english_label': 'Cheerfulness', 'score': 0.3}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.44867759943008423 | emotion=0.9104893803596497 | format=63.12 | quality=0.6543
+[2/10] intern | 1001773457_577c3a7d70.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.00it/s]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "兩個狗在街上興炽的衝突",
+  "title": "Dog Fight",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "差距仍很小\n兩個帶狗衝突\n擁抱對抗與衝突\n街道上興炽衝突\n\n差距仍很小\n兩個帶狗衝突\n擁抱對抗與衝突\n街道上興炽衝突"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1001773457_577c3a7d70.jpg | intern: {'similarity': 0.8822206258773804, 'image_predictions': [{'label': 'rage', 'score': 0.2297}, {'label': 'irritabilty', 'score': 0.1183}, {'label': 'neglect', 'score': 0.0989}, {'label': 'envy', 'score': 0.0769}, {'label': 'cheerfullness', 'score': 0.0746}, {'label': 'nervousness', 'score': 0.0589}, {'label': 'sadness', 'score': 0.0551}, {'label': 'horror', 'score': 0.033}, {'label': 'sympathy', 'score': 0.0325}, {'label': 'shame', 'score': 0.0295}, {'label': 'suffering', 'score': 0.0259}, {'label': 'disappointment', 'score': 0.0247}, {'label': 'zest', 'score': 0.0188}, {'label': 'disgust', 'score': 0.0187}, {'label': 'affection', 'score': 0.0166}, {'label': 'confusion', 'score': 0.0162}, {'label': 'optimism', 'score': 0.0137}, {'label': 'exasperation', 'score': 0.0126}, {'label': 'lust', 'score': 0.0122}, {'label': 'pride', 'score': 0.0092}, {'label': 'contentment', 'score': 0.0072}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'relief', 'score': 0.0047}, {'label': 'surprise', 'score': 0.004}, {'label': 'gratitude', 'score': 0.0026}], 'text_predictions': [{'label': 'irritability', 'english_label': 'irritability', 'score': 0.85}, {'label': 'nervousness', 'english_label': 'nervousness', 'score': 0.8}, {'label': 'exasperation', 'english_label': 'exasperation', 'score': 0.75}, {'label': 'rage', 'english_label': 'rage', 'score': 0.6}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4784545302391052 | emotion=0.8822206258773804 | format=68.82 | quality=0.631
+[3/10] intern | 1002674143_1b742ab4b8.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "彩虹與兒童玩具，暗示祥和快樂的氛圍",
+  "title": "彩虹的童趣",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "彩虹與童年的嬉戲，\n一個小女孩在探尋夢想的路程\n彩虹幾乎是天空的雨伞\n擁有瑜伽式的運動內心的變化\n每一天都是一條綠色的希望\n彩虹的童趣，\n讓我們一起飛向步檠的著名\n彩虹的童趣，\n讓我們一起飛向步檠的著名"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1002674143_1b742ab4b8.jpg | intern: {'similarity': 0.9261241555213928, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.573}, {'label': 'zest', 'score': 0.1203}, {'label': 'surprise', 'score': 0.0593}, {'label': 'affection', 'score': 0.0426}, {'label': 'pride', 'score': 0.0339}, {'label': 'contentment', 'score': 0.031}, {'label': 'optimism', 'score': 0.0283}, {'label': 'gratitude', 'score': 0.0203}, {'label': 'relief', 'score': 0.0167}, {'label': 'sadness', 'score': 0.0145}, {'label': 'neglect', 'score': 0.0145}, {'label': 'rage', 'score': 0.0076}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'nervousness', 'score': 0.0052}, {'label': 'sympathy', 'score': 0.0043}, {'label': 'lust', 'score': 0.004}, {'label': 'shame', 'score': 0.0036}, {'label': 'confusion', 'score': 0.0031}, {'label': 'disappointment', 'score': 0.0028}, {'label': 'irritabilty', 'score': 0.0028}, {'label': 'horror', 'score': 0.002}, {'label': 'envy', 'score': 0.0016}, {'label': 'exasperation', 'score': 0.0014}, {'label': 'disgust', 'score': 0.001}, {'label': 'suffering', 'score': 0.0006}], 'text_predictions': [{'label': 'optimism', 'english_label': 'optimism', 'score': 0.85}, {'label': 'affection', 'english_label': 'affection', 'score': 0.8}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.65}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.55}, {'label': 'zest', 'english_label': 'zest', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.44711971282958984 | emotion=0.9261241555213928 | format=71.29 | quality=0.5249
+[4/10] intern | 1003163366_44323f5815.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.06it/s]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "一個男人趴在長椅上，背墊帶著懷童，與一個黑白狗在一起，背景是一個水景區域。",
+  "title": "懷念的靜水",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "暖陽照著我的心，懷念約望的家人\n平安的日子，曾經的回憶\n回憶中的美好時光，沒有幽靈\n讓我在靜水中，回憶輕輕漫步"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1003163366_44323f5815.jpg | intern: {'similarity': 0.706576943397522, 'image_predictions': [{'label': 'relief', 'score': 0.5596}, {'label': 'contentment', 'score': 0.136}, {'label': 'cheerfullness', 'score': 0.1251}, {'label': 'neglect', 'score': 0.0487}, {'label': 'sadness', 'score': 0.0286}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'affection', 'score': 0.0214}, {'label': 'irritabilty', 'score': 0.0102}, {'label': 'nervousness', 'score': 0.0064}, {'label': 'zest', 'score': 0.006}, {'label': 'lust', 'score': 0.0059}, {'label': 'exasperation', 'score': 0.004}, {'label': 'sympathy', 'score': 0.003}, {'label': 'rage', 'score': 0.0024}, {'label': 'horror', 'score': 0.0022}, {'label': 'suffering', 'score': 0.0022}, {'label': 'gratitude', 'score': 0.0019}, {'label': 'pride', 'score': 0.0018}, {'label': 'shame', 'score': 0.0018}, {'label': 'optimism', 'score': 0.0016}, {'label': 'envy', 'score': 0.0015}, {'label': 'enthrallment', 'score': 0.0014}, {'label': 'surprise', 'score': 0.0012}, {'label': 'disgust', 'score': 0.0011}, {'label': 'confusion', 'score': 0.0006}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.95}, {'label': 'affection', 'english_label': 'affection', 'score': 0.75}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3876093924045563 | emotion=0.706576943397522 | format=70.8 | quality=0.4272
+[5/10] intern | 1007129816_e794419615.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.35s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "午夜市集風情轉變",
+  "title": "午夜市集",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "午夜市集\n走在夜市街上\n路灯下的繁華\n心中的迷惘\n\n\n午夜市集\n聊天坐在一起\n彼此的笑容\n心中的欢欣"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1007129816_e794419615.jpg | intern: {'similarity': 0.8029192090034485, 'image_predictions': [{'label': 'confusion', 'score': 0.212}, {'label': 'cheerfullness', 'score': 0.1147}, {'label': 'nervousness', 'score': 0.101}, {'label': 'irritabilty', 'score': 0.0911}, {'label': 'rage', 'score': 0.0737}, {'label': 'disgust', 'score': 0.0581}, {'label': 'disappointment', 'score': 0.0551}, {'label': 'surprise', 'score': 0.0424}, {'label': 'sadness', 'score': 0.031}, {'label': 'exasperation', 'score': 0.0263}, {'label': 'neglect', 'score': 0.025}, {'label': 'optimism', 'score': 0.0238}, {'label': 'suffering', 'score': 0.0217}, {'label': 'horror', 'score': 0.0198}, {'label': 'pride', 'score': 0.0187}, {'label': 'contentment', 'score': 0.0175}, {'label': 'shame', 'score': 0.0173}, {'label': 'relief', 'score': 0.0145}, {'label': 'zest', 'score': 0.0096}, {'label': 'sympathy', 'score': 0.0075}, {'label': 'envy', 'score': 0.0069}, {'label': 'affection', 'score': 0.0039}, {'label': 'lust', 'score': 0.0035}, {'label': 'gratitude', 'score': 0.0028}, {'label': 'enthrallment', 'score': 0.002}], 'text_predictions': [{'label': 'Contentment', 'english_label': 'Contentment', 'score': 0.55}, {'label': 'Affection', 'english_label': 'Affection', 'score': 0.5}, {'label': 'Confusion', 'english_label': 'Confusion', 'score': 0.4}, {'label': 'Relief', 'english_label': 'Relief', 'score': 0.35}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.37398189306259155 | emotion=0.8029192090034485 | format=68.82 | quality=0.4264
+[6/10] intern | 1007320043_627395c3d8.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.15s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "圖片中有一個小孩子站在綠色的繩索上，背景有興奮的圖案和窗爐",
+  "title": "孩子的夢想",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "孩子的夢想\n夢想幻想著色彩般的世界\n孩子的夢想\n夢想幻想著色彩般的世界\n\n夢想幻想著色彩般的世界\n夢想著色彩般的世界"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1007320043_627395c3d8.jpg | intern: {'similarity': 0.8510828018188477, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.3099}, {'label': 'sadness', 'score': 0.1302}, {'label': 'zest', 'score': 0.1048}, {'label': 'affection', 'score': 0.0461}, {'label': 'suffering', 'score': 0.0443}, {'label': 'rage', 'score': 0.0353}, {'label': 'contentment', 'score': 0.0333}, {'label': 'neglect', 'score': 0.031}, {'label': 'optimism', 'score': 0.0296}, {'label': 'confusion', 'score': 0.0282}, {'label': 'nervousness', 'score': 0.0273}, {'label': 'pride', 'score': 0.0256}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'irritabilty', 'score': 0.022}, {'label': 'envy', 'score': 0.0172}, {'label': 'enthrallment', 'score': 0.0138}, {'label': 'exasperation', 'score': 0.0128}, {'label': 'sympathy', 'score': 0.0119}, {'label': 'relief', 'score': 0.011}, {'label': 'lust', 'score': 0.0104}, {'label': 'surprise', 'score': 0.0098}, {'label': 'horror', 'score': 0.0057}, {'label': 'shame', 'score': 0.0053}, {'label': 'gratitude', 'score': 0.0046}, {'label': 'disgust', 'score': 0.0044}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.85}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.7}, {'label': 'optimism', 'english_label': 'optimism', 'score': 0.6}, {'label': 'affection', 'english_label': 'affection', 'score': 0.5}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3719016909599304 | emotion=0.8510828018188477 | format=68.6 | quality=0.6888
+[7/10] intern | 1009434119_febe49276a.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.24s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1009434119_febe49276a.jpg | intern: {'similarity': 0.8888369798660278, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4044}, {'label': 'zest', 'score': 0.1515}, {'label': 'affection', 'score': 0.0635}, {'label': 'rage', 'score': 0.0564}, {'label': 'neglect', 'score': 0.0562}, {'label': 'irritabilty', 'score': 0.0346}, {'label': 'contentment', 'score': 0.0344}, {'label': 'pride', 'score': 0.0314}, {'label': 'relief', 'score': 0.0178}, {'label': 'disappointment', 'score': 0.0176}, {'label': 'sadness', 'score': 0.0171}, {'label': 'optimism', 'score': 0.0165}, {'label': 'enthrallment', 'score': 0.0162}, {'label': 'suffering', 'score': 0.0157}, {'label': 'nervousness', 'score': 0.0149}, {'label': 'horror', 'score': 0.01}, {'label': 'lust', 'score': 0.0083}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'exasperation', 'score': 0.0053}, {'label': 'surprise', 'score': 0.0047}, {'label': 'envy', 'score': 0.0046}, {'label': 'gratitude', 'score': 0.0044}, {'label': 'shame', 'score': 0.0029}, {'label': 'disgust', 'score': 0.0024}, {'label': 'confusion', 'score': 0.0022}], 'text_predictions': [{'label': 'zest', 'english_label': 'zest', 'score': 0.95}, {'label': 'affection', 'english_label': 'affection', 'score': 0.85}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.75}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.7}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.48433905839920044 | emotion=0.8888369798660278 | format=89.28 | quality=0.5823
+[8/10] intern | 1012212859_01547e3f17.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.01s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "一個擁有膚色毛巾的白色狗站在海滩上，周圍有水，背景有海水和沙地",
+  "title": "海滩戲卡",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "海風與日光\n輕鬆的時光差不多\n卡通狗跑向海浪\n滾滾激情隨著狗倒"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1012212859_01547e3f17.jpg | intern: {'similarity': 0.9286472797393799, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4371}, {'label': 'zest', 'score': 0.0952}, {'label': 'contentment', 'score': 0.0908}, {'label': 'irritabilty', 'score': 0.0481}, {'label': 'relief', 'score': 0.0447}, {'label': 'neglect', 'score': 0.0363}, {'label': 'disappointment', 'score': 0.0357}, {'label': 'rage', 'score': 0.0305}, {'label': 'nervousness', 'score': 0.0294}, {'label': 'sadness', 'score': 0.0242}, {'label': 'optimism', 'score': 0.0226}, {'label': 'affection', 'score': 0.0156}, {'label': 'surprise', 'score': 0.0133}, {'label': 'suffering', 'score': 0.0124}, {'label': 'pride', 'score': 0.0118}, {'label': 'lust', 'score': 0.0087}, {'label': 'shame', 'score': 0.0073}, {'label': 'enthrallment', 'score': 0.0068}, {'label': 'exasperation', 'score': 0.0068}, {'label': 'disgust', 'score': 0.0053}, {'label': 'confusion', 'score': 0.0046}, {'label': 'horror', 'score': 0.0046}, {'label': 'sympathy', 'score': 0.0044}, {'label': 'gratitude', 'score': 0.002}, {'label': 'envy', 'score': 0.0019}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.9}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.75}, {'label': 'relief', 'english_label': 'relief', 'score': 0.6}, {'label': 'zest', 'english_label': 'zest', 'score': 0.45}, {'label': 'surprise', 'english_label': 'surprise', 'score': 0.25}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4257577657699585 | emotion=0.9286472797393799 | format=70.8 | quality=0.4263
+[9/10] intern | 1015118661_980735411b.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "一位年輕的男孩正在街上玩耍，背景是老旧的石墙和老式的路灯杆。",
+  "title": "歡樂的回憶",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "歡樂的回憶\n聯繫遠方的記憶\n昨日的夢見\n現在的過去\n\n歡樂的回憶\n聯繫遠方的記憶\n昨日的夢見\n現在的過去\n\n\n\n\n\n\n\n"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1015118661_980735411b.jpg | intern: {'similarity': 0.7001396417617798, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.2314}, {'label': 'zest', 'score': 0.1567}, {'label': 'rage', 'score': 0.0993}, {'label': 'contentment', 'score': 0.0558}, {'label': 'nervousness', 'score': 0.0548}, {'label': 'pride', 'score': 0.038}, {'label': 'irritabilty', 'score': 0.0322}, {'label': 'neglect', 'score': 0.0307}, {'label': 'optimism', 'score': 0.0306}, {'label': 'enthrallment', 'score': 0.0277}, {'label': 'affection', 'score': 0.0273}, {'label': 'confusion', 'score': 0.026}, {'label': 'sadness', 'score': 0.0256}, {'label': 'suffering', 'score': 0.0233}, {'label': 'surprise', 'score': 0.022}, {'label': 'disappointment', 'score': 0.0207}, {'label': 'disgust', 'score': 0.0167}, {'label': 'envy', 'score': 0.0139}, {'label': 'horror', 'score': 0.0133}, {'label': 'shame', 'score': 0.013}, {'label': 'exasperation', 'score': 0.0108}, {'label': 'lust', 'score': 0.0108}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'relief', 'score': 0.0065}, {'label': 'gratitude', 'score': 0.0062}], 'text_predictions': [{'label': 'sadness', 'english_label': 'sadness', 'score': 0.5}, {'label': 'affection', 'english_label': 'affection', 'score': 0.4}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3535608649253845 | emotion=0.7001396417617798 | format=68.82 | quality=0.4735
+[10/10] intern | 1015584366_dfcec3c85a.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "黑色狗咪，與棒棒棒形成鮮豔的對比，背景於鄉村環境。",
+  "title": "追忆興奮",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "追忆興奮\n轉彎興奮的步伐\n軿踏轉彎的跳躍\n追忆興奮的快樂\n\n追忆興奮\n回低追忆興奮的步伐\n回低跳躍的轉彎\n追忆興奮的快樂\n\n[end]"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern
+[emotion result] 1015584366_dfcec3c85a.jpg | intern: {'similarity': 0.9411119222640991, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.386}, {'label': 'zest', 'score': 0.3066}, {'label': 'rage', 'score': 0.0371}, {'label': 'neglect', 'score': 0.0365}, {'label': 'pride', 'score': 0.0337}, {'label': 'contentment', 'score': 0.0261}, {'label': 'nervousness', 'score': 0.0249}, {'label': 'relief', 'score': 0.022}, {'label': 'optimism', 'score': 0.0174}, {'label': 'horror', 'score': 0.0168}, {'label': 'lust', 'score': 0.014}, {'label': 'surprise', 'score': 0.0108}, {'label': 'irritabilty', 'score': 0.0096}, {'label': 'enthrallment', 'score': 0.0094}, {'label': 'sadness', 'score': 0.0092}, {'label': 'sympathy', 'score': 0.0087}, {'label': 'affection', 'score': 0.0086}, {'label': 'disappointment', 'score': 0.0047}, {'label': 'envy', 'score': 0.004}, {'label': 'confusion', 'score': 0.0036}, {'label': 'gratitude', 'score': 0.0029}, {'label': 'shame', 'score': 0.0026}, {'label': 'suffering', 'score': 0.0021}, {'label': 'exasperation', 'score': 0.002}, {'label': 'disgust', 'score': 0.0008}], 'text_predictions': [{'label': 'zest', 'english_label': 'zest', 'score': 0.8}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.7}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.55}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4040110111236572 | emotion=0.9411119222640991 | format=66.28 | quality=0.5054
+Saved model CSV: outputs/batch_eval_10_preset/results_intern.csv
+Model intern elapsed time: 00:29:15 (1755.06s)
+  Cleared generation model/cache for: intern
+
+================================================================================
+Testing model config: intern_rag
+model_id: OpenGVLab/InternVL2-4B
+use_rag: True
+================================================================================
+[1/10] intern_rag | 1000268201_693b08cb0e.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Generation failed: Multimodal LLM did not return valid JSON. Raw tail:\n[visual_anchor] 孩子在寧靜的角落里與裝飾裝飾的櫃檯互動，背景是一片綠色的草地，給人一種寧靜祥和的感覺。
+
+[title] 幾個個零零散散的玩具、書籍和擺放整齊的甜點讓孩子們逛過櫃檯，並找到自己喜歡的玩具。
+
+[lyrics_text]
+第一行歌詞
+第二行歌詞
+第三行歌詞
+第四行歌詞
+
+第五行歌詞
+第六行歌詞
+第七行歌詞
+第八行歌詞
+
+[end]
+
+[genre_prompt] female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin
+  Cleared generation model/cache for: intern_rag
+[2/10] intern_rag | 1001773457_577c3a7d70.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.40s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.10s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "黑白相於的狗在路上奔跑",
+  "title": "奔跑",
+  "lyrics_text": "黑白相於的狗在路上奔跑\n一種滋味讓人心靈願從\n無窗窗外的自由感激\n走著不斷的過去和未來",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1001773457_577c3a7d70.jpg | intern_rag: {'similarity': 0.6672702431678772, 'image_predictions': [{'label': 'rage', 'score': 0.2297}, {'label': 'irritabilty', 'score': 0.1183}, {'label': 'neglect', 'score': 0.0989}, {'label': 'envy', 'score': 0.0769}, {'label': 'cheerfullness', 'score': 0.0746}, {'label': 'nervousness', 'score': 0.0589}, {'label': 'sadness', 'score': 0.0551}, {'label': 'horror', 'score': 0.033}, {'label': 'sympathy', 'score': 0.0325}, {'label': 'shame', 'score': 0.0295}, {'label': 'suffering', 'score': 0.0259}, {'label': 'disappointment', 'score': 0.0247}, {'label': 'zest', 'score': 0.0188}, {'label': 'disgust', 'score': 0.0187}, {'label': 'affection', 'score': 0.0166}, {'label': 'confusion', 'score': 0.0162}, {'label': 'optimism', 'score': 0.0137}, {'label': 'exasperation', 'score': 0.0126}, {'label': 'lust', 'score': 0.0122}, {'label': 'pride', 'score': 0.0092}, {'label': 'contentment', 'score': 0.0072}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'relief', 'score': 0.0047}, {'label': 'surprise', 'score': 0.004}, {'label': 'gratitude', 'score': 0.0026}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.85}, {'label': 'gratitude', 'english_label': 'gratitude', 'score': 0.75}, {'label': 'relief', 'english_label': 'relief', 'score': 0.5}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.4}, {'label': 'confusion', 'english_label': 'confusion', 'score': 0.2}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.49141448736190796 | emotion=0.6672702431678772 | format=70.8 | quality=0.501
+[3/10] intern_rag | 1002674143_1b742ab4b8.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.29s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n```json
+{
+  "visual_anchor": "兩個兒童在戶外草地上，一隻孤獨的女孩子正坐在地上，前後有一條彩虹，背景是一個白色的墙壁，女孩子們似乎正在探索和玩耍。",
+  "title": "彩虹下的幼童探險",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "Verse:\n彩虹横跨天空 \n幼童在風中探索\n草地上的探險 \n讓心情異彩\n\nChorus:\n彩虹横跨天空 \n幻想之旅\n草地上的探險 \n讓心情異彩\n\nEnd"
+}
+```
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1002674143_1b742ab4b8.jpg | intern_rag: {'similarity': 0.9123188257217407, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.573}, {'label': 'zest', 'score': 0.1203}, {'label': 'surprise', 'score': 0.0593}, {'label': 'affection', 'score': 0.0426}, {'label': 'pride', 'score': 0.0339}, {'label': 'contentment', 'score': 0.031}, {'label': 'optimism', 'score': 0.0283}, {'label': 'gratitude', 'score': 0.0203}, {'label': 'relief', 'score': 0.0167}, {'label': 'sadness', 'score': 0.0145}, {'label': 'neglect', 'score': 0.0145}, {'label': 'rage', 'score': 0.0076}, {'label': 'enthrallment', 'score': 0.0057}, {'label': 'nervousness', 'score': 0.0052}, {'label': 'sympathy', 'score': 0.0043}, {'label': 'lust', 'score': 0.004}, {'label': 'shame', 'score': 0.0036}, {'label': 'confusion', 'score': 0.0031}, {'label': 'disappointment', 'score': 0.0028}, {'label': 'irritabilty', 'score': 0.0028}, {'label': 'horror', 'score': 0.002}, {'label': 'envy', 'score': 0.0016}, {'label': 'exasperation', 'score': 0.0014}, {'label': 'disgust', 'score': 0.001}, {'label': 'suffering', 'score': 0.0006}], 'text_predictions': [{'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.85}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.8}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.75}, {'label': 'optimism', 'english_label': 'optimism', 'score': 0.7}, {'label': 'zest', 'english_label': 'zest', 'score': 0.6}, {'label': 'relief', 'english_label': 'relief', 'score': 0.5}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.4646296501159668 | emotion=0.9123188257217407 | format=66.18 | quality=0.5961
+[4/10] intern_rag | 1003163366_44323f5815.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.31s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "一位男子躺在公園的长椅上，旁边有一只狗。背景是一片水域，天空蓝天白云。人物看起来很放松，呈现出一幅宁静和平的风景。",
+  "title": "寧靜的日子",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "Verse\n寧靜的日子，心中有悲\n與這片世界，兩人相擁\n蓝天白雲，替我担負\n當我思念，曾和你在一起\nChorus\n寧靜的日子，心中有悲\n與這片世界，兩人相擁\n蓝天白雲，替我担負\n當我思念，曾和你在一起\nEnd"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1003163366_44323f5815.jpg | intern_rag: {'similarity': 0.671488881111145, 'image_predictions': [{'label': 'relief', 'score': 0.5596}, {'label': 'contentment', 'score': 0.136}, {'label': 'cheerfullness', 'score': 0.1251}, {'label': 'neglect', 'score': 0.0487}, {'label': 'sadness', 'score': 0.0286}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'affection', 'score': 0.0214}, {'label': 'irritabilty', 'score': 0.0102}, {'label': 'nervousness', 'score': 0.0064}, {'label': 'zest', 'score': 0.006}, {'label': 'lust', 'score': 0.0059}, {'label': 'exasperation', 'score': 0.004}, {'label': 'sympathy', 'score': 0.003}, {'label': 'rage', 'score': 0.0024}, {'label': 'horror', 'score': 0.0022}, {'label': 'suffering', 'score': 0.0022}, {'label': 'gratitude', 'score': 0.0019}, {'label': 'pride', 'score': 0.0018}, {'label': 'shame', 'score': 0.0018}, {'label': 'optimism', 'score': 0.0016}, {'label': 'envy', 'score': 0.0015}, {'label': 'enthrallment', 'score': 0.0014}, {'label': 'surprise', 'score': 0.0012}, {'label': 'disgust', 'score': 0.0011}, {'label': 'confusion', 'score': 0.0006}], 'text_predictions': [{'label': 'sadness', 'english_label': 'sadness', 'score': 0.85}, {'label': 'suffering', 'english_label': 'suffering', 'score': 0.7}, {'label': 'affection', 'english_label': 'affection', 'score': 0.45}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.2}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.37485241889953613 | emotion=0.671488881111145 | format=71.18 | quality=0.7171
+[5/10] intern_rag | 1007129816_e794419615.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n```json
+{
+  "visual_anchor": "一位戴着帽子，帽子上有一些图案的男子，身穿灰色T恤，背景是露天篷布的场景",
+  "title": "帽子下的故事",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "Verse\n帽子下的故事\n帽子著一些顏色的蠟燭\n帽子上的紅色蠟燭\n帽子下的故事\n帽子帶一些標誌\n帽子著一些顏色的蠟燭\n帽子上的紅色蠟燭\n\nChorus\n帽子下的故事\n帽子著一些顏色的蠟燭\n帽子上的紅色蠟燭\n帽子下的故事\n帽子帶一些標誌"
+}
+```
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1007129816_e794419615.jpg | intern_rag: {'similarity': 0.8383848667144775, 'image_predictions': [{'label': 'confusion', 'score': 0.212}, {'label': 'cheerfullness', 'score': 0.1147}, {'label': 'nervousness', 'score': 0.101}, {'label': 'irritabilty', 'score': 0.0911}, {'label': 'rage', 'score': 0.0737}, {'label': 'disgust', 'score': 0.0581}, {'label': 'disappointment', 'score': 0.0551}, {'label': 'surprise', 'score': 0.0424}, {'label': 'sadness', 'score': 0.031}, {'label': 'exasperation', 'score': 0.0263}, {'label': 'neglect', 'score': 0.025}, {'label': 'optimism', 'score': 0.0238}, {'label': 'suffering', 'score': 0.0217}, {'label': 'horror', 'score': 0.0198}, {'label': 'pride', 'score': 0.0187}, {'label': 'contentment', 'score': 0.0175}, {'label': 'shame', 'score': 0.0173}, {'label': 'relief', 'score': 0.0145}, {'label': 'zest', 'score': 0.0096}, {'label': 'sympathy', 'score': 0.0075}, {'label': 'envy', 'score': 0.0069}, {'label': 'affection', 'score': 0.0039}, {'label': 'lust', 'score': 0.0035}, {'label': 'gratitude', 'score': 0.0028}, {'label': 'enthrallment', 'score': 0.002}], 'text_predictions': [{'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.85}, {'label': 'confusion', 'english_label': 'confusion', 'score': 0.75}, {'label': 'nervousness', 'english_label': 'nervousness', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.38853204250335693 | emotion=0.8383848667144775 | format=68.46 | quality=0.6459
+[6/10] intern_rag | 1007320043_627395c3d8.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1007320043_627395c3d8.jpg | intern_rag: {'similarity': 0.8052138090133667, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.3099}, {'label': 'sadness', 'score': 0.1302}, {'label': 'zest', 'score': 0.1048}, {'label': 'affection', 'score': 0.0461}, {'label': 'suffering', 'score': 0.0443}, {'label': 'rage', 'score': 0.0353}, {'label': 'contentment', 'score': 0.0333}, {'label': 'neglect', 'score': 0.031}, {'label': 'optimism', 'score': 0.0296}, {'label': 'confusion', 'score': 0.0282}, {'label': 'nervousness', 'score': 0.0273}, {'label': 'pride', 'score': 0.0256}, {'label': 'disappointment', 'score': 0.0256}, {'label': 'irritabilty', 'score': 0.022}, {'label': 'envy', 'score': 0.0172}, {'label': 'enthrallment', 'score': 0.0138}, {'label': 'exasperation', 'score': 0.0128}, {'label': 'sympathy', 'score': 0.0119}, {'label': 'relief', 'score': 0.011}, {'label': 'lust', 'score': 0.0104}, {'label': 'surprise', 'score': 0.0098}, {'label': 'horror', 'score': 0.0057}, {'label': 'shame', 'score': 0.0053}, {'label': 'gratitude', 'score': 0.0046}, {'label': 'disgust', 'score': 0.0044}], 'text_predictions': [{'label': 'sadness', 'english_label': 'sadness', 'score': 0.7}, {'label': 'suffering', 'english_label': 'suffering', 'score': 0.6}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.5}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3871380388736725 | emotion=0.8052138090133667 | format=94.92 | quality=0.4817
+[7/10] intern_rag | 1009434119_febe49276a.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.29s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.03it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.02s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n```json
+{
+  "visual_anchor": "狗奶奶跑通往草地",
+  "title": "狗奶奶的旅程",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "狗奶奶狂奔\n奔向綠草茵茵\n跳跃跑到草地\n心情滿滿愉快\n狗奶奶狂奔\n奔向草地的童趣\n還在畫中欣賞\n狗奶奶的笑聲\n奔向綠草茵茵\n跳跃跑到草地\n心情滿滿愉快\n狗奶奶狂奔\n奔向草地的童趣\n還在畫中欣賞\n狗奶奶的笑聲\n狗奶奶狂奔\n奔向草地的童趣\n還在畫中欣賞\n狗奶奶的笑聲"
+}
+```
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1009434119_febe49276a.jpg | intern_rag: {'similarity': 0.9360703229904175, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4044}, {'label': 'zest', 'score': 0.1515}, {'label': 'affection', 'score': 0.0635}, {'label': 'rage', 'score': 0.0564}, {'label': 'neglect', 'score': 0.0562}, {'label': 'irritabilty', 'score': 0.0346}, {'label': 'contentment', 'score': 0.0344}, {'label': 'pride', 'score': 0.0314}, {'label': 'relief', 'score': 0.0178}, {'label': 'disappointment', 'score': 0.0176}, {'label': 'sadness', 'score': 0.0171}, {'label': 'optimism', 'score': 0.0165}, {'label': 'enthrallment', 'score': 0.0162}, {'label': 'suffering', 'score': 0.0157}, {'label': 'nervousness', 'score': 0.0149}, {'label': 'horror', 'score': 0.01}, {'label': 'lust', 'score': 0.0083}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'exasperation', 'score': 0.0053}, {'label': 'surprise', 'score': 0.0047}, {'label': 'envy', 'score': 0.0046}, {'label': 'gratitude', 'score': 0.0044}, {'label': 'shame', 'score': 0.0029}, {'label': 'disgust', 'score': 0.0024}, {'label': 'confusion', 'score': 0.0022}], 'text_predictions': [{'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.8}, {'label': 'zest', 'english_label': 'zest', 'score': 0.75}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.65}, {'label': 'affection', 'english_label': 'affection', 'score': 0.55}, {'label': 'enthrallment', 'english_label': 'enthrallment', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.46692249178886414 | emotion=0.9360703229904175 | format=70.67 | quality=0.6291
+[8/10] intern_rag | 1012212859_01547e3f17.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.01s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.06s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "寄生蟲與人類相處的海灘場景",
+  "title": "寄生蟲",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "寄生蟲在沙灘上與人類相處\n貧寒的氣息吸引著寄生蟲的目光\n貧寒沉沉的天空下，寄生蟲的身影陰影斑斕\n寄生蟲的憂愁悄悄地溶在空氣中\n寄生蟲與人類的衝突\n寄生蟲的命運與人類的命運相關\n寄生蟲的單獨生存\n寄生蟲的憂愁寫在著我心內"
+}
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1012212859_01547e3f17.jpg | intern_rag: {'similarity': 0.6237706542015076, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.4371}, {'label': 'zest', 'score': 0.0952}, {'label': 'contentment', 'score': 0.0908}, {'label': 'irritabilty', 'score': 0.0481}, {'label': 'relief', 'score': 0.0447}, {'label': 'neglect', 'score': 0.0363}, {'label': 'disappointment', 'score': 0.0357}, {'label': 'rage', 'score': 0.0305}, {'label': 'nervousness', 'score': 0.0294}, {'label': 'sadness', 'score': 0.0242}, {'label': 'optimism', 'score': 0.0226}, {'label': 'affection', 'score': 0.0156}, {'label': 'surprise', 'score': 0.0133}, {'label': 'suffering', 'score': 0.0124}, {'label': 'pride', 'score': 0.0118}, {'label': 'lust', 'score': 0.0087}, {'label': 'shame', 'score': 0.0073}, {'label': 'enthrallment', 'score': 0.0068}, {'label': 'exasperation', 'score': 0.0068}, {'label': 'disgust', 'score': 0.0053}, {'label': 'confusion', 'score': 0.0046}, {'label': 'horror', 'score': 0.0046}, {'label': 'sympathy', 'score': 0.0044}, {'label': 'gratitude', 'score': 0.002}, {'label': 'envy', 'score': 0.0019}], 'text_predictions': [{'label': 'suffering', 'english_label': 'suffering', 'score': 0.9}, {'label': 'sadness', 'english_label': 'sadness', 'score': 0.8}, {'label': 'sympathy', 'english_label': 'sympathy', 'score': 0.65}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.39139023423194885 | emotion=0.6237706542015076 | format=71.28 | quality=0.4311
+[9/10] intern_rag | 1015118661_980735411b.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.10s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n```json
+{
+  "visual_anchor": "一位年輕的男孩正在走在城市街道上，背景中是一堵砖墙和一道古老的铁柱，街道上有一些垃圾和一个水泥块，整体氛围显得有些孤寂但充满了青春的活力",
+  "title": "城市小路",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "Verse\n這是一個小裏城市街道\n背後輪蹠不停的车輛\n街頭的風景充滿懷憾\n城市的繁華卻有些寒冷\nChorus\n無說沒有人在陪我\n我孤離在這裡回頭看\n回頭看那些曾經的記憶\n城市小路，寂靜却充滿故事"
+}
+```
+  bundle = generate_from_image(
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1015118661_980735411b.jpg | intern_rag: {'similarity': 0.7314968705177307, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.2314}, {'label': 'zest', 'score': 0.1567}, {'label': 'rage', 'score': 0.0993}, {'label': 'contentment', 'score': 0.0558}, {'label': 'nervousness', 'score': 0.0548}, {'label': 'pride', 'score': 0.038}, {'label': 'irritabilty', 'score': 0.0322}, {'label': 'neglect', 'score': 0.0307}, {'label': 'optimism', 'score': 0.0306}, {'label': 'enthrallment', 'score': 0.0277}, {'label': 'affection', 'score': 0.0273}, {'label': 'confusion', 'score': 0.026}, {'label': 'sadness', 'score': 0.0256}, {'label': 'suffering', 'score': 0.0233}, {'label': 'surprise', 'score': 0.022}, {'label': 'disappointment', 'score': 0.0207}, {'label': 'disgust', 'score': 0.0167}, {'label': 'envy', 'score': 0.0139}, {'label': 'horror', 'score': 0.0133}, {'label': 'shame', 'score': 0.013}, {'label': 'exasperation', 'score': 0.0108}, {'label': 'lust', 'score': 0.0108}, {'label': 'sympathy', 'score': 0.0071}, {'label': 'relief', 'score': 0.0065}, {'label': 'gratitude', 'score': 0.0062}], 'text_predictions': [{'label': 'neglect', 'english_label': 'neglect', 'score': 0.65}, {'label': 'sadness', 'english_label': 'sadness', 'score': 0.55}, {'label': 'contentment', 'english_label': 'contentment', 'score': 0.25}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3244727849960327 | emotion=0.7314968705177307 | format=71.18 | quality=0.4988
+[10/10] intern_rag | 1015584366_dfcec3c85a.jpg
+Warning: Flash attention is not available, using eager attention instead.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.04s/it]
+/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py:897: UserWarning: lyrics_text is missing [verse] or [chorus]. Output may be malformed. Raw tail:\n{
+  "visual_anchor": "木刨裂開的地面上，一只紫黑色的狗跳起，面朝上方。背景是绿色的树木和草地，光线明亮，充满了欢乐的氛围。",
+  "title": "跳跃開朗",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "lyrics_text": "跳跃開朗\n欢快的跳跃，與自然融入\n願望讓世界知道\n繁茂之美，讓人心滿意足\n\n跳跃開朗\n夢想與現實皆可達，不斷追求精確\n跳跃開朗\n當時只是隨機而起，繼續變得緩慢\n\n跳跃開朗\n感受生命的變化，怎裡是讓愛開始\n跳跃開朗\n讓心裡的淡淡懷疑消失，享受今天的擁有"
+}
+  bundle = generate_from_image(
+  Cleared generation model/cache for: intern_rag
+[emotion result] 1015584366_dfcec3c85a.jpg | intern_rag: {'similarity': 0.9175087213516235, 'image_predictions': [{'label': 'cheerfullness', 'score': 0.386}, {'label': 'zest', 'score': 0.3066}, {'label': 'rage', 'score': 0.0371}, {'label': 'neglect', 'score': 0.0365}, {'label': 'pride', 'score': 0.0337}, {'label': 'contentment', 'score': 0.0261}, {'label': 'nervousness', 'score': 0.0249}, {'label': 'relief', 'score': 0.022}, {'label': 'optimism', 'score': 0.0174}, {'label': 'horror', 'score': 0.0168}, {'label': 'lust', 'score': 0.014}, {'label': 'surprise', 'score': 0.0108}, {'label': 'irritabilty', 'score': 0.0096}, {'label': 'enthrallment', 'score': 0.0094}, {'label': 'sadness', 'score': 0.0092}, {'label': 'sympathy', 'score': 0.0087}, {'label': 'affection', 'score': 0.0086}, {'label': 'disappointment', 'score': 0.0047}, {'label': 'envy', 'score': 0.004}, {'label': 'confusion', 'score': 0.0036}, {'label': 'gratitude', 'score': 0.0029}, {'label': 'shame', 'score': 0.0026}, {'label': 'suffering', 'score': 0.0021}, {'label': 'exasperation', 'score': 0.002}, {'label': 'disgust', 'score': 0.0008}], 'text_predictions': [{'label': 'contentment', 'english_label': 'contentment', 'score': 0.8}, {'label': 'zest', 'english_label': 'zest', 'score': 0.7}, {'label': 'cheerfulness', 'english_label': 'cheerfulness', 'score': 0.6}, {'label': 'relief', 'english_label': 'relief', 'score': 0.45}], 'image_model_type': '25cat', 'embedding_model_name': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'}
+  status=ok | clip=0.3892512023448944 | emotion=0.9175087213516235 | format=66.12 | quality=0.5294
+Saved model CSV: outputs/batch_eval_10_preset/results_intern_rag.csv
+Model intern_rag elapsed time: 00:28:48 (1727.64s)
+  Cleared generation model/cache for: intern_rag
+
+Saved combined CSV: outputs/batch_eval_10_preset/results_all_models.csv
+Total elapsed time: 01:27:22 (5242.03s)

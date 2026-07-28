@@ -1,0 +1,34 @@
+{
+  "title": "彩虹之境",
+  "lyrics_text": "彩虹之境\n孤獨的孩子站在鞋盒上\n彩虹的掩护\n寄戶的思念\n跌落的哭涕\n抹去的泪光\n缓缓的落下\n心中的闪光\n彩虹的延续\n曾经的童话\n往事的轨迹\n怀旧的回忆\n孤独的回味\n静静的思考\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "孩子坐在鞋盒上，背景有彩虹和绘画的涂鸦，背景是绿草地和白色背景",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "孩子坐在鞋盒上，背景有彩虹和绘画的涂鸦，背景是绿草地和白色背景",
+      "title": "彩虹之境",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "彩虹之境\n孤獨的孩子站在鞋盒上\n彩虹的掩护\n寄戶的思念\n跌落的哭涕\n抹去的泪光\n缓缓的落下\n心中的闪光\n彩虹的延续\n曾经的童话\n往事的轨迹\n怀旧的回忆\n孤独的回味\n静静的思考"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"孩子坐在鞋盒上，背景有彩虹和绘画的涂鸦，背景是绿草地和白色背景\",\n  \"title\": \"彩虹之境\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"彩虹之境\\n孤獨的孩子站在鞋盒上\\n彩虹的掩护\\n寄戶的思念\\n跌落的哭涕\\n抹去的泪光\\n缓缓的落下\\n心中的闪光\\n彩虹的延续\\n曾经的童话\\n往事的轨迹\\n怀旧的回忆\\n孤独的回味\\n静静的思考\"\n}"
+  }
+}

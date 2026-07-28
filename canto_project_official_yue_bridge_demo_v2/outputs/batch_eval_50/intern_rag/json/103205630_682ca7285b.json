@@ -1,0 +1,34 @@
+{
+  "title": "寒冷的孤獨",
+  "lyrics_text": "Verse\n冷暖交瘋的冬天，你們的黑影在我的心底\n寒風吹來，我的靈魂彷徨\n你們在遠方繪畫，我們只是沉默的船\nChorus\n冰雪覆蓋的世界，夾克的身影，一片寒冷\n孤獨的旅程，寒冷的風，孤獨的旅程\n孤獨的旅程，寒冷的風，孤獨的旅程\nVerse\n冬天的日子，你們的身影很短暫\n寒風吹來，我的心底漁獭\n你們的黑影在我的心底\nChorus\n冰雪覆蓋的世界，夾克的身影，一片寒冷\n孤獨的旅程，寒冷的風，孤獨的旅程\n孤獨的旅程，寒冷的風，孤獨的旅程\nOutro\n冬天的日子，你們的身影很短暫\n寒風吹來，我的心底漁獭\n你們的黑影在我的心底\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個寒冷的冰原，白雪覆盖，一隻穿着褐色夾克的身影站在一個蓝色的寒冷保溫塊旁，附近有一個黑色的冰塊和一些填充物，背景是一片寒冷、黑白交替的地平线，整体氛圍寒冷而孤寂",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": true,
+    "rag_top_k": 3,
+    "raw_rag_chars": 1580,
+    "safe_rag_chars": 289,
+    "safe_rag_few_shot_block": "【RAG 低權重風格參考】\n以下內容只作風格參考，不是輸出格式示例。\n不得複製、改寫或延續檢索歌詞中的原句。\n不得使用檢索內容中的 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge] 等標籤。\n最終輸出必須以後方的 JSON schema 和 lyrics_text 標準格式為最高優先級。\n\n可參考的風格方向：\n1. 使用自然香港粵語書面語，保持可演唱性。\n2. verse 偏敘事與畫面描寫，chorus 偏情緒集中與 hook 感。\n3. 可使用意象重複或近似押韻，但不要重複整段。\n4. 歌詞應優先呼應當前圖片，而不是檢索歌詞。",
+    "raw_payload": {
+      "visual_anchor": "一個寒冷的冰原，白雪覆盖，一隻穿着褐色夾克的身影站在一個蓝色的寒冷保溫塊旁，附近有一個黑色的冰塊和一些填充物，背景是一片寒冷、黑白交替的地平线，整体氛圍寒冷而孤寂",
+      "title": "寒冷的孤獨",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "Verse\n冷暖交瘋的冬天，你們的黑影在我的心底\n寒風吹來，我的靈魂彷徨\n你們在遠方繪畫，我們只是沉默的船\nChorus\n冰雪覆蓋的世界，夾克的身影，一片寒冷\n孤獨的旅程，寒冷的風，孤獨的旅程\n孤獨的旅程，寒冷的風，孤獨的旅程\nVerse\n冬天的日子，你們的身影很短暫\n寒風吹來，我的心底漁獭\n你們的黑影在我的心底\nChorus\n冰雪覆蓋的世界，夾克的身影，一片寒冷\n孤獨的旅程，寒冷的風，孤獨的旅程\n孤獨的旅程，寒冷的風，孤獨的旅程\nOutro\n冬天的日子，你們的身影很短暫\n寒風吹來，我的心底漁獭\n你們的黑影在我的心底"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一個寒冷的冰原，白雪覆盖，一隻穿着褐色夾克的身影站在一個蓝色的寒冷保溫塊旁，附近有一個黑色的冰塊和一些填充物，背景是一片寒冷、黑白交替的地平线，整体氛圍寒冷而孤寂\",\n  \"title\": \"寒冷的孤獨\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"Verse\\n冷暖交瘋的冬天，你們的黑影在我的心底\\n寒風吹來，我的靈魂彷徨\\n你們在遠方繪畫，我們只是沉默的船\\nChorus\\n冰雪覆蓋的世界，夾克的身影，一片寒冷\\n孤獨的旅程，寒冷的風，孤獨的旅程\\n孤獨的旅程，寒冷的風，孤獨的旅程\\nVerse\\n冬天的日子，你們的身影很短暫\\n寒風吹來，我的心底漁獭\\n你們的黑影在我的心底\\nChorus\\n冰雪覆蓋的世界，夾克的身影，一片寒冷\\n孤獨的旅程，寒冷的風，孤獨的旅程\\n孤獨的旅程，寒冷的風，孤獨的旅程\\nOutro\\n冬天的日子，你們的身影很短暫\\n寒風吹來，我的心底漁獭\\n你們的黑影在我的心底\"\n}"
+  }
+}

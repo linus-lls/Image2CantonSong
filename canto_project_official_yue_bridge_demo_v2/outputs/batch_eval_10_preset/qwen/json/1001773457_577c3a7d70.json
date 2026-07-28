@@ -1,0 +1,34 @@
+{
+  "title": "在路上的對峙",
+  "lyrics_text": "[verse]\n路上的對峙，雙眼相遇無言。\n心裏的怒氣，如同烈火燃燒。\n靜靜的等待，誰來挑釁。\n心中的怒火，無法平息不休。\n[chorus]\n在路上的路上，我們相逢而過。\n靜靜的等待，誰來挑釁。\n心中的怒火，無法平息不休。\n靜靜的等待，誰來挑釁。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "兩隻狗在道路上對視的畫面，背景是綠色的草地。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "兩隻狗在道路上對視的畫面，背景是綠色的草地。",
+      "title": "在路上的對峙",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n路上的對峙，雙眼相遇無言。\n心裏的怒氣，如同烈火燃燒。\n靜靜的等待，誰來挑釁。\n心中的怒火，無法平息不休。\n\n[chorus]\n在路上的路上，我們相逢而過。\n靜靜的等待，誰來挑釁。\n心中的怒火，無法平息不休。\n靜靜的等待，誰來挑釁。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"兩隻狗在道路上對視的畫面，背景是綠色的草地。\",\n  \"title\": \"在路上的對峙\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n路上的對峙，雙眼相遇無言。\\n心裏的怒氣，如同烈火燃燒。\\n靜靜的等待，誰來挑釁。\\n心中的怒火，無法平息不休。\\n\\n[chorus]\\n在路上的路上，我們相逢而過。\\n靜靜的等待，誰來挑釁。\\n心中的怒火，無法平息不休。\\n靜靜的等待，誰來挑釁。\\n\\n[end]\"  \n}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "這是一首旨在嘗試問題感且探索情感的歌曲",
+  "lyrics_text": "Verse\nThe days are long, the nights are short\nConfusion in the air, a feeling of drift\nThe world moves on, but I stay behind\nHolding on to memories that never end\n\nChorus\nCheerfulness in the face of confusion\nTrying to find my way, a feeling of fusion\nThe melody of life, the rhythm of time\nHoping to find my place, a place so divine\n\nEnd\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位戴着帽子的男子，穿着灰色T恤，背景模糊，氛圍暗示是在某場集會或活動。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位戴着帽子的男子，穿着灰色T恤，背景模糊，氛圍暗示是在某場集會或活動。",
+      "title": "這是一首旨在嘗試問題感且探索情感的歌曲",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "Verse\nThe days are long, the nights are short\nConfusion in the air, a feeling of drift\nThe world moves on, but I stay behind\nHolding on to memories that never end\n\nChorus\nCheerfulness in the face of confusion\nTrying to find my way, a feeling of fusion\nThe melody of life, the rhythm of time\nHoping to find my place, a place so divine\n\nEnd"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位戴着帽子的男子，穿着灰色T恤，背景模糊，氛圍暗示是在某場集會或活動。\",\n  \"title\": \"這是一首旨在嘗試問題感且探索情感的歌曲\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"Verse\\nThe days are long, the nights are short\\nConfusion in the air, a feeling of drift\\nThe world moves on, but I stay behind\\nHolding on to memories that never end\\n\\nChorus\\nCheerfulness in the face of confusion\\nTrying to find my way, a feeling of fusion\\nThe melody of life, the rhythm of time\\nHoping to find my place, a place so divine\\n\\nEnd\"\n}"
+  }
+}

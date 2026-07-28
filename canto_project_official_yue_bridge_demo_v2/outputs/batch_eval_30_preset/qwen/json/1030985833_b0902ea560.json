@@ -1,0 +1,34 @@
+{
+  "title": "友誼的旋律",
+  "lyrics_text": "第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞\n\n第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞\n\n第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞\n\n第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞\n\n第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞\n\n第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞\n\n第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞\n\n第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "兩隻狗在戶外嬉戲，前方是一塊磚地，背景有綠植和花卉。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "兩隻狗在戶外嬉戲，前方是一塊磚地，背景有綠植和花卉。",
+      "title": "友誼的旋律",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞\n\n第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞\n\n第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞\n\n第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞\n\n第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞\n\n第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞\n\n第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞\n\n第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"兩隻狗在戶外嬉戲，前方是一塊磚地，背景有綠植和花卉。\",\n  \"title\": \"友誼的旋律\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞第一行繁體粵語歌詞\\n\\n第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞第二行繁體粵語歌詞\\n\\n第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞第三行繁體粵語歌詞\\n\\n第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞第四行繁體粵語歌詞\\n\\n第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞第五行繁體粵語歌詞\\n\\n第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞第六行繁體粵語歌詞\\n\\n第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞第七行繁體粵語歌詞\\n\\n第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞第八行繁體粵語歌詞\\n\\n[end]\"\n}"
+  }
+}

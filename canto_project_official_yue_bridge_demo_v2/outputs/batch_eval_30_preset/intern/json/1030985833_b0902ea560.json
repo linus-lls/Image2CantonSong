@@ -1,0 +1,34 @@
+{
+  "title": "孤獨的回憶",
+  "lyrics_text": "棕色狗坐在地上看於飛羽機狀的遊戲\n黑色狗願意與棕色狗互動\n棕色狗陷入懷疑離開\n黑色狗繞保護\n棕色狗感到安慰\n黑色狗慢慢走開\n棕色狗感到失落\n黑色狗消失在背景\n棕色狗回到地上\n黑色狗再次出現\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一個棕色的狗坐在地上，旁邊有一個黑色的狗在打飛羽機狀的遊戲",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一個棕色的狗坐在地上，旁邊有一個黑色的狗在打飛羽機狀的遊戲",
+      "title": "孤獨的回憶",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "棕色狗坐在地上看於飛羽機狀的遊戲\n黑色狗願意與棕色狗互動\n棕色狗陷入懷疑離開\n黑色狗繞保護\n棕色狗感到安慰\n黑色狗慢慢走開\n棕色狗感到失落\n黑色狗消失在背景\n棕色狗回到地上\n黑色狗再次出現"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一個棕色的狗坐在地上，旁邊有一個黑色的狗在打飛羽機狀的遊戲\",\n  \"title\": \"孤獨的回憶\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"棕色狗坐在地上看於飛羽機狀的遊戲\\n黑色狗願意與棕色狗互動\\n棕色狗陷入懷疑離開\\n黑色狗繞保護\\n棕色狗感到安慰\\n黑色狗慢慢走開\\n棕色狗感到失落\\n黑色狗消失在背景\\n棕色狗回到地上\\n黑色狗再次出現\"\n}"
+  }
+}

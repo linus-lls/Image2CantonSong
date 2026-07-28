@@ -1,0 +1,34 @@
+{
+  "title": "湖畔故事",
+  "lyrics_text": "湖畔故事\n儘愛的故事寫在心底\n寄托孩子的愛\n兒童與妈妈的旅程\n\n湖畔故事\n回憶的旅程寫在心底\n感激的愛傳承\n無敵的希望\n陽光下的故事\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一個人坐在樹旁的小孩車上，背景是湖泊和樹木，氛圍是寧靜和溫暖，類似為孩子和家人在公園或湖畔度過時光。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一個人坐在樹旁的小孩車上，背景是湖泊和樹木，氛圍是寧靜和溫暖，類似為孩子和家人在公園或湖畔度過時光。",
+      "title": "湖畔故事",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "湖畔故事\n儘愛的故事寫在心底\n寄托孩子的愛\n兒童與妈妈的旅程\n\n湖畔故事\n回憶的旅程寫在心底\n感激的愛傳承\n無敵的希望\n陽光下的故事"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一個人坐在樹旁的小孩車上，背景是湖泊和樹木，氛圍是寧靜和溫暖，類似為孩子和家人在公園或湖畔度過時光。\",\n  \"title\": \"湖畔故事\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"湖畔故事\\n儘愛的故事寫在心底\\n寄托孩子的愛\\n兒童與妈妈的旅程\\n\\n湖畔故事\\n回憶的旅程寫在心底\\n感激的愛傳承\\n無敵的希望\\n陽光下的故事\"\n}"
+  }
+}

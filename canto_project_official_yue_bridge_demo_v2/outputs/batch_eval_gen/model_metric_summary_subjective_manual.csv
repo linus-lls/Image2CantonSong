@@ -1,0 +1,4 @@
+﻿model_key,clip_alignment,emotion_similarity,lyrics_format_score,quality_overall,clip_alignment_valid_count,emotion_similarity_valid_count,lyrics_format_score_valid_count,quality_overall_valid_count,total_records,subjective_eval,subjective_eval_valid_count
+intern,0.400547930598259,0.8412341177463531,0.66987,0.48834999999999995,10,10,10,10,10,0.336,1
+intern_rag,0.36461991733974874,0.7646378543641832,0.7351111111111112,0.5228666666666667,9,9,9,9,10,0.4395,1
+qwen,0.44476453959941864,0.8681829571723938,0.91503,0.48382000000000003,10,10,10,10,10,0.62,1

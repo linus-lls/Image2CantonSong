@@ -1,0 +1,34 @@
+{
+  "title": "夏日的回想",
+  "lyrics_text": "[verse]\n童年的身影在眼前徘徊\n微風中，粉色的裙子飄揚\n窗邊的花兒，述說著舊時的夢想\n日子輕輕過，回憶撲朔迷離\n[chorus]\n夏日的風聲，隨著心頌唱\n兒時的笑容，如今已遠遠遙望\n回顧往昔，那些美好的光景\n定格在心裡，永不散去的回憶\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "小女孩站在木制小屋的木梯上，微風吹動她的粉色連衣裙，身邊有綠色的花和雜草散落在地上。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "小女孩站在木制小屋的木梯上，微風吹動她的粉色連衣裙，身邊有綠色的花和雜草散落在地上。",
+      "title": "夏日的回想",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n童年的身影在眼前徘徊\n微風中，粉色的裙子飄揚\n窗邊的花兒，述說著舊時的夢想\n日子輕輕過，回憶撲朔迷離\n\n[chorus]\n夏日的風聲，隨著心頌唱\n兒時的笑容，如今已遠遠遙望\n回顧往昔，那些美好的光景\n定格在心裡，永不散去的回憶\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"小女孩站在木制小屋的木梯上，微風吹動她的粉色連衣裙，身邊有綠色的花和雜草散落在地上。\",\n  \"title\": \"夏日的回想\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n童年的身影在眼前徘徊\\n微風中，粉色的裙子飄揚\\n窗邊的花兒，述說著舊時的夢想\\n日子輕輕過，回憶撲朔迷離\\n\\n[chorus]\\n夏日的風聲，隨著心頌唱\\n兒時的笑容，如今已遠遠遙望\\n回顧往昔，那些美好的光景\\n定格在心裡，永不散去的回憶\\n\\n[end]\"\n}"
+  }
+}

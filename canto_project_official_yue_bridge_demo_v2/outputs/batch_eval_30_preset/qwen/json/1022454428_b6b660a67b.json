@@ -1,0 +1,34 @@
+{
+  "title": "靜謐的湖畔",
+  "lyrics_text": "[verse]\n湖畔偶遇心緒哀傷\n微風輕拂樹梢聲\n湖水波動思念起\n一個人靜賞光景\n[chorus]\n生命如夢過客離\n湖畔偶遇心緒哀傷\n微風輕拂樹梢聲\n湖水波動思念起\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個公園的景象，背景中有湖泊和树木，樹下有三個人，其中一位是坐在嬰兒車旁的女子。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個公園的景象，背景中有湖泊和树木，樹下有三個人，其中一位是坐在嬰兒車旁的女子。",
+      "title": "靜謐的湖畔",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n湖畔偶遇心緒哀傷\n微風輕拂樹梢聲\n湖水波動思念起\n一個人靜賞光景\n\n[chorus]\n生命如夢過客離\n湖畔偶遇心緒哀傷\n微風輕拂樹梢聲\n湖水波動思念起\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"一個公園的景象，背景中有湖泊和树木，樹下有三個人，其中一位是坐在嬰兒車旁的女子。\",\n  \"title\": \"靜謐的湖畔\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n湖畔偶遇心緒哀傷\\n微風輕拂樹梢聲\\n湖水波動思念起\\n一個人靜賞光景\\n\\n[chorus]\\n生命如夢過客離\\n湖畔偶遇心緒哀傷\\n微風輕拂樹梢聲\\n湖水波動思念起\\n\\n[end]\"\n}\n```"
+  }
+}

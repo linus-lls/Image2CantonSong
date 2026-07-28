@@ -1,0 +1,34 @@
+{
+  "title": "吃零食的樂趣",
+  "lyrics_text": "[verse]\n吃零食的小男孩真開心\n他張大嘴巴吃得香\n享受這美味的時光\n快樂的心情無法抑制\n[chorus]\n零食帶來無限歡樂\n他笑著吃著美味\n幸福滋味滿口留香\n童年時代最難忘\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "小男孩正在吃食物，背景是公園景緻。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "小男孩正在吃食物，背景是公園景緻。",
+      "title": "吃零食的樂趣",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n吃零食的小男孩真開心\n他張大嘴巴吃得香\n享受這美味的時光\n快樂的心情無法抑制\n\n[chorus]\n零食帶來無限歡樂\n他笑著吃著美味\n幸福滋味滿口留香\n童年時代最難忘\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"小男孩正在吃食物，背景是公園景緻。\",\n  \"title\": \"吃零食的樂趣\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n吃零食的小男孩真開心\\n他張大嘴巴吃得香\\n享受這美味的時光\\n快樂的心情無法抑制\\n\\n[chorus]\\n零食帶來無限歡樂\\n他笑著吃著美味\\n幸福滋味滿口留香\\n童年時代最難忘\\n\\n[end]\"\n}\n```"
+  }
+}

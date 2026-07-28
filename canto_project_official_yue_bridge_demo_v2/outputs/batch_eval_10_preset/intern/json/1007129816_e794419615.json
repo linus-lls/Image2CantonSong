@@ -1,0 +1,34 @@
+{
+  "title": "午夜市集",
+  "lyrics_text": "午夜市集\n走在夜市街上\n路灯下的繁華\n心中的迷惘\n\n午夜市集\n聊天坐在一起\n彼此的笑容\n心中的欢欣\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "午夜市集風情轉變",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "午夜市集風情轉變",
+      "title": "午夜市集",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "午夜市集\n走在夜市街上\n路灯下的繁華\n心中的迷惘\n\n\n午夜市集\n聊天坐在一起\n彼此的笑容\n心中的欢欣"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"午夜市集風情轉變\",\n  \"title\": \"午夜市集\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"午夜市集\\n走在夜市街上\\n路灯下的繁華\\n心中的迷惘\\n\\n\\n午夜市集\\n聊天坐在一起\\n彼此的笑容\\n心中的欢欣\"\n}"
+  }
+}

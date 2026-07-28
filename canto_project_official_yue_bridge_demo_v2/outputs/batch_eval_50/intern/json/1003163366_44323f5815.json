@@ -1,0 +1,34 @@
+{
+  "title": "有些事情是運氣里的",
+  "lyrics_text": "有些事情是寧靜的,有些事情是淡淡的,有些事情就像與你漫步在路上的,有些事情就像與你聊天的\n有些事情是遥遥的,有些事情是離開的,有些事情就像與你分手的,有些事情就像與你分離的\n有些事情是輕柔的,有些事情是沒有的,有些事情就像與你分手的,有些事情就像與你分離的\n有些事情是閒閒的,有些事情是隨時隨地的,有些事情就像個人的,有些事情就像你所選的\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片上有一個人坐在於空間邊緣的長椅上，背景是一片水域，地面是淺色地板，背景有綠色的墻壁和邊緣。一個樸實的小狗坐在地面上，附近有一個人點擊遊戲控制器，氛圍是寧靜和滿足的。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片上有一個人坐在於空間邊緣的長椅上，背景是一片水域，地面是淺色地板，背景有綠色的墻壁和邊緣。一個樸實的小狗坐在地面上，附近有一個人點擊遊戲控制器，氛圍是寧靜和滿足的。",
+      "title": "有些事情是運氣里的",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "有些事情是寧靜的,有些事情是淡淡的,有些事情就像與你漫步在路上的,有些事情就像與你聊天的\n有些事情是遥遥的,有些事情是離開的,有些事情就像與你分手的,有些事情就像與你分離的\n有些事情是輕柔的,有些事情是沒有的,有些事情就像與你分手的,有些事情就像與你分離的\n有些事情是閒閒的,有些事情是隨時隨地的,有些事情就像個人的,有些事情就像你所選的"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片上有一個人坐在於空間邊緣的長椅上，背景是一片水域，地面是淺色地板，背景有綠色的墻壁和邊緣。一個樸實的小狗坐在地面上，附近有一個人點擊遊戲控制器，氛圍是寧靜和滿足的。\",\n  \"title\": \"有些事情是運氣里的\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"有些事情是寧靜的,有些事情是淡淡的,有些事情就像與你漫步在路上的,有些事情就像與你聊天的\\n有些事情是遥遥的,有些事情是離開的,有些事情就像與你分手的,有些事情就像與你分離的\\n有些事情是輕柔的,有些事情是沒有的,有些事情就像與你分手的,有些事情就像與你分離的\\n有些事情是閒閒的,有些事情是隨時隨地的,有些事情就像個人的,有些事情就像你所選的\"\n}"
+  }
+}

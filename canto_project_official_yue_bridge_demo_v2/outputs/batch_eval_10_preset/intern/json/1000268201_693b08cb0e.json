@@ -1,0 +1,34 @@
+{
+  "title": "小孩的探索",
+  "lyrics_text": "小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n黑夜落並來\n星空關上了眼\n我們一起探索\n這裡的美好\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位小孩在一座木屋前玩耍",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位小孩在一座木屋前玩耍",
+      "title": "小孩的探索",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n黑夜落並來\n星空關上了眼\n我們一起探索\n這裡的美好\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂\n\n小木屋開窗開懸翅\n走出去探索新的\n小路旁的花園\n這是我的快樂"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位小孩在一座木屋前玩耍\",\n  \"title\": \"小孩的探索\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"小木屋開窗開懸翅\\n走出去探索新的\\n小路旁的花園\\n這是我的快樂\\n\\n黑夜落並來\\n星空關上了眼\\n我們一起探索\\n這裡的美好\\n\\n小木屋開窗開懸翅\\n走出去探索新的\\n小路旁的花園\\n這是我的快樂\\n\\n小木屋開窗開懸翅\\n走出去探索新的\\n小路旁的花園\\n這是我的快樂\"\n}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "孩子的夢想",
+  "lyrics_text": "孩子的夢想\n夢想幻想著色彩般的世界\n孩子的夢想\n夢想幻想著色彩般的世界\n\n夢想幻想著色彩般的世界\n夢想著色彩般的世界\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一個小孩子站在綠色的繩索上，背景有興奮的圖案和窗爐",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一個小孩子站在綠色的繩索上，背景有興奮的圖案和窗爐",
+      "title": "孩子的夢想",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "孩子的夢想\n夢想幻想著色彩般的世界\n孩子的夢想\n夢想幻想著色彩般的世界\n\n夢想幻想著色彩般的世界\n夢想著色彩般的世界"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一個小孩子站在綠色的繩索上，背景有興奮的圖案和窗爐\",\n  \"title\": \"孩子的夢想\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"孩子的夢想\\n夢想幻想著色彩般的世界\\n孩子的夢想\\n夢想幻想著色彩般的世界\\n\\n夢想幻想著色彩般的世界\\n夢想著色彩般的世界\"\n}"
+  }
+}

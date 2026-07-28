@@ -1,0 +1,34 @@
+{
+  "title": "歡樂奔跑",
+  "lyrics_text": "[verse]\n狗兒在草地上奔跑，充滿了無限活力。\n白色圍牆旁邊，樹木靜靜地矗立。\n快樂的心情，如同夏日的風。\n在這片綠意盎然的天地，自由自在地奔跑。\n[chorus]\n歡樂奔跑，忘卻一切憂愁。\n在這裡，時間靜止，只有歡笑與雀躍。\n讓我們一同追逐夢想，不再彷徨。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是白色圍牆和樹木。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是白色圍牆和樹木。",
+      "title": "歡樂奔跑",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n狗兒在草地上奔跑，充滿了無限活力。\n白色圍牆旁邊，樹木靜靜地矗立。\n快樂的心情，如同夏日的風。\n在這片綠意盎然的天地，自由自在地奔跑。\n\n[chorus]\n歡樂奔跑，忘卻一切憂愁。\n在這裡，時間靜止，只有歡笑與雀躍。\n讓我們一同追逐夢想，不再彷徨。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一隻黑白相間的法國斗牛犬在綠色草地上奔跑，背景是白色圍牆和樹木。\",\n  \"title\": \"歡樂奔跑\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n狗兒在草地上奔跑，充滿了無限活力。\\n白色圍牆旁邊，樹木靜靜地矗立。\\n快樂的心情，如同夏日的風。\\n在這片綠意盎然的天地，自由自在地奔跑。\\n\\n[chorus]\\n歡樂奔跑，忘卻一切憂愁。\\n在這裡，時間靜止，只有歡笑與雀躍。\\n讓我們一同追逐夢想，不再彷徨。\\n\\n[end]\"\n}"
+  }
+}

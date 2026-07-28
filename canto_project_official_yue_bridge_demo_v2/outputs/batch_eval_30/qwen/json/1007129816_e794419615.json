@@ -1,0 +1,34 @@
+{
+  "title": "異味之王",
+  "lyrics_text": "[verse]\n聞到那股異味,\n心裏滿是煩惱。\n面具遮住了微笑,\n卻掩不住內心的躁動。\n[chorus]\n那種味道,\n能打開我的心扉,\n讓我忘卻過去,\n重拾生活的光彩。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位佩戴橙色和白色相間的帽檐帽子，上面印有“Blitz Wodka”標誌，戴墨鏡的男人。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位佩戴橙色和白色相間的帽檐帽子，上面印有“Blitz Wodka”標誌，戴墨鏡的男人。",
+      "title": "異味之王",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n聞到那股異味,\n心裏滿是煩惱。\n面具遮住了微笑,\n卻掩不住內心的躁動。\n\n[chorus]\n那種味道,\n能打開我的心扉,\n讓我忘卻過去,\n重拾生活的光彩。\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"一位佩戴橙色和白色相間的帽檐帽子，上面印有“Blitz Wodka”標誌，戴墨鏡的男人。\",\n  \"title\": \"異味之王\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n聞到那股異味,\\n心裏滿是煩惱。\\n面具遮住了微笑,\\n卻掩不住內心的躁動。\\n\\n[chorus]\\n那種味道,\\n能打開我的心扉,\\n讓我忘卻過去,\\n重拾生活的光彩。\\n\\n[end]\"\n}\n```"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "冬日的回憶",
+  "lyrics_text": "冬日的風\n透過樹葉投射\n雪覆蕩蕩地\n黑夜中的一缕光\n喝干杯煮熱的茶\n沒有冬日的回憶\n這裡的寧靜\n如此無聊的開心\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "雪地中的兩位人物，一個人手持相機，另一個人拿着滑雪杖，背景是滑雪場和樹木。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "雪地中的兩位人物，一個人手持相機，另一個人拿着滑雪杖，背景是滑雪場和樹木。",
+      "title": "冬日的回憶",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "冬日的風\n透過樹葉投射\n雪覆蕩蕩地\n黑夜中的一缕光\n喝干杯煮熱的茶\n沒有冬日的回憶\n這裡的寧靜\n如此無聊的開心"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"雪地中的兩位人物，一個人手持相機，另一個人拿着滑雪杖，背景是滑雪場和樹木。\",\n  \"title\": \"冬日的回憶\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"冬日的風\\n透過樹葉投射\\n雪覆蕩蕩地\\n黑夜中的一缕光\\n喝干杯煮熱的茶\\n沒有冬日的回憶\\n這裡的寧靜\\n如此無聊的開心\"\n}"
+  }
+}

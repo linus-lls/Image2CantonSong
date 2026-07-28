@@ -1,0 +1,34 @@
+{
+  "title": "湖畔悲憐",
+  "lyrics_text": "[verse]\n湖畔静謎燈明\n兩個人與將載行\n柳葉摇曳謾戀\n寧靜也有淡淡傷\n[chorus]\n日暮湖光淡\n心靈隱隱忧愁\n繁華帶過的時候\n悲憐蘇生兮未消\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中央有一個成年人和兩步車裝備，背景是一片湖泊，柳樹和樹木，氛圍寧靜，自然風光",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中央有一個成年人和兩步車裝備，背景是一片湖泊，柳樹和樹木，氛圍寧靜，自然風光",
+      "title": "湖畔悲憐",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n湖畔静謎燈明\n兩個人與將載行\n柳葉摇曳謾戀\n寧靜也有淡淡傷\n\n[chorus]\n日暮湖光淡\n心靈隱隱忧愁\n繁華帶過的時候\n悲憐蘇生兮未消\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中央有一個成年人和兩步車裝備，背景是一片湖泊，柳樹和樹木，氛圍寧靜，自然風光\",\n  \"title\": \"湖畔悲憐\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n湖畔静謎燈明\\n兩個人與將載行\\n柳葉摇曳謾戀\\n寧靜也有淡淡傷\\n\\n[chorus]\\n日暮湖光淡\\n心靈隱隱忧愁\\n繁華帶過的時候\\n悲憐蘇生兮未消\\n\\n[end]\"\n}"
+  }
+}

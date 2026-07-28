@@ -1,0 +1,34 @@
+{
+  "title": "追忆興奮",
+  "lyrics_text": "追忆興奮\n轉彎興奮的步伐\n軿踏轉彎的跳躍\n追忆興奮的快樂\n\n追忆興奮\n回低追忆興奮的步伐\n回低跳躍的轉彎\n追忆興奮的快樂\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "黑色狗咪，與棒棒棒形成鮮豔的對比，背景於鄉村環境。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "黑色狗咪，與棒棒棒形成鮮豔的對比，背景於鄉村環境。",
+      "title": "追忆興奮",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "追忆興奮\n轉彎興奮的步伐\n軿踏轉彎的跳躍\n追忆興奮的快樂\n\n追忆興奮\n回低追忆興奮的步伐\n回低跳躍的轉彎\n追忆興奮的快樂\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"黑色狗咪，與棒棒棒形成鮮豔的對比，背景於鄉村環境。\",\n  \"title\": \"追忆興奮\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"追忆興奮\\n轉彎興奮的步伐\\n軿踏轉彎的跳躍\\n追忆興奮的快樂\\n\\n追忆興奮\\n回低追忆興奮的步伐\\n回低跳躍的轉彎\\n追忆興奮的快樂\\n\\n[end]\"\n}"
+  }
+}

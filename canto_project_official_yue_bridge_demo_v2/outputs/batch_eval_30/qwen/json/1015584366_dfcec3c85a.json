@@ -1,0 +1,34 @@
+{
+  "title": "歡快搖擺",
+  "lyrics_text": "[verse]\n跳躍的狗兒充滿了歡樂\n在大自然中自由奔跑\n每一步都像春天的微風輕柔\n它們的快樂傳遍四方角落\n[chorus]\n歡樂的調子唱著愛的歌\n在田野和樹林中散播著溫暖\n讓我們一起分享這個時光\n忘卻一切，只是欣賞這份純真\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻黑色犬科動物正嘗試跳過一根樹幹，背景是一片綠色的草地和樹林。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻黑色犬科動物正嘗試跳過一根樹幹，背景是一片綠色的草地和樹林。",
+      "title": "歡快搖擺",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n跳躍的狗兒充滿了歡樂\n在大自然中自由奔跑\n每一步都像春天的微風輕柔\n它們的快樂傳遍四方角落\n\n[chorus]\n歡樂的調子唱著愛的歌\n在田野和樹林中散播著溫暖\n讓我們一起分享這個時光\n忘卻一切，只是欣賞這份純真\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一隻黑色犬科動物正嘗試跳過一根樹幹，背景是一片綠色的草地和樹林。\",\n  \"title\": \"歡快搖擺\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n跳躍的狗兒充滿了歡樂\\n在大自然中自由奔跑\\n每一步都像春天的微風輕柔\\n它們的快樂傳遍四方角落\\n\\n[chorus]\\n歡樂的調子唱著愛的歌\\n在田野和樹林中散播著溫暖\\n讓我們一起分享這個時光\\n忘卻一切，只是欣賞這份純真\\n\\n[end]\"\n}"
+  }
+}

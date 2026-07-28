@@ -1,0 +1,34 @@
+{
+  "title": "困惑的樂章",
+  "lyrics_text": "[verse]\n橙色帽檐閃耀著光亮，\n模糊中見到熙熙攘攘。\n心潮澎湃卻疑問重重，\n在這瞬間無法著落。\n[chorus]\n音樂迴盪穿透耳膜，\n歡笑聲與淚水交融。\n曾經的夢想如今何處，\n尋找答案在何方。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位戴著橙色條紋帽子的人，帽子上有「Blitz」品牌標誌，背景模糊。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位戴著橙色條紋帽子的人，帽子上有「Blitz」品牌標誌，背景模糊。",
+      "title": "困惑的樂章",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n橙色帽檐閃耀著光亮，\n模糊中見到熙熙攘攘。\n心潮澎湃卻疑問重重，\n在這瞬間無法著落。\n\n[chorus]\n音樂迴盪穿透耳膜，\n歡笑聲與淚水交融。\n曾經的夢想如今何處，\n尋找答案在何方。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位戴著橙色條紋帽子的人，帽子上有「Blitz」品牌標誌，背景模糊。\",\n  \"title\": \"困惑的樂章\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n橙色帽檐閃耀著光亮，\\n模糊中見到熙熙攘攘。\\n心潮澎湃卻疑問重重，\\n在這瞬間無法著落。\\n\\n[chorus]\\n音樂迴盪穿透耳膜，\\n歡笑聲與淚水交融。\\n曾經的夢想如今何處，\\n尋找答案在何方。\\n\\n[end]\"\n}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "童年的歡樂",
+  "lyrics_text": "[verse]\n童年時光如晨風輕拂\n奔跑在石牆間的歡樂\n每一秒都如此明亮\n讓人心頭不見灰暗\n[chorus]\n兒童時代的天真夢想\n隨著風兒輕舞飛翔\n童年的笑容刻在記憶\n永遠閃耀著純真\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個男孩正在石牆前奔跑，背景中有人在攔車。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個男孩正在石牆前奔跑，背景中有人在攔車。",
+      "title": "童年的歡樂",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n童年時光如晨風輕拂\n奔跑在石牆間的歡樂\n每一秒都如此明亮\n讓人心頭不見灰暗\n\n[chorus]\n兒童時代的天真夢想\n隨著風兒輕舞飛翔\n童年的笑容刻在記憶\n永遠閃耀著純真\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一個男孩正在石牆前奔跑，背景中有人在攔車。\",\n  \"title\": \"童年的歡樂\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n童年時光如晨風輕拂\\n奔跑在石牆間的歡樂\\n每一秒都如此明亮\\n讓人心頭不見灰暗\\n\\n[chorus]\\n兒童時代的天真夢想\\n隨著風兒輕舞飛翔\\n童年的笑容刻在記憶\\n永遠閃耀著純真\\n\\n[end]\"\n}"
+  }
+}

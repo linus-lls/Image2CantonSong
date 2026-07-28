@@ -1,0 +1,34 @@
+{
+  "title": "孤獨的橋樓",
+  "lyrics_text": "橋樓\n孤獨的橋橋\n與眼前的天空聯繫\n憂愁的旋律在心頭\n\n橋樓\n孤獨的橋橋\n一個人站在橋橋\n孤獨地呼喊著愛\n\n橋樓\n孤獨的橋橋\n每一個橋橋都是愛\n孤獨的人影在橋橋\n孤獨的愛在心頭\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "孩子站在綠色的網格橋上，黑色的繩索繞著他們的身體，充滿了憂愁的氣氛",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "孩子站在綠色的網格橋上，黑色的繩索繞著他們的身體，充滿了憂愁的氣氛",
+      "title": "孤獨的橋樓",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "橋樓\n孤獨的橋橋\n與眼前的天空聯繫\n憂愁的旋律在心頭\n\n橋樓\n孤獨的橋橋\n一個人站在橋橋\n孤獨地呼喊著愛\n\n橋樓\n孤獨的橋橋\n每一個橋橋都是愛\n孤獨的人影在橋橋\n孤獨的愛在心頭"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"孩子站在綠色的網格橋上，黑色的繩索繞著他們的身體，充滿了憂愁的氣氛\",\n  \"title\": \"孤獨的橋樓\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"橋樓\\n孤獨的橋橋\\n與眼前的天空聯繫\\n憂愁的旋律在心頭\\n\\n橋樓\\n孤獨的橋橋\\n一個人站在橋橋\\n孤獨地呼喊著愛\\n\\n橋樓\\n孤獨的橋橋\\n每一個橋橋都是愛\\n孤獨的人影在橋橋\\n孤獨的愛在心頭\"\n}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "夢幻之城",
+  "lyrics_text": "[verse]\n樓上樓下都是樓\n白天黑夜都一樣\n回憶在心中縈繞\n無盡的夢想在飛翔\n[chorus]\n夢幻之城，如此耀眼\n曾經的光輝，如今難尋\n心隨風動，情意依舊\n夢回舊日，相對而笑\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中顯示了一座高大的建築物，可能是著名的羅斯柴爾德大廈，背景是晴朗的天空。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中顯示了一座高大的建築物，可能是著名的羅斯柴爾德大廈，背景是晴朗的天空。",
+      "title": "夢幻之城",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n樓上樓下都是樓\n白天黑夜都一樣\n回憶在心中縈繞\n無盡的夢想在飛翔\n\n[chorus]\n夢幻之城，如此耀眼\n曾經的光輝，如今難尋\n心隨風動，情意依舊\n夢回舊日，相對而笑\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"圖片中顯示了一座高大的建築物，可能是著名的羅斯柴爾德大廈，背景是晴朗的天空。\",\n  \"title\": \"夢幻之城\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n樓上樓下都是樓\\n白天黑夜都一樣\\n回憶在心中縈繞\\n無盡的夢想在飛翔\\n\\n[chorus]\\n夢幻之城，如此耀眼\\n曾經的光輝，如今難尋\\n心隨風動，情意依舊\\n夢回舊日，相對而笑\\n\\n[end]\"\n}\n```"
+  }
+}

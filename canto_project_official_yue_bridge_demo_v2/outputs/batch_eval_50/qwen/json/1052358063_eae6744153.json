@@ -1,0 +1,34 @@
+{
+  "title": "青春的軌跡",
+  "lyrics_text": "[verse]\n童年時光的回憶就在這時刻,\n滑板聲中夢想在空中翱翔。\n汗水與淚水，填滿了背後的路。\n每一次跌倒，都是成長的禮物。\n[chorus]\n青春的軌跡在這街道穿行，\n夢想如風，自由翱翔。\n每一次嘗試，都帶來新的勇氣。\n生命就像滑板，不斷向前。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個孩子在街頭滑板，背景是一堵塗滿涂鴉的牆。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個孩子在街頭滑板，背景是一堵塗滿涂鴉的牆。",
+      "title": "青春的軌跡",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n童年時光的回憶就在這時刻,\n滑板聲中夢想在空中翱翔。\n汗水與淚水，填滿了背後的路。\n每一次跌倒，都是成長的禮物。\n\n[chorus]\n青春的軌跡在這街道穿行，\n夢想如風，自由翱翔。\n每一次嘗試，都帶來新的勇氣。\n生命就像滑板，不斷向前。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一個孩子在街頭滑板，背景是一堵塗滿涂鴉的牆。\",\n  \"title\": \"青春的軌跡\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n童年時光的回憶就在這時刻,\\n滑板聲中夢想在空中翱翔。\\n汗水與淚水，填滿了背後的路。\\n每一次跌倒，都是成長的禮物。\\n\\n[chorus]\\n青春的軌跡在這街道穿行，\\n夢想如風，自由翱翔。\\n每一次嘗試，都帶來新的勇氣。\\n生命就像滑板，不斷向前。\\n\\n[end]\"\n}"
+  }
+}

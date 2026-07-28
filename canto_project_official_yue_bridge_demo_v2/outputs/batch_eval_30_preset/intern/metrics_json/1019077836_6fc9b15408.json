@@ -1,0 +1,11 @@
+{
+  "image_path": "/userhome/cs5/u3665806/Image2CantonSong/Images/flickr8k/Images/1019077836_6fc9b15408.jpg",
+  "image_name": "1019077836_6fc9b15408.jpg",
+  "model_key": "intern",
+  "model_id": "OpenGVLab/InternVL2-4B",
+  "use_rag": false,
+  "status": "generation_failed",
+  "json_output_path": "outputs/batch_eval_30_preset/intern/json/1019077836_6fc9b15408.json",
+  "metrics_json_path": "outputs/batch_eval_30_preset/intern/metrics_json/1019077836_6fc9b15408.json",
+  "generation_error": "Traceback (most recent call last):\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 701, in generate_from_image\n    payload = _extract_json(decoded)\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 145, in _extract_json\n    raise ValueError(f\"No valid JSON object found. Raw tail:\\\\n{text[-3000:]}\")\nValueError: No valid JSON object found. Raw tail:\\n{\n  \"visual_anchor\": \"一只充滿活力的小狗在傍晚的草坪上跑步，背景有一辆停在路旁的蓝色汽车和一些树木\",\n  \"title\": \"忽遗的回忆\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"忽遙的回憶  導致深思  舊情復聚  孤獨的夜晚    變異的季節  悲傷的聲    回味著過去    淡淡的思念  \"\"\n}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py\", line 897, in main\n    bundle = generate_from_image(\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 703, in generate_from_image\n    raise RuntimeError(f\"Multimodal LLM did not return valid JSON. Raw tail:\\\\n{decoded[-5000:]}\") from e\nRuntimeError: Multimodal LLM did not return valid JSON. Raw tail:\\n{\n  \"visual_anchor\": \"一只充滿活力的小狗在傍晚的草坪上跑步，背景有一辆停在路旁的蓝色汽车和一些树木\",\n  \"title\": \"忽遗的回忆\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"忽遙的回憶  導致深思  舊情復聚  孤獨的夜晚    變異的季節  悲傷的聲    回味著過去    淡淡的思念  \"\"\n}\n"
+}

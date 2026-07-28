@@ -1,0 +1,34 @@
+{
+  "title": "海邊嬉戲",
+  "lyrics_text": "[verse]\n在細沙上輕輕跳躍，\n海洋的聲音伴我歌唱。\n紅藍球兒在手中搖擺，\n童年的歡樂未曾忘。\n[chorus]\n海風輕拂過我的臉旁，\n思念在心頭悄然盪漾。\n每一粒沙子都藏着故事，\n與你共度時光暖洋洋。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一隻站在沙灘上的白色狗，戴着藍色項圈，正在玩著一個紅藍相間的球。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一隻站在沙灘上的白色狗，戴着藍色項圈，正在玩著一個紅藍相間的球。",
+      "title": "海邊嬉戲",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n在細沙上輕輕跳躍，\n海洋的聲音伴我歌唱。\n紅藍球兒在手中搖擺，\n童年的歡樂未曾忘。\n\n[chorus]\n海風輕拂過我的臉旁，\n思念在心頭悄然盪漾。\n每一粒沙子都藏着故事，\n與你共度時光暖洋洋。\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"一隻站在沙灘上的白色狗，戴着藍色項圈，正在玩著一個紅藍相間的球。\",\n  \"title\": \"海邊嬉戲\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n在細沙上輕輕跳躍，\\n海洋的聲音伴我歌唱。\\n紅藍球兒在手中搖擺，\\n童年的歡樂未曾忘。\\n\\n[chorus]\\n海風輕拂過我的臉旁，\\n思念在心頭悄然盪漾。\\n每一粒沙子都藏着故事，\\n與你共度時光暖洋洋。\\n\\n[end]\"\n}\n```"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "寂靜的鳥房",
+  "lyrics_text": "孩子手撐門扉\n寂靜的鳥房\n孤獨的心境\n思念的回憶\n\n孩子的影子\n窗前的綠植\n鳥房的靜謐\n思索的沉浸\n\n這頓時間\n鳥房的寧靜\n孤獨的心境\n思念的回憶\n孩子的影子\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "孩子站在一個小鳥房前，手撐門扉，顯得有些孤獨和思索。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "孩子站在一個小鳥房前，手撐門扉，顯得有些孤獨和思索。",
+      "title": "寂靜的鳥房",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "孩子手撐門扉\n寂靜的鳥房\n孤獨的心境\n思念的回憶\n\n孩子的影子\n窗前的綠植\n鳥房的靜謐\n思索的沉浸\n\n這頓時間\n鳥房的寧靜\n孤獨的心境\n思念的回憶\n孩子的影子"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"孩子站在一個小鳥房前，手撐門扉，顯得有些孤獨和思索。\",\n  \"title\": \"寂靜的鳥房\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"孩子手撐門扉\\n寂靜的鳥房\\n孤獨的心境\\n思念的回憶\\n\\n孩子的影子\\n窗前的綠植\\n鳥房的靜謐\\n思索的沉浸\\n\\n這頓時間\\n鳥房的寧靜\\n孤獨的心境\\n思念的回憶\\n孩子的影子\"\n}"
+  }
+}

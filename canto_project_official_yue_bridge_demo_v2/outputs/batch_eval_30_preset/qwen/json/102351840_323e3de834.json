@@ -1,0 +1,34 @@
+{
+  "title": "冰湖上的獨處",
+  "lyrics_text": "[verse]\n冰湖上冰釣人，寂寞心事無人知。\n寒風吹過，孤獨的身影在雪中。\n燈火昏黃，思念如潮水般涌來。\n寒冷的夜，只有孤獨伴我眠。\n[chorus]\n冰釣人，冰釣人，寂寞的心事誰人懂。\n冰湖上，孤獨身影，燈火昏黃。\n思念如潮水，無盡的寂寞。\n夜晚的冷，只有孤獨相伴。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一位穿着深色外套和裤子的人站在結凍的冰面上，正在使用釣竿進行冰釣活動。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一位穿着深色外套和裤子的人站在結凍的冰面上，正在使用釣竿進行冰釣活動。",
+      "title": "冰湖上的獨處",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n冰湖上冰釣人，寂寞心事無人知。\n寒風吹過，孤獨的身影在雪中。\n燈火昏黃，思念如潮水般涌來。\n寒冷的夜，只有孤獨伴我眠。\n\n[chorus]\n冰釣人，冰釣人，寂寞的心事誰人懂。\n冰湖上，孤獨身影，燈火昏黃。\n思念如潮水，無盡的寂寞。\n夜晚的冷，只有孤獨相伴。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一位穿着深色外套和裤子的人站在結凍的冰面上，正在使用釣竿進行冰釣活動。\",\n  \"title\": \"冰湖上的獨處\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n冰湖上冰釣人，寂寞心事無人知。\\n寒風吹過，孤獨的身影在雪中。\\n燈火昏黃，思念如潮水般涌來。\\n寒冷的夜，只有孤獨伴我眠。\\n\\n[chorus]\\n冰釣人，冰釣人，寂寞的心事誰人懂。\\n冰湖上，孤獨身影，燈火昏黃。\\n思念如潮水，無盡的寂寞。\\n夜晚的冷，只有孤獨相伴。\\n\\n[end]\"\n}"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "title": "灘上嬉戲",
+  "lyrics_text": "[verse]\n海風輕拂著她的臉頰,\n她笑著跳入大海的懷抱。\n水花四濺，心隨海浪起舞,\n忘卻塵囂，只顧此樂。\n[chorus]\n灘上嬉戲，天高海闊,\n童年時光，難忘回憶。\n海浪拍打，歡聲笑語不絕,\n快樂無限，此生無悔。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一個女孩在淺海中衝浪，海水清澈，海浪拍打著海邊。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一個女孩在淺海中衝浪，海水清澈，海浪拍打著海邊。",
+      "title": "灘上嬉戲",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n海風輕拂著她的臉頰,\n她笑著跳入大海的懷抱。\n水花四濺，心隨海浪起舞,\n忘卻塵囂，只顧此樂。\n\n[chorus]\n灘上嬉戲，天高海闊,\n童年時光，難忘回憶。\n海浪拍打，歡聲笑語不絕,\n快樂無限，此生無悔。\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"一個女孩在淺海中衝浪，海水清澈，海浪拍打著海邊。\",\n  \"title\": \"灘上嬉戲\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n海風輕拂著她的臉頰,\\n她笑著跳入大海的懷抱。\\n水花四濺，心隨海浪起舞,\\n忘卻塵囂，只顧此樂。\\n\\n[chorus]\\n灘上嬉戲，天高海闊,\\n童年時光，難忘回憶。\\n海浪拍打，歡聲笑語不絕,\\n快樂無限，此生無悔。\\n\\n[end]\"\n}\n```"
+  }
+}

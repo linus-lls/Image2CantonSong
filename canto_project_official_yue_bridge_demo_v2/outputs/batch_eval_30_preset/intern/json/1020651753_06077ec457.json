@@ -1,0 +1,34 @@
+{
+  "title": "低調的情感與回憶",
+  "lyrics_text": "茫茫的草原\n還是那片閒暢的空間\n那異國的思念\n殘留在每個角落\n萬里的空氣\n帶著回憶的痕跡\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "一只身穿淡藍色裙子的小狗在綠色草坪上飛翔，背景是一片郁郁葱葱的林地。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "一只身穿淡藍色裙子的小狗在綠色草坪上飛翔，背景是一片郁郁葱葱的林地。",
+      "title": "低調的情感與回憶",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "茫茫的草原\n還是那片閒暢的空間\n那異國的思念\n殘留在每個角落\n萬里的空氣\n帶著回憶的痕跡\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆\n\n這裡的每一個角落\n都是我的回忆"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"一只身穿淡藍色裙子的小狗在綠色草坪上飛翔，背景是一片郁郁葱葱的林地。\",\n  \"title\": \"低調的情感與回憶\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"茫茫的草原\\n還是那片閒暢的空間\\n那異國的思念\\n殘留在每個角落\\n萬里的空氣\\n帶著回憶的痕跡\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\\n\\n這裡的每一個角落\\n都是我的回忆\"\n}"
+  }
+}

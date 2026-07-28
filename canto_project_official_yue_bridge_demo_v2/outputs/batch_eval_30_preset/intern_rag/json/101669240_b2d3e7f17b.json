@@ -1,0 +1,34 @@
+{
+  "title": "雪地拍照",
+  "lyrics_text": "[verse]\n雪地裡的拍照\n這個冬天變得更輕鬆\n我們的關係是永不改變的\n沒有錯誤的照片\n[chorus]\n雪地拍照\n兩雙手緊握的時刻\n美好的回憶在我心中流動\n我愛你的感覺\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "雪地中的對話，一位男士和一位女士在拍照，两人都戴著帽子，背景有松樹和一棵树，天氣寒冷，男士拿着板球杆，女士拿着相機",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": true,
+    "rag_top_k": 3,
+    "raw_rag_chars": 1580,
+    "safe_rag_chars": 289,
+    "safe_rag_few_shot_block": "【RAG 低權重風格參考】\n以下內容只作風格參考，不是輸出格式示例。\n不得複製、改寫或延續檢索歌詞中的原句。\n不得使用檢索內容中的 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge] 等標籤。\n最終輸出必須以後方的 JSON schema 和 lyrics_text 標準格式為最高優先級。\n\n可參考的風格方向：\n1. 使用自然香港粵語書面語，保持可演唱性。\n2. verse 偏敘事與畫面描寫，chorus 偏情緒集中與 hook 感。\n3. 可使用意象重複或近似押韻，但不要重複整段。\n4. 歌詞應優先呼應當前圖片，而不是檢索歌詞。",
+    "raw_payload": {
+      "visual_anchor": "雪地中的對話，一位男士和一位女士在拍照，两人都戴著帽子，背景有松樹和一棵树，天氣寒冷，男士拿着板球杆，女士拿着相機",
+      "title": "雪地拍照",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n雪地裡的拍照\n這個冬天變得更輕鬆\n我們的關係是永不改變的\n沒有錯誤的照片\n\n[chorus]\n雪地拍照\n兩雙手緊握的時刻\n美好的回憶在我心中流動\n我愛你的感覺\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"雪地中的對話，一位男士和一位女士在拍照，两人都戴著帽子，背景有松樹和一棵树，天氣寒冷，男士拿着板球杆，女士拿着相機\",\n  \"title\": \"雪地拍照\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n雪地裡的拍照\\n這個冬天變得更輕鬆\\n我們的關係是永不改變的\\n沒有錯誤的照片\\n\\n[chorus]\\n雪地拍照\\n兩雙手緊握的時刻\\n美好的回憶在我心中流動\\n我愛你的感覺\\n\\n[end]\"\n}"
+  }
+}

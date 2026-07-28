@@ -1,0 +1,34 @@
+{
+  "title": "歡樂的追逐",
+  "lyrics_text": "[verse]\n狗仔興奮地跳起接球\n[chorus]\n玩耍的時光真愉快\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "兩隻狗在戶外玩玩具，一邊棕色一邊黑色，背景中有綠植和花。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "兩隻狗在戶外玩玩具，一邊棕色一邊黑色，背景中有綠植和花。",
+      "title": "歡樂的追逐",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n狗仔興奮地跳起接球\n\n[chorus]\n玩耍的時光真愉快\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"兩隻狗在戶外玩玩具，一邊棕色一邊黑色，背景中有綠植和花。\",\n  \"title\": \"歡樂的追逐\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n狗仔興奮地跳起接球\\n\\n[chorus]\\n玩耍的時光真愉快\\n\\n[end]\"\n}\n```"
+  }
+}

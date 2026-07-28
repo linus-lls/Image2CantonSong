@@ -1,0 +1,34 @@
+{
+  "title": "啤酒帽之歌",
+  "lyrics_text": "[verse]\n身穿灰色長袖襯衫，頭戴色彩勳章。\n啤酒帽上印著品牌標誌，引人注目。\n音樂輕奏，心情逐漸放鬆。\n與朋友相會，歡樂無邊。\n[chorus]\n啤酒帽上印著品牌標誌，顏色鮮豔。\n啤酒杯中倒滿啤酒，好滋味在心頭。\n心情愉快，與友相會，快樂無限。\n啤酒帽上印著品牌標誌，顏色鮮豔。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖中男子頭戴一頂色彩鮮豔的棒球帽，帽子上印有啤酒品牌標誌。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖中男子頭戴一頂色彩鮮豔的棒球帽，帽子上印有啤酒品牌標誌。",
+      "title": "啤酒帽之歌",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n身穿灰色長袖襯衫，頭戴色彩勳章。\n啤酒帽上印著品牌標誌，引人注目。\n音樂輕奏，心情逐漸放鬆。\n與朋友相會，歡樂無邊。\n\n[chorus]\n啤酒帽上印著品牌標誌，顏色鮮豔。\n啤酒杯中倒滿啤酒，好滋味在心頭。\n心情愉快，與友相會，快樂無限。\n啤酒帽上印著品牌標誌，顏色鮮豔。\n\n[end]"
+    },
+    "raw_generation_tail": "```json\n{\n  \"visual_anchor\": \"圖中男子頭戴一頂色彩鮮豔的棒球帽，帽子上印有啤酒品牌標誌。\",\n  \"title\": \"啤酒帽之歌\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n身穿灰色長袖襯衫，頭戴色彩勳章。\\n啤酒帽上印著品牌標誌，引人注目。\\n音樂輕奏，心情逐漸放鬆。\\n與朋友相會，歡樂無邊。\\n\\n[chorus]\\n啤酒帽上印著品牌標誌，顏色鮮豔。\\n啤酒杯中倒滿啤酒，好滋味在心頭。\\n心情愉快，與友相會，快樂無限。\\n啤酒帽上印著品牌標誌，顏色鮮豔。\\n\\n[end]\"\n}\n```"
+  }
+}

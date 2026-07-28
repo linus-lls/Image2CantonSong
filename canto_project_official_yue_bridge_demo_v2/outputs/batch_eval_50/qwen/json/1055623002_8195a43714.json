@@ -1,0 +1,34 @@
+{
+  "title": "枕頭大戰",
+  "lyrics_text": "[verse]\n玩得熱鬧笑聲響，歡樂無限盡。\n枕頭高高跳躍起，童年時光妙。\n[chorus]\n大家齊聚笑嘻嘻，枕頭戰爭永不停。\n歡樂盡在這瞬間，童年的甜蜜難忘。\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "兩個小孩在牀上玩枕頭戰，背景中有一面鏡子和牆上的相框。",
+    "llm_backend": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "兩個小孩在牀上玩枕頭戰，背景中有一面鏡子和牆上的相框。",
+      "title": "枕頭大戰",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "[verse]\n玩得熱鬧笑聲響，歡樂無限盡。\n枕頭高高跳躍起，童年時光妙。\n\n[chorus]\n大家齊聚笑嘻嘻，枕頭戰爭永不停。\n歡樂盡在這瞬間，童年的甜蜜難忘。\n\n[end]"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"兩個小孩在牀上玩枕頭戰，背景中有一面鏡子和牆上的相框。\",\n  \"title\": \"枕頭大戰\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"[verse]\\n玩得熱鬧笑聲響，歡樂無限盡。\\n枕頭高高跳躍起，童年時光妙。\\n\\n[chorus]\\n大家齊聚笑嘻嘻，枕頭戰爭永不停。\\n歡樂盡在這瞬間，童年的甜蜜難忘。\\n\\n[end]\"\n}"
+  }
+}

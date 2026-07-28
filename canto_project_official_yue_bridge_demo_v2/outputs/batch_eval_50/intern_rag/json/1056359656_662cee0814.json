@@ -1,0 +1,34 @@
+{
+  "title": "小姑娘讀書",
+  "lyrics_text": "藍天如洗，孩子們無极不冷\n開始讀書帶著夢想的心情\n每一個字都像是愛情的秘密\n穿越尋找童年的回忆\n閉上眼睛，將書籤並入耳\n讓心靈在這片世界上追尋\n懷舊的回憶和憶念的感懷\n從小孩時代的童心起\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一位孩子坐在輪車座位上，閱讀一本書，玩具貼在腳跟上。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": true,
+    "rag_top_k": 3,
+    "raw_rag_chars": 1580,
+    "safe_rag_chars": 289,
+    "safe_rag_few_shot_block": "【RAG 低權重風格參考】\n以下內容只作風格參考，不是輸出格式示例。\n不得複製、改寫或延續檢索歌詞中的原句。\n不得使用檢索內容中的 [Intro]、[Verse]、[Pre-Chorus]、[Chorus]、[Bridge] 等標籤。\n最終輸出必須以後方的 JSON schema 和 lyrics_text 標準格式為最高優先級。\n\n可參考的風格方向：\n1. 使用自然香港粵語書面語，保持可演唱性。\n2. verse 偏敘事與畫面描寫，chorus 偏情緒集中與 hook 感。\n3. 可使用意象重複或近似押韻，但不要重複整段。\n4. 歌詞應優先呼應當前圖片，而不是檢索歌詞。",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一位孩子坐在輪車座位上，閱讀一本書，玩具貼在腳跟上。",
+      "title": "小姑娘讀書",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "藍天如洗，孩子們無极不冷\n開始讀書帶著夢想的心情\n每一個字都像是愛情的秘密\n穿越尋找童年的回忆\n閉上眼睛，將書籤並入耳\n讓心靈在這片世界上追尋\n懷舊的回憶和憶念的感懷\n從小孩時代的童心起"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一位孩子坐在輪車座位上，閱讀一本書，玩具貼在腳跟上。\",\n  \"title\": \"小姑娘讀書\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"藍天如洗，孩子們無极不冷\\n開始讀書帶著夢想的心情\\n每一個字都像是愛情的秘密\\n穿越尋找童年的回忆\\n閉上眼睛，將書籤並入耳\\n讓心靈在這片世界上追尋\\n懷舊的回憶和憶念的感懷\\n從小孩時代的童心起\"\n}"
+  }
+}

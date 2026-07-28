@@ -1,0 +1,11 @@
+{
+  "image_path": "/userhome/cs5/u3665806/Image2CantonSong/Images/flickr8k/Images/1000268201_693b08cb0e.jpg",
+  "image_name": "1000268201_693b08cb0e.jpg",
+  "model_key": "intern_rag",
+  "model_id": "OpenGVLab/InternVL2-4B",
+  "use_rag": true,
+  "status": "generation_failed",
+  "json_output_path": "outputs/batch_eval_10_preset/intern_rag/json/1000268201_693b08cb0e.json",
+  "metrics_json_path": "outputs/batch_eval_10_preset/intern_rag/metrics_json/1000268201_693b08cb0e.json",
+  "generation_error": "Traceback (most recent call last):\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 701, in generate_from_image\n    payload = _extract_json(decoded)\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 145, in _extract_json\n    raise ValueError(f\"No valid JSON object found. Raw tail:\\\\n{text[-3000:]}\")\nValueError: No valid JSON object found. Raw tail:\\n[visual_anchor] 孩子在寧靜的角落里與裝飾裝飾的櫃檯互動，背景是一片綠色的草地，給人一種寧靜祥和的感覺。\n\n[title] 幾個個零零散散的玩具、書籍和擺放整齊的甜點讓孩子們逛過櫃檯，並找到自己喜歡的玩具。\n\n[lyrics_text]\n第一行歌詞\n第二行歌詞\n第三行歌詞\n第四行歌詞\n\n第五行歌詞\n第六行歌詞\n第七行歌詞\n第八行歌詞\n\n[end]\n\n[genre_prompt] female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/batch_eval_mm_models.py\", line 897, in main\n    bundle = generate_from_image(\n  File \"/userhome/cs5/u3665806/Image2CantonSong/canto_project_official_yue_bridge_demo_v2/modules/mm_direct_gen.py\", line 703, in generate_from_image\n    raise RuntimeError(f\"Multimodal LLM did not return valid JSON. Raw tail:\\\\n{decoded[-5000:]}\") from e\nRuntimeError: Multimodal LLM did not return valid JSON. Raw tail:\\n[visual_anchor] 孩子在寧靜的角落里與裝飾裝飾的櫃檯互動，背景是一片綠色的草地，給人一種寧靜祥和的感覺。\n\n[title] 幾個個零零散散的玩具、書籍和擺放整齊的甜點讓孩子們逛過櫃檯，並找到自己喜歡的玩具。\n\n[lyrics_text]\n第一行歌詞\n第二行歌詞\n第三行歌詞\n第四行歌詞\n\n第五行歌詞\n第六行歌詞\n第七行歌詞\n第八行歌詞\n\n[end]\n\n[genre_prompt] female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\n"
+}

@@ -1,0 +1,34 @@
+{
+  "title": "懷憾的回憶",
+  "lyrics_text": "悲傷的歌詞兩段\n悲傷的歌詞韻律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n\n清新的歌詞韻律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n\n终結\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "圖片中有一位年輕女性跪坐在地上，手腕上堆疊着熟食盒，背景有一個老式電視和兩杯飲料。整體氛圍很憔悴，充滿歐陸難言。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "圖片中有一位年輕女性跪坐在地上，手腕上堆疊着熟食盒，背景有一個老式電視和兩杯飲料。整體氛圍很憔悴，充滿歐陸難言。",
+      "title": "懷憾的回憶",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "悲傷的歌詞兩段\n悲傷的歌詞韻律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n\n清新的歌詞韻律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n悲傷的歌詞旋律\n\n终結"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"圖片中有一位年輕女性跪坐在地上，手腕上堆疊着熟食盒，背景有一個老式電視和兩杯飲料。整體氛圍很憔悴，充滿歐陸難言。\",\n  \"title\": \"懷憾的回憶\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"悲傷的歌詞兩段\\n悲傷的歌詞韻律\\n悲傷的歌詞旋律\\n悲傷的歌詞旋律\\n\\n清新的歌詞韻律\\n悲傷的歌詞旋律\\n悲傷的歌詞旋律\\n悲傷的歌詞旋律\\n\\n终結\"\n}"
+  }
+}

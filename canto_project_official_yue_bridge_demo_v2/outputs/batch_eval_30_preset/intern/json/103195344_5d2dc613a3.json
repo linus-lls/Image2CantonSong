@@ -1,0 +1,34 @@
+{
+  "title": "孤單的回忆",
+  "lyrics_text": "孤單的回忆\n曾經的畫面過往\n昨日的誓言已漸漸消逝\n孤單，沒有人陪伴\n現在的世界卻不同\n回想起許多愁疚\n不再相聚的歡樂\n孤單，孤獨的心情\n孤單的回忆\n曾經的畫面過往\n昨日的誓言已漸漸消逝\n孤單，沒有人陪伴\n現在的世界卻不同\n回想起許多愁疚\n不再相聚的歡樂\n孤單，孤獨的心情\n\n[end]",
+  "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+  "language_tag": "Cantonese",
+  "raw_meta": {
+    "visual_anchor": "這幅圖片展示了一棵現代藝術風格的雕塑，背景是一個現代化的建築物，前景有一個人坐在地上觀看手機。整體氛圍古朴而沉思。",
+    "llm_backend": "OpenGVLab/InternVL2-4B",
+    "device": "cuda",
+    "genre_prompt_mode": "preset",
+    "style_prompt_input": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "mood_text_override": "Melancholic",
+    "raw_genre_prompt_from_model": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "final_genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+    "payload_keys": [
+      "visual_anchor",
+      "title",
+      "genre_prompt",
+      "lyrics_text"
+    ],
+    "rag_enabled": false,
+    "rag_top_k": 3,
+    "raw_rag_chars": 0,
+    "safe_rag_chars": 0,
+    "safe_rag_few_shot_block": "",
+    "raw_payload": {
+      "visual_anchor": "這幅圖片展示了一棵現代藝術風格的雕塑，背景是一個現代化的建築物，前景有一個人坐在地上觀看手機。整體氛圍古朴而沉思。",
+      "title": "孤單的回忆",
+      "genre_prompt": "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+      "lyrics_text": "孤單的回忆\n曾經的畫面過往\n昨日的誓言已漸漸消逝\n孤單，沒有人陪伴\n現在的世界卻不同\n回想起許多愁疚\n不再相聚的歡樂\n孤單，孤獨的心情\n孤單的回忆\n曾經的畫面過往\n昨日的誓言已漸漸消逝\n孤單，沒有人陪伴\n現在的世界卻不同\n回想起許多愁疚\n不再相聚的歡樂\n孤單，孤獨的心情"
+    },
+    "raw_generation_tail": "{\n  \"visual_anchor\": \"這幅圖片展示了一棵現代藝術風格的雕塑，背景是一個現代化的建築物，前景有一個人坐在地上觀看手機。整體氛圍古朴而沉思。\",\n  \"title\": \"孤單的回忆\",\n  \"genre_prompt\": \"female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin\",\n  \"lyrics_text\": \"孤單的回忆\\n曾經的畫面過往\\n昨日的誓言已漸漸消逝\\n孤單，沒有人陪伴\\n現在的世界卻不同\\n回想起許多愁疚\\n不再相聚的歡樂\\n孤單，孤獨的心情\\n孤單的回忆\\n曾經的畫面過往\\n昨日的誓言已漸漸消逝\\n孤單，沒有人陪伴\\n現在的世界卻不同\\n回想起許多愁疚\\n不再相聚的歡樂\\n孤單，孤獨的心情\"\n}"
+  }
+}
