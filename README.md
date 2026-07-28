@@ -676,3 +676,9 @@ The current version implements the main image-to-Cantonese-song pipeline, includ
 The project is still a research prototype and may require environment-specific path configuration before running on a new machine.
 
 本項目仍屬於研究原型，在新機器上運行前可能需要根據環境修改本地路徑配置。
+
+## Authorship / 作者
+
+See the original repository of this fork for a full list of contributors.
+
+本倉庫沿用原始 fork 的作者資訊，完整貢獻者名單請參見原始倉庫。
